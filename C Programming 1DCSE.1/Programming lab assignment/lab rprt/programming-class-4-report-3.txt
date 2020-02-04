@@ -1,0 +1,63 @@
+*.take input of 3 value. findout the largest among them. a, b, c.
+*.write a program for finding eligibility for the 
+  candidate of a cource the folloing criteria have to
+  match
+	1.marks of the math >= 65
+	2.marks of the chemistry >=50
+	3.marks of the physics >= 55
+	4. total mark >= 180 
+	   or total of math and physics >= 140
+code:-
+
+#include<stdio.h>
+int main()
+{
+
+    int a, b, c;
+    printf("Enter the value of 3 numbers \n");
+    scanf("%d %d %d",&a, &b, &c);
+    if(a>b)
+    {
+        if(a>c)
+        {
+            printf("The largest is %d", a);
+        }
+    }
+    else
+        {
+            if(b>c)
+            {
+                printf("The largest  is %d", b);
+            }
+            else printf("The largest  is %d", c);
+        }
+
+    return 0;
+}
+,
+#include<stdio.h>
+int main()
+{
+    int m, p, c, d, e;
+    printf("Enter the value of m, p and c \n");
+    scanf("%d %d %d",&m, &p, &c);
+    d = m+p+c;
+    e = m+p;
+
+    if(m>=65)
+    {
+        if(p>=55)
+        {
+            if(c>=50)
+            {
+                if(d>=180 || e>=140)
+                {
+                    printf("You are Eligible");
+
+                }
+            }
+        }
+    }
+    else printf("You are not Eligible");
+    return 0;
+}

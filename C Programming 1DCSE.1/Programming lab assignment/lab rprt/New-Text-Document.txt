@@ -1,0 +1,29 @@
+for stucture:-
+for(initializaton; conditon; increment/decrement;)
+{
+	statements;
+}
+
+while structure:-
+
+initialization;
+while(condition)
+{
+	statements1;
+	statements2;
+	increment/decre;
+}
+
+
+
+
+array structure
+array name[aray_size]
+
+
+
+for scoolarship:- CGPA, GRE, ILTS/TOEFL,PUBLICATION.
+
+lab report;- 
+1. take input of an integer value. do the summation of all digit using while loop.
+2. write a progrm 

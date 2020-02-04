@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1550857110 source:d:\c programming\exp\practice\uri1035.cpp
+	<iostream>
+	<iomanip>
+	<math.h>
+
+1570069972 source:d:\c programming\exp\practice\uri1037.cpp
+	<iostream>
+	<cmath>
+	<iomanip>
+
+1550857255 source:d:\c programming\exp\practice\uri1038.cpp
+	<iostream>
+	<iomanip>
+	<math.h>
+
+1550954332 source:d:\c programming\uri\uri1043.cpp
+	<iostream>
+	<cmath>
+	<iomanip>
+

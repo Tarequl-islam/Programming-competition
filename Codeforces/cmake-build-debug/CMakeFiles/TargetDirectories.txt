@@ -1,0 +1,3 @@
+D:/Programming Contest/Codeforces/cmake-build-debug/CMakeFiles/Codeforces.dir
+D:/Programming Contest/Codeforces/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Programming Contest/Codeforces/cmake-build-debug/CMakeFiles/rebuild_cache.dir

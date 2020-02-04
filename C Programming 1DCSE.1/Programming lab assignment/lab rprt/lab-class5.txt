@@ -1,0 +1,6 @@
+		programming class 5
+24 Tuesday quiz test and have to ready report,
+1. do the summation of first n natural number,
+
+
+sum-mult program will be include in report 4
