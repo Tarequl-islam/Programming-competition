@@ -16,7 +16,8 @@ while (b!=0)
 }
 gcd = a;
 lcm = n1 * n2 / gcd;
-printf("LCM is = %d",lcm);
+printf("LCM is = %d\n",lcm);
+printf("GCD is = %d\n",gcd);
 
 return 0;
 }
