@@ -27,7 +27,7 @@
 
 #### important links
 * [Jwasham's note to Crack coding interview](https://github.com/jwasham/coding-interview-university)
-* [Zulkernine's note path to GOOGLE](https://www.facebook.com/rezan.2076/about?lst=100006366400330%3A732503589%3A1581125618)
+* [Zulkernine's note path to GOOGLE](https://www.facebook.com/notes/zulkarnine-mahmud/%E0%A6%97%E0%A7%81%E0%A6%97%E0%A6%B2%E0%A7%87%E0%A6%B0-%E0%A6%9C%E0%A6%A8%E0%A7%8D%E0%A6%AF-%E0%A6%AA%E0%A7%8D%E0%A6%B0%E0%A6%BF%E0%A6%AA%E0%A6%BE%E0%A6%B0%E0%A7%87%E0%A6%B6%E0%A6%A8/10156297500878590/)
 * [Shafaets blog for competitive programming...----->>>>](http://www.shafaetsplanet.com/?page_id=2804)
 * [shahidul vai er submission](https://codeforces.com/submissions/shahidul_brur)
 * [how-to-prepare-for-acm-icpc geeksforgeeks](https://www.geeksforgeeks.org/how-to-prepare-for-acm-icpc/)
