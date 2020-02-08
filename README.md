@@ -26,6 +26,7 @@
 <br>
 
 #### important links
+* [Advanced Data Structure and Graph algorithm Video at Tutorialspoint](https://www.tutorialspoint.com/videotutorials/enrolled_courses.php?mode=S)
 * [Jwasham's note to Crack coding interview](https://github.com/jwasham/coding-interview-university)
 * [Zulkernine's note path to GOOGLE](https://www.facebook.com/notes/zulkarnine-mahmud/%E0%A6%97%E0%A7%81%E0%A6%97%E0%A6%B2%E0%A7%87%E0%A6%B0-%E0%A6%9C%E0%A6%A8%E0%A7%8D%E0%A6%AF-%E0%A6%AA%E0%A7%8D%E0%A6%B0%E0%A6%BF%E0%A6%AA%E0%A6%BE%E0%A6%B0%E0%A7%87%E0%A6%B6%E0%A6%A8/10156297500878590/)
 * [Shafaets blog for competitive programming...----->>>>](http://www.shafaetsplanet.com/?page_id=2804)
