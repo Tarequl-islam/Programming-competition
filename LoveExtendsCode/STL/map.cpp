@@ -1,15 +1,17 @@
 #include<bits/stdc++.h>
 using namespace std;
 int main(){
-    map<string, int> m;
-    map<string, int> :: iterator it;
+    map<string, float> m;
+    map<string, float> :: iterator it;
     m["ruhul"]=33;
-    m["kuddus"]=44;
-    m["naiym"]=55;
-//    m.insert(make_pair("jumman",45));
-//    for(it=m.begin(); it!=m.end(); it++){
-//        cout<<it->first<<" "<<it->second<<endl;
-//    }
+    m["kuddus"]=44.33;
+    m["naiym"]=55.99;
+    int a=99.70;
+    string s="aaa";
+    m.insert(make_pair(s,a));
+    for(it=m.begin(); it!=m.end(); it++){
+        cout<<it->first<<" "<<it->second<<endl;
+    }
     map<string, string> attend;
     attend.insert(make_pair("md" , "ddsffg"));
     attend.insert(make_pair("jumman","ds"));
