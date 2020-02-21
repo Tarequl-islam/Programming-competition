@@ -16,8 +16,7 @@ void dfsVisit(int x){
     ++Time;
     for(int i=0; i<node; ++i){
         if(adj[x][i]==1){
-            if(color[i]== WHITE)
-                dfsVisit(i);
+            if(color[i]== WHITE) dfsVisit(i);
         }
     }
     color[x]=BLACK;
@@ -26,12 +25,12 @@ void dfsVisit(int x){
 }
 void dfs(){
     for(int i=0; i<node; ++i){
-        color[i]=WHITE;
+        color[i] = WHITE;
     }
     dfsVisit(2);
 }
 int main(){
-    //freopen("input.txt", "r", stdin);
+    freopen("input.txt", "r", stdin);
     int n1, n2;
     cin>>node>>edge;
     for(int i=0; i<edge; ++i){

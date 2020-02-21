@@ -3,6 +3,7 @@
 #define GRAY 2
 #define BLACK 3
 using namespace std;
+
 int adj[100][100];
 int color[100];
 int node;
@@ -10,14 +11,16 @@ int edge;
 int Time =1;
 int sTime[100];
 int fTime[100];
+
 void dfsVisit(int x){
     color[x]=GRAY;
     sTime[x]=Time;
     ++Time;
     for(int i=0; i<node; ++i){
         if(adj[x][i]==1){
-            if(color[i]== WHITE)
+            if(color[i]==WHITE){
                 dfsVisit(i);
+            }
         }
     }
     color[x]=BLACK;
@@ -26,17 +29,24 @@ void dfsVisit(int x){
 }
 void dfs(){
     for(int i=0; i<node; ++i){
-        color[i]=WHITE;
+        color[i]==WHITE;
     }
+//    for(int i=0; i<node; ++i){
+//        if(color[i]==WHITE){
+//            dfsVisit(i);
+//        }
+//    }
     dfsVisit(2);
 }
 int main(){
-    //freopen("input.txt", "r", stdin);
+    freopen("input.txt", "r", stdin);
     int n1, n2;
+    //cout<<"Enter the number of node and edge: ";
     cin>>node>>edge;
     for(int i=0; i<edge; ++i){
         cin>>n1>>n2;
         adj[n1][n2]=1;
+        //adj[n2][n1]=1;
     }
     dfs();
     cout<<"\n";
@@ -51,6 +61,10 @@ int main(){
             cout<<adj[i][j]<<" ";
         }
         cout<<"\n";
+    }
+    cout<<"\n";
+    for(int i=0; i<node; ++i){
+        if(adj[1][i]==1) cout<<i<<" ";
     }
     return 0;
 }
