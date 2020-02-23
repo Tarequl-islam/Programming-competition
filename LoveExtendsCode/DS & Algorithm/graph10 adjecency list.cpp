@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 int main(){
-    //freopen("input-bfs.txt", "r", stdin);
+    freopen("input-bfs.txt", "r", stdin);
     vector<int> vec[10];
     int node, edge;
     int n1, n2;

@@ -31,7 +31,7 @@ int main(){
         cin>> arr[i];
     }
     heap_Sort(arr, n);
-    cout << "Sorted array is ...\n";
+    cout << "Sorted array decreasing order is ...\n";
     for (int i=0; i<n; ++i){
         cout << arr[i] << " ";
     }

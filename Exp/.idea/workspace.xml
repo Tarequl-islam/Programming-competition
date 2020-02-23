@@ -35,7 +35,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.HTML" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -68,6 +68,7 @@
       <updated>1581279270966</updated>
       <workItem from="1581279283882" duration="5594000" />
       <workItem from="1582220043404" duration="664000" />
+      <workItem from="1582360623041" duration="1554000" />
     </task>
     <servers />
   </component>
@@ -86,16 +87,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/main.cpp</url>
-          <line>12</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
