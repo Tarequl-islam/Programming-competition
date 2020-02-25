@@ -1,7 +1,7 @@
 # Mission RedCoder in CF 
 ## What i've completed
 
-* Books
+### Books
 
     * Programming Contest by Mahbubul Hasan
 * Blogs
@@ -9,7 +9,7 @@
     * [নুন্যতম সংখ্যাতত্ত](http://www.progkriya.org/gyan/basic-number-theory.html) 
 * [LoveExtendsCode's Youtube Video](https://www.youtube.com/user/dipmessi10/playlists)
 
-    * Competitive Programming & Algorithm CP
+    * [Competitive Programming & Algorithm CP](https://www.youtube.com/watch?v=jF6U_Cf4RNs&list=PLgLCjVh3O6SjQ2CQ1AymnfCKVs1I68twx)
     * [Data Structure & Algorithm](https://www.youtube.com/watch?v=9Uapfnbag8k&list=PLgLCjVh3O6Sim5bsg0FJ3qGbvM6qtdxQe)
     * [Pointer / Dynamic Memory Allocation](https://www.youtube.com/playlist?list=PLgLCjVh3O6ShKtFjewv_nSaoyON0Au-OD)
     * [Number theory](https://www.youtube.com/watch?v=0T1-IjBM9jA&list=PLgLCjVh3O6Si82JG4dSp6iSQQnXBM3wjT)
