@@ -1,9 +1,13 @@
 # Mission RedCoder in CF 
 ## What i've completed
 
-### Books
-
+* Books
+    
     * Programming Contest by Mahbubul Hasan
+        * [প্রোগ্রামিং প্রতিযোগিতায় হাতে খড়ি](#)
+        * [C ঝালাই](#)
+        * গনিত
+    
 * Blogs
 
     * [নুন্যতম সংখ্যাতত্ত](http://www.progkriya.org/gyan/basic-number-theory.html) 
