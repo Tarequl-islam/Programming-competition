@@ -2,8 +2,8 @@
 ## What i've completed
 
 * Books
-    
-    * Programming Contest by Mahbubul Hasan
+    * Competitive Programming by Steven Halim.
+    * Programming Contest by Mahbubul Hasan.
         * [প্রোগ্রামিং প্রতিযোগিতায় হাতে খড়ি](#)
         * [C ঝালাই](#)
         * গনিত
@@ -25,8 +25,11 @@
 <br>
 <br>
 <br>ধাপে ধাপে শেষ করতে হবে।  
-<br>যেমন প্রথমে LoveExtendsCode এর ভিডিও টিউটোরিয়াল গুলো ভাল করে শেষ করতে হবে।
-<br>তারপর Programming Contest by Mahbubul Hasan বইটা ভাল করে শেষ করতে হবে। বইয়ের প্রবলেম গুলো সল্ভ করার সাতে সাতে।
+<br>যেমন প্রথমে LoveExtendsCode এর ভিডিও টিউটোরিয়াল গুলো ভাল করে শেষ করেছি।
+<br>
+<br>এখন Programming Contest by Mahbubul Hasan বইটা ভাল করে শেষ করছি। আর বইয়ের যেই টপিক গুলো শেষ করছি 
+<br> সেম টপিক স্টিভেন হালিমের বই থেকে পড়ে রিলেটেড প্রব্লেম গুলো সল্ভ করতেছি। 
+<br>
 <br>তারপর BACS এর Camp টা কমপ্লিট করতে হবে। 
 <br>
 <br>
