@@ -2,18 +2,27 @@
 ## What i've completed
 
 * Books
-
-    * Programming Contest by Mahbubul Hasan
+    * Competitive Programming by Steven Halim.
+    * Programming Contest by Mahbubul Hasan.
+        * [প্রোগ্রামিং প্রতিযোগিতায় হাতে খড়ি](#)
+        * [C ঝালাই](#)
+        * গনিত
+    
 * Blogs
 
     * [নুন্যতম সংখ্যাতত্ত](http://www.progkriya.org/gyan/basic-number-theory.html) 
 * [LoveExtendsCode's Youtube Video](https://www.youtube.com/user/dipmessi10/playlists)
 
-    * Competitive Programming & Algorithm CP
+    * [Competitive Programming & Algorithm CP](https://www.youtube.com/watch?v=jF6U_Cf4RNs&list=PLgLCjVh3O6SjQ2CQ1AymnfCKVs1I68twx)
     * [Data Structure & Algorithm](https://www.youtube.com/watch?v=9Uapfnbag8k&list=PLgLCjVh3O6Sim5bsg0FJ3qGbvM6qtdxQe)
     * [Pointer / Dynamic Memory Allocation](https://www.youtube.com/playlist?list=PLgLCjVh3O6ShKtFjewv_nSaoyON0Au-OD)
     * [Number theory](https://www.youtube.com/watch?v=0T1-IjBM9jA&list=PLgLCjVh3O6Si82JG4dSp6iSQQnXBM3wjT)
     * [STL in C++](https://www.youtube.com/watch?v=awY7oJ7wFhs&list=PLgLCjVh3O6Sgux985GYG22xkFt9z9Sq0_)
+    <details>
+    * <summary>[STL in C++](https://www.youtube.com/watch?v=awY7oJ7wFhs&list=PLgLCjVh3O6Sgux985GYG22xkFt9z9Sq0_)</summary>
+   - a
+   - b 
+    </details>
 * [Basic understanding of C++ in sololearn](https://www.sololearn.com/Play/CPlusPlus/)
 <br>
 <br>নতুন যা শেখার জন্য সিলেক্ট করবো তা লিষ্ট এর উপরে বসবে
@@ -21,8 +30,11 @@
 <br>
 <br>
 <br>ধাপে ধাপে শেষ করতে হবে।  
-<br>যেমন প্রথমে LoveExtendsCode এর ভিডিও টিউটোরিয়াল গুলো ভাল করে শেষ করতে হবে।
-<br>তারপর Programming Contest by Mahbubul Hasan বইটা ভাল করে শেষ করতে হবে। বইয়ের প্রবলেম গুলো সল্ভ করার সাতে সাতে।
+<br>যেমন প্রথমে LoveExtendsCode এর ভিডিও টিউটোরিয়াল গুলো ভাল করে শেষ করেছি।
+<br>
+<br>এখন Programming Contest by Mahbubul Hasan বইটা ভাল করে শেষ করছি। আর বইয়ের যেই টপিক গুলো শেষ করছি 
+<br> সেম টপিক স্টিভেন হালিমের বই থেকে পড়ে রিলেটেড প্রব্লেম গুলো সল্ভ করতেছি। 
+<br>
 <br>তারপর BACS এর Camp টা কমপ্লিট করতে হবে। 
 <br>
 <br>
