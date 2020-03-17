@@ -32,10 +32,12 @@
 <br>ধাপে ধাপে শেষ করতে হবে।  
 <br>যেমন প্রথমে LoveExtendsCode এর ভিডিও টিউটোরিয়াল গুলো ভাল করে শেষ করেছি।
 <br>
-<br>এখন Programming Contest by Mahbubul Hasan বইটা ভাল করে শেষ করছি। আর বইয়ের যেই টপিক গুলো শেষ করছি 
+<br>এখন Programming Contest by Mahbubul Hasan বইটা ভাল করে শেষ করছি। আর বইয়ের যেই টপিক গুলো শেষ করছি সেই টপিক গুলো না বুঝলে <br>geeksforgeeks, shafayets algo, youtube ইত্যাদি থেকে ক্লিয়ার করে নিচ্ছি।
 <br> সেম টপিক স্টিভেন হালিমের বই থেকে পড়ে রিলেটেড প্রব্লেম গুলো সল্ভ করতেছি। 
 <br>
 <br>তারপর BACS এর Camp টা কমপ্লিট করতে হবে। 
+<br>
+<br> [don't miss weekly contest](#)
 <br>
 <br>
 <br>
@@ -57,3 +59,7 @@
 * Competitive Programming by Steven Halim<br>
 * Competitive Programmer's Handbook by Antti Laaksonen<br>
 <br>
+<br>
+<br>
+<br>
+<br>REMEMBER সব এইখানে লিখে রাখতে হবে। আমার কোন কিছু মনে থাকে না। 
