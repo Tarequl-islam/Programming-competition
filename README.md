@@ -9,7 +9,7 @@
         * গনিত
     
 * Blogs
-
+    * Shafaet's planet
     * [নুন্যতম সংখ্যাতত্ত](http://www.progkriya.org/gyan/basic-number-theory.html) 
 * [LoveExtendsCode's Youtube Video](https://www.youtube.com/user/dipmessi10/playlists)
 
@@ -37,7 +37,7 @@
 <br>
 <br>তারপর BACS এর Camp টা কমপ্লিট করতে হবে। 
 <br>
-<br> [don't miss weekly contest](#)
+### don't miss weekly contest
 <br>
 <br>
 <br>
