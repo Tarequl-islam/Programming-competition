@@ -64,6 +64,7 @@
 * [BACS BUBT programming camp (real time camp)...---->>>>](https://www.youtube.com/playlist?list=PLWtSipmftM8o9WO-bJmUdrT8spBx3ICna&fbclid=IwAR2pSLXz44GnVZVpLdi5Qd3AmwACpf2GdpWmBtsR1M3USuAT57-exxUt-c0)
 * [Learn Competitive programming in bangla (Youtube tutorial)...----->>>>](https://www.youtube.com/user/dipmessi10/playlists?view=50&sort=dd&shelf_id=12)
 * [A to Z Programming Resourse in Bangla(GitHub)...----->>>>](https://github.com/me-shaon/bangla-programming-resources?fbclid=IwAR1UUGLgNcjbojqU8f0s4U8Ru4PnTKH9CSPkXtx5WaW7pcbj0d6XYVnHaN4)
+* [How to study for College Placements--->>>>](https://www.youtube.com/watch?v=PihtA9D-IlE)
 #### Books:
 * Data Structure & Algorithm by mahbubul hasan vai<br>
 * Competitive Programming by Steven Halim<br>
