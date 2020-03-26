@@ -7,6 +7,7 @@
         * [প্রোগ্রামিং প্রতিযোগিতায় হাতে খড়ি](#)
         * [C ঝালাই](#)
         * গনিত
+        * [Data Structure](#)
     
 * Blogs
     * Shafaet's planet
