@@ -7,6 +7,7 @@
         * [প্রোগ্রামিং প্রতিযোগিতায় হাতে খড়ি](#)
         * [C ঝালাই](#)
         * গনিত
+        * [Data Structure](#)
     
 * Blogs
     * Shafaet's planet
@@ -32,8 +33,18 @@
 <br>ধাপে ধাপে শেষ করতে হবে।  
 <br>যেমন প্রথমে LoveExtendsCode এর ভিডিও টিউটোরিয়াল গুলো ভাল করে শেষ করেছি।
 <br>
-<br>এখন Programming Contest by Mahbubul Hasan বইটা ভাল করে শেষ করছি। আর বইয়ের যেই টপিক গুলো শেষ করছি সেই টপিক গুলো না বুঝলে <br>geeksforgeeks, shafayets algo, youtube ইত্যাদি থেকে ক্লিয়ার করে নিচ্ছি।
-<br> সেম টপিক স্টিভেন হালিমের বই থেকে পড়ে রিলেটেড প্রব্লেম গুলো সল্ভ করতেছি। 
+
+#### এখন Programming Contest by Mahbubul Hasan বইটা ভাল করে শেষ করছি। 
+
+#### আর বইয়ের যেই টপিক গুলো শেষ করছি সেই টপিক গুলো না বুঝলে geeksforgeeks,
+
+#### shafayets algo, youtube ইত্যাদি থেকে ক্লিয়ার করে নিচ্ছি।
+
+#### সেম টপিক স্টিভেন হালিমের বই থেকে পড়ে রিলেটেড প্রব্লেম গুলো সল্ভ করতেছি।
+
+## শাফায়েতস ব্লগ থেকে DS, Graph শেষ করে দিবো। ১ Topics daily 
+
+<br>
 <br>
 <br>তারপর BACS এর Camp টা কমপ্লিট করতে হবে। 
 <br>
@@ -54,6 +65,7 @@
 * [BACS BUBT programming camp (real time camp)...---->>>>](https://www.youtube.com/playlist?list=PLWtSipmftM8o9WO-bJmUdrT8spBx3ICna&fbclid=IwAR2pSLXz44GnVZVpLdi5Qd3AmwACpf2GdpWmBtsR1M3USuAT57-exxUt-c0)
 * [Learn Competitive programming in bangla (Youtube tutorial)...----->>>>](https://www.youtube.com/user/dipmessi10/playlists?view=50&sort=dd&shelf_id=12)
 * [A to Z Programming Resourse in Bangla(GitHub)...----->>>>](https://github.com/me-shaon/bangla-programming-resources?fbclid=IwAR1UUGLgNcjbojqU8f0s4U8Ru4PnTKH9CSPkXtx5WaW7pcbj0d6XYVnHaN4)
+* [How to study for College Placements--->>>>](https://www.youtube.com/watch?v=PihtA9D-IlE)
 #### Books:
 * Data Structure & Algorithm by mahbubul hasan vai<br>
 * Competitive Programming by Steven Halim<br>
