@@ -5,8 +5,7 @@
 using namespace std;
 int adj[100][100];
 int color[100];
-int node;
-int edge;
+int node, edge;
 int parent[100];
 int dis[100];
 void bfs(int startingNode){

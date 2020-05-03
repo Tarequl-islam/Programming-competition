@@ -10,14 +10,12 @@ int main() {
     }
     if (u > l) {
         for (int i = 0; i < s.length(); i++) {
-            toupper(s[i]);
-            cout<<s[i];
+            cout<<(char)toupper(s[i]);
         }
     }
     else {
         for (int i = 0; i < s.length(); i++) {
-            tolower(s[i]);
-            cout<<s[i];
+            cout<<(char)tolower(s[i]);
         }
     }
     cout<<endl;
