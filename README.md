@@ -9,6 +9,7 @@
         * গনিত
         * Sorting and Searching
         * [Data Structure](#)
+        * Graph
     
 * Blogs
     * Shafaet's planet
