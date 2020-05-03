@@ -7,7 +7,9 @@
         * [প্রোগ্রামিং প্রতিযোগিতায় হাতে খড়ি](#)
         * [C ঝালাই](#)
         * গনিত
+        * Sorting and Searching
         * [Data Structure](#)
+        * Graph
     
 * Blogs
     * Shafaet's planet
