@@ -10,6 +10,8 @@
         * Sorting and Searching
         * [Data Structure](#)
         * Graph
+            * Adjecency list & Matrix
+            
     
 * Blogs
     * Shafaet's planet
