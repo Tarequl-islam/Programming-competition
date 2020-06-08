@@ -9,15 +9,12 @@
         * গনিত
         * Sorting and Searching
         * [Data Structure](#)
-        * Graph
-            * Adjecency list & Matrix
         <details>
-         <summary>Translations in progress:</summary>
-
-         - [हिन्दी](https://github.com/jwasham/coding-interview-university/issues/81)
-         - [עברית](https://github.com/jwasham/coding-interview-university/issues/82)
-         - [Bahasa Indonesia](https://github.com/jwasham/coding-interview-university/issues/101)
-         - [Arabic](https://github.com/jwasham/coding-interview-university/issues/98)
+         <summary>Graph</summary>
+         - [Adjecency list & Matrix](https://www.youtube.com/watch?v=OswJO4BXfYU&list=PLgLCjVh3O6Sh88ebyMzRtREnncdX10WZD)
+         - [BFS](https://www.youtube.com/watch?v=MNfkgLkBtdk&list=PLgLCjVh3O6Sh88ebyMzRtREnncdX10WZD&index=7)
+         - [DFS](https://www.youtube.com/watch?v=CVe4NypqwSE&list=PLgLCjVh3O6Sh88ebyMzRtREnncdX10WZD&index=4)
+         - [Topologycal Sort](https://www.youtube.com/watch?v=JV9jYvWuxeI&list=PLgLCjVh3O6Sh88ebyMzRtREnncdX10WZD&index=16)
 
          </details>
             
