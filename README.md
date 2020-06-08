@@ -24,9 +24,13 @@
     * [Number theory](https://www.youtube.com/watch?v=0T1-IjBM9jA&list=PLgLCjVh3O6Si82JG4dSp6iSQQnXBM3wjT)
     * [STL in C++](https://www.youtube.com/watch?v=awY7oJ7wFhs&list=PLgLCjVh3O6Sgux985GYG22xkFt9z9Sq0_)
     <details>
-    * <summary>[STL in C++](https://www.youtube.com/watch?v=awY7oJ7wFhs&list=PLgLCjVh3O6Sgux985GYG22xkFt9z9Sq0_)</summary>
+    * <summary> STL in C++ </summary>
    - a
    - b 
+   - c
+   * a 
+   * b 
+   * c
     </details>
 * [Basic understanding of C++ in sololearn](https://www.sololearn.com/Play/CPlusPlus/)
 <br>
