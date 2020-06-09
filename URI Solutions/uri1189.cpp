@@ -2,7 +2,7 @@
 using namespace std;
 int main()
 {
-    //freopen("input.txt", "r", stdin);
+    freopen("input.txt", "r", stdin);
     char T;
     float M[12][12], Sum = 0, Avg = 0, count = 0;
     cin >> T;
@@ -13,9 +13,9 @@ int main()
             cin >> M[i][j];
         }
     }
-    for (int k = 7; k < 12; k++)
+    for (int k = 0; k < 12; k++)
     {
-        for (int l = 12-k; l < k; l++)
+        for (int l = 11; l > 11 - k && l > k; l--)
         {
             Sum += M[k][l];
             count++;

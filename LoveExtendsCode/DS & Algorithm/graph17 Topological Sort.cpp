@@ -13,16 +13,14 @@ int fTime[100];
 stack <int> ans;
 void dfsVisit(int x){
     color[x]=GRAY;
-    sTime[x]=Time;
-    ++Time;
+    sTime[x]=Time++;
     for(int i=0; i<node; ++i){
         if(adj[x][i]==1){
             if(color[i]== WHITE) dfsVisit(i);
         }
     }
     color[x]=BLACK;
-    fTime[x]=Time;
-    ++Time;
+    fTime[x]=Time++;
     ans.push(x);
 }
 void dfs(){
