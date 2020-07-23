@@ -76,6 +76,8 @@
 * [Learn Competitive programming in bangla (Youtube tutorial)...----->>>>](https://www.youtube.com/user/dipmessi10/playlists?view=50&sort=dd&shelf_id=12)
 * [A to Z Programming Resourse in Bangla(GitHub)...----->>>>](https://github.com/me-shaon/bangla-programming-resources?fbclid=IwAR1UUGLgNcjbojqU8f0s4U8Ru4PnTKH9CSPkXtx5WaW7pcbj0d6XYVnHaN4)
 * [How to study for College Placements--->>>>](https://www.youtube.com/watch?v=PihtA9D-IlE)
+* [How to RED Codeforces--->>>>](https://codeforces.com/blog/entry/79190?fbclid=IwAR3C1gHVmucsLJl4d-Ob_YwiA0-f-WZasNCcYTFNXWDnLZ46VMuNN_J5peA#comment-648088) [using ladder](https://a2oj.com/ladder?ID=11)
+
 #### Books:
 * Data Structure & Algorithm by mahbubul hasan vai<br>
 * Competitive Programming by Steven Halim<br>
