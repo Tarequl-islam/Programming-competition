@@ -1,57 +1,53 @@
 #include<bits/stdc++.h>
-#define WHITE 1
-#define GRAY 2
-#define BLACK 3
 using namespace std;
-int adj[100][100];
-int color[100];
-int node, edge;
-int parent[100];
-int dis[100];
-void bfs(int startingNode){
-    for(int i=0; i<node; ++i){
-        color[i] = WHITE;
-        dis[i] = INT_MIN;
-        parent[i] = -1;
-    }
-    dis[startingNode] = 0;
-    parent[startingNode] = -1;
-    queue<int> q;
-    q.push(startingNode);
-    while(!q.empty()){
-        int x = q.front();
+int visited[100000];
+int level[100000];
+vector<int>vec[100000];
+int bfs(int s){
+    visited[s]=1;
+    level[s]=0;
+    queue<int>q;
+    q.push(s);
+    while(!q.empty ()){
+        int x=q.front();
         q.pop();
-        color[x] = GRAY;
-        cout<<x<<" ";
-        for(int i=0; i<node; ++i){
-            if(adj[x][i]==1){
-                if(color[i]== WHITE){
-                    dis[i]=dis[x]+1;
-                    parent[i]=x;
-                    q.push(i);
-                }
+        for(int i=0; i<vec[x].size(); i++){
+            int y=vec[x][i];
+            if(visited[y]==0){
+                visited[y]=1;
+                if(level[x]==0)
+                    level[y]=1;
+                else if(level[x]==1)
+                    level[y]=0;
+                q.push(y);
+            }
+            else if(visited[y]==1){
+                if(level[y] == level[x])
+                    return 0;
             }
         }
     }
+    return 1;
 }
 int main(){
-    freopen("input-bfs.txt", "r", stdin);
-    int n1, n2;
-    cin>>node>>edge;
-    for(int i=0; i<edge; ++i){
-        cin>>n1>>n2;
-        adj[n1][n2]=1;
-    }
-    bfs(0);
-
-//  code for print connections
-    cout<<"\n\n\n";
-    for(int i=0; i<node; ++i){
-        for(int j=0; j<node; ++j){
-            cout<<adj[i][j]<<" ";
+    int i,j,ver,edg,u,v,z=0;
+    while(cin>>ver){
+        if(ver==0)
+            break;
+        cin>>edg;
+        memset(visited,0,sizeof(visited));
+        for (i = 0; i < ver; i++){
+            vec[i].clear();
         }
-        cout<<"\n";
+        for(i=0; i<edg; i++){
+            cin>>u>>v;
+            vec[u].push_back(v);
+            vec[v].push_back(u);
+        }
+        z = bfs(u);
+        if(z==1)
+            cout<<"BICOLORABLE."<<endl;
+        else if(z==0)
+            cout<<"NOT BICOLORABLE."<<endl;
     }
-    return 0;
 }
-
