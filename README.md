@@ -19,6 +19,7 @@
          - [MST Prims](https://www.youtube.com/watch?v=8Xdd491oYQw&list=PLL92cM93q1x2g6BDrISJ6xdGouA2my1a-&index=16)
          - [MST Kruskals](https://www.youtube.com/watch?v=YVkyxUCzI4c&list=PLL92cM93q1x2g6BDrISJ6xdGouA2my1a-&index=14)
          - [Dijkstra's](https://www.youtube.com/watch?v=uRgCXl5bmhI&list=PLKiZXxQe7OiAipuezfE6udFFAhd1gNUhL&index=12)
+         - [Bellman Ford](https://www.youtube.com/watch?v=KudAWAMiQog)
          
          </details>
             
