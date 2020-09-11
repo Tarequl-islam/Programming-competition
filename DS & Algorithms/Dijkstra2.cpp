@@ -48,7 +48,7 @@ int main(){
             cin >> u >> v >> w;
             adj[u][v] = w;
         }
-        Dijkstra(0);
+        Dijkstra(1);
         cout<<"Vertex\tCost\tParent\n";
         for ( i = 0; i < vertex; i++){
             cout<<items[i].n<<"\t"<<items[i].cost<<"\t"<<items[i].p<<endl;

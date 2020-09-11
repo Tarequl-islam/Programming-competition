@@ -8,7 +8,8 @@ void sieve(int n){
     bs[0]=bs[1]=0;
     for(ll i=2; i<n; i++){
         if(bs[i]){
-            for(ll j= i*i; j<n; j+=i) bs[j]=0;
+            for(ll j= i*i; j<n; j+=i) 
+                bs[j]=0;
             primes.push_back(i);
         }
     }
