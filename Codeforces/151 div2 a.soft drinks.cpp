@@ -2,16 +2,9 @@
 #define ll long long
 using namespace std;
 int main(){
-    int n, i, cnt=0;
-    set<char> ss;
-    string s;
-    cin>>s;
-    for ( i = 0; i < s.length(); i++){
-        ss.insert(s[i]);
-    }
-    if (ss.size()%2==0){
-        cout<<"CHAT WITH HER!\n";
-    }
-    else cout<<"IGNORE HIM!\n";
+    int n, k, l, c,d,p, nl, np, i, cnt=0;
+    cin>>n>>k>>l>>c>>d>>p>>nl>>np;
+    i = min(c*d, (k*l)/nl);
+    cout<<min(i , p/np)/n<<endl;
     return 0;
 }
