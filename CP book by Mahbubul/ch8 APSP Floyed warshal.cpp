@@ -38,4 +38,3 @@ int main(){
     }
     return 0;
 }
-eto jokhon dekhar iccha toh breakup kn korche? cailei toh parto protidin dekhte. sob somoi dekhte
