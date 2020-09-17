@@ -1,41 +1,43 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
+#define fo(i, n) for (i = 0; i < n; i++)
+#define ll long long
+#define si(x) scanf("%d", &x)
+#define sl(x) scanf("%lld", &x)
+#define ss(s) scanf("%s", s)
+#define pi(x) printf("%d\n", x)
+#define pl(x) printf("%lld\n", x)
+#define ps(s) printf("%s\n", s)
+#define pb push_back
+#define mp make_pair
+#define F first
+#define S second
+#define all(x) x.begin(), x.end()
+#define clr(x) memset(x, 0, sizeof(x))
+#define sortall(x) sort(all(x))
+#define tr(it, a) for (auto it = a.begin(); it != a.end(); it++)
+#define PI 3.1415926535897932384626
+typedef pair<int, int> pii;
+typedef pair<ll, ll> pl;
+typedef vector<int> vi;
+typedef vector<ll> vl;
+typedef vector<pii> vpii;
+typedef vector<pl> vpl;
+typedef vector<vi> vvi;
+typedef vector<vl> vvl;
 int main(){
-    float n1, n2, n3, n4, sum, avg, weight, xm, newsum, newavg;
-    cin >> n1 >> n2 >> n3 >> n4;
-    n1 = n1 * 2;
-    n2 = n2 * 3;
-    n3 = n3 * 4;
-    n4 = n4 * 1;
-    sum = n1 + n2 + n3 + n4;
-    weight = 2 + 3 + 4 + 1;
-    avg = sum / weight;
-    cout << fixed << setprecision(1) << "Media: " << avg << endl;
-
-    if (avg >= 7.0)
-    {
-        cout << "Aluno aprovado." << endl;
+    ll n, m, a, b, c, i, minn=2222222;
+    int ar[100005];
+    cin>>n;
+    for (i = 0; i < n; i++){
+        cin>>ar[i];
     }
-    else if (avg < 5.0)
-    {
-        cout << "Aluno reprovado." << endl;
-    }
-    else if (6.9 >= avg && avg >= 5)
-    {
-        cout << "Aluno em exame." << endl;
-        cin >> xm;
-        cout << "Nota do exame: " <<xm<< endl;
-        newsum = xm + avg;
-        newavg = newsum / 2;
-        if (newavg >= 5.0)
-        {
-            cout << "Aluno aprovado." << endl;
+    sort(ar, ar+n);
+    for (i = 0; i < n; i++){
+        if (ar[i+(n-1)]-ar[i]<minn){
+            minn = ar[i+(n-1)] - ar[i];
         }
-        else if (newavg <= 4.9)
-        {
-            cout << "Aluno reprovado." << endl;
-        }
-        printf("Media final: %.1f\n", newavg);
     }
+    cout <<minn<< endl;
     return 0;
 }
