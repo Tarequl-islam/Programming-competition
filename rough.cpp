@@ -26,7 +26,7 @@ typedef vector<pl> vpl;
 typedef vector<vi> vvi;
 typedef vector<vl> vvl;
 int main(){
-    ll n, m, a, b, c, i, minn=2222222;
+    ll n, m, a, b, c, i, j, mx=0, mn=2222222;
     int ar[100005];
     cin>>n;
     for (i = 0; i < n; i++){
@@ -34,10 +34,10 @@ int main(){
     }
     sort(ar, ar+n);
     for (i = 0; i < n; i++){
-        if (ar[i+(n-1)]-ar[i]<minn){
-            minn = ar[i+(n-1)] - ar[i];
+        if (ar[i+(n-1)]-ar[i]<mn){
+            mn = ar[i+(n-1)] - ar[i];
         }
     }
-    cout <<minn<< endl;
+    cout <<mn<< endl;
     return 0;
 }
