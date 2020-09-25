@@ -26,18 +26,24 @@ typedef vector<pl> vpl;
 typedef vector<vi> vvi;
 typedef vector<vl> vvl;
 int main(){
-    ll n, m, a, b, c, i, j, mx=0, mn=2222222;
-    int ar[100005];
-    cin>>n;
-    for (i = 0; i < n; i++){
-        si(ar[i]);
-    }
-    sort(ar, ar+n);
-    for (i = 0; i < n; i++){
-        if (ar[i+(n-1)]-ar[i]<mn){
-            mn = ar[i+(n-1)] - ar[i];
+    ll t, n, m, a, b, c, i, j, mx=0, mn=0;
+    cin>>t;
+    while (t--){
+        int ar[100005];
+        bool ok= true;
+        cin>>n;
+        for (i = 0; i < n; i++){
+            si(ar[i]);
         }
+        for (i = 1; i < n; i++){
+            if(ar[i]>=ar[i-1]) {
+                ok=false;
+                break;
+            }
+        }
+        if(ok)
+            cout <<"NO\n"<< endl;
+        else cout<<"YES\n";
     }
-    cout <<mn<< endl;
     return 0;
 }
