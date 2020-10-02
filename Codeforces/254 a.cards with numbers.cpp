@@ -25,21 +25,29 @@ typedef vector<pii> vpii;
 typedef vector<pl> vpl;
 typedef vector<vi> vvi;
 typedef vector<vl> vvl;
+bool operator<(pii a, pii b){
+    return a.second > b.second;
+}
 int main(){
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
-    int n, m, a, b, c, i, j, mx=0, mn=2222222;
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    ll n, m, a, b, c, i, j, mx=0, mn=2222222;
+    vpii p;
     int ar[100005];
-    si(n);
-    for (i = 0; i < n; i++){
-        si(ar[i]);
+    cin>>n;
+    for (i = 0; i < 2*n; i++){
+        si(a);
+        p.push_back(make_pair(a, i));
     }
-    sort(ar, ar+n);
-    for (i = 0; i < n; i++){
-        if (ar[i+(n-1)]-ar[i]<mn){
-            mn = ar[i+(n-1)] - ar[i];
+    sort(p.begin(), p.end());
+    for (i = 0; i < p.size(); i+=2){
+        if (p[i].first != p[i+1].first){
+            cout<<-1<<endl;
+            return 0;
         }
     }
-    cout <<mn<< endl;
+    for (i = 0; i < p.size(); i+=2){
+        printf("%d %d\n", p[i].second + 1, p[i + 1].second + 1);
+    }
     return 0;
 }

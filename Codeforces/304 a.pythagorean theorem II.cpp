@@ -26,20 +26,21 @@ typedef vector<pl> vpl;
 typedef vector<vi> vvi;
 typedef vector<vl> vvl;
 int main(){
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
-    int n, m, a, b, c, i, j, mx=0, mn=2222222;
+    ll n, m, a, b, c, i, j, mx=0, mn=0;
     int ar[100005];
-    si(n);
-    for (i = 0; i < n; i++){
-        si(ar[i]);
+    cin>>n;
+    for (i = n; i > 4; i--){
+        b=0;
+        for (int j = i-1; j >= 1; j--){
+            a = i*i - j*j;
+            if (j <= b)
+                break;
+            if ((int)sqrt(a)*(int)sqrt(a) == a){
+                mx++;
+                b=sqrt(a);
+            }
+        }  
     }
-    sort(ar, ar+n);
-    for (i = 0; i < n; i++){
-        if (ar[i+(n-1)]-ar[i]<mn){
-            mn = ar[i+(n-1)] - ar[i];
-        }
-    }
-    cout <<mn<< endl;
+    cout <<mx<< endl;
     return 0;
 }

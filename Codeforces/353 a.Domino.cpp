@@ -28,18 +28,28 @@ typedef vector<vl> vvl;
 int main(){
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
-    int n, m, a, b, c, i, j, mx=0, mn=2222222;
-    int ar[100005];
+    int n, m, a=0, b=0, c, i, j, mx=0, mn=2222222;
+    int ar[105], br[105];
     si(n);
     for (i = 0; i < n; i++){
-        si(ar[i]);
+        //scanf("%d %d", &ar[i], &br[i]);
+        cin >> ar[i]>> br[i];
     }
-    sort(ar, ar+n);
     for (i = 0; i < n; i++){
-        if (ar[i+(n-1)]-ar[i]<mn){
-            mn = ar[i+(n-1)] - ar[i];
-        }
+        a+=ar[i];
+        b+=br[i];
+        if(ar[i]%2==0 && br[i]%2 !=0) mx=1;
+        else if(ar[i]%2!=0 && br[i]%2 ==0) mx=1;
     }
-    cout <<mn<< endl;
+    if (a%2==0 && b%2==0){
+        cout<<0<<endl;
+    }
+    else if ((a%2==0 && b%2 !=0) || (a%2!=0 && b%2 ==0)){
+        cout<<-1<<endl;
+    }
+    else if (a%2!=0 && b%2 !=0 && mx==1)
+        cout<<1<<endl;
+    else 
+        cout<<-1<<endl;
     return 0;
 }
