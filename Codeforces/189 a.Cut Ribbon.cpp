@@ -29,20 +29,18 @@ bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second);
 }
 int main(){
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
-    int n, m, a, b, c, i, j, mx=0, mn=2222222;
-    int ar[100005];
-    si(n);
-    for (i = 0; i < n; i++){
-        si(ar[i]);
-    }
-    sort(ar, ar+n);
-    for (i = 0; i < n; i++){
-        if (ar[i+(n-1)]-ar[i]<mn){
-            mn = ar[i+(n-1)] - ar[i];
+    int n,a,b,c,x,y,z,p=0,i;
+    cin>>n>>a>>b>>c;
+    i=min(a,min(b,c));
+    i=n/i;
+    for(x=i;x>=0;x--){
+        for(y=0;y<=i;y++){
+            z=abs((n-(a*x+b*y))/c);
+            if((a*x+b*y+c*z)==n){
+               p=max(p,x+y+z);
+            }
         }
     }
-    cout <<mn<< endl;
+    cout<<p<<endl;
     return 0;
 }

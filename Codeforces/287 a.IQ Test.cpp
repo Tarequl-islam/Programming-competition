@@ -31,18 +31,29 @@ bool cmp(const pii &left, const pii &right){
 int main(){
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
-    int n, m, a, b, c, i, j, mx=0, mn=2222222;
-    int ar[100005];
-    si(n);
-    for (i = 0; i < n; i++){
-        si(ar[i]);
-    }
-    sort(ar, ar+n);
-    for (i = 0; i < n; i++){
-        if (ar[i+(n-1)]-ar[i]<mn){
-            mn = ar[i+(n-1)] - ar[i];
+    int n, m, a=0, b=0, c, i, j, mx=0, mn=2222222;
+    char ar[10][10];
+    for (i = 0; i < 4; i++){
+        for ( j = 0; j < 4; j++){
+            cin>>ar[i][j];
         }
     }
-    cout <<mn<< endl;
+    for (i = 0; i < 3; i++){
+        for (j = 0; j < 3; j++){
+            a=0; b=0;
+            if(ar[i][j]=='.') a++;
+            else b++;
+            if(ar[i+1][j]=='.') a++;
+            else b++;
+            if(ar[i][j+1]=='.') a++;
+            else b++;
+            if(ar[i+1][j+1]=='.') a++;
+            else b++;
+            if(a>=3 || b>=3) mx++;
+        }
+    }
+    if(mx>=1)
+        cout <<"YES"<< endl;
+    else cout<<"NO"<<endl;
     return 0;
 }

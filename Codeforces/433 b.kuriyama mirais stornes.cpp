@@ -28,21 +28,25 @@ typedef vector<vl> vvl;
 bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second);
 }
+ll y[100005],z[100005];
 int main(){
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
-    int n, m, a, b, c, i, j, mx=0, mn=2222222;
-    int ar[100005];
+    int n, m, a, b, c, i, j, mx = 0, mn = 2222222;
     si(n);
-    for (i = 0; i < n; i++){
-        si(ar[i]);
-    }
-    sort(ar, ar+n);
-    for (i = 0; i < n; i++){
-        if (ar[i+(n-1)]-ar[i]<mn){
-            mn = ar[i+(n-1)] - ar[i];
-        }
-    }
-    cout <<mn<< endl;
-    return 0;
+	for (int a=1;a<=n;a++){
+		int v;
+		si(v);
+		y[a]=z[a]=v;
+	}
+	sort(y+1,y+n+1);
+	for (int a=1;a<=n;a++)
+		z[a]+=z[a-1],y[a]+=y[a-1];
+	scanf("%d",&m);
+	for (int a=1;a<=m;a++){
+		int opt,l,r;
+		scanf("%d %d %d",&opt,&l,&r);
+		if (opt==1) printf("%I64d\n",z[r]-z[l-1]);
+		else printf("%I64d\n",y[r]-y[l-1]);
+	}
+ 
+	return 0;
 }

@@ -31,18 +31,27 @@ bool cmp(const pii &left, const pii &right){
 int main(){
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
-    int n, m, a, b, c, i, j, mx=0, mn=2222222;
-    int ar[100005];
-    si(n);
+    int n, m, a, b, c, i, j, k, mx=0, mn=2222222;
+    vpii p;
+    cin>>n>>m;
     for (i = 0; i < n; i++){
-        si(ar[i]);
+        scanf("%d %d", &a, &b);
+        p.push_back(make_pair(a,b));
     }
-    sort(ar, ar+n);
-    for (i = 0; i < n; i++){
-        if (ar[i+(n-1)]-ar[i]<mn){
-            mn = ar[i+(n-1)] - ar[i];
-        }
+    sort(p.begin(), p.end(), cmp);
+    m--;
+    i = p[m].first;
+    j = p[m].second;
+    k = m;
+    while(p[k].first == i && p[k].second == j){
+        mx++;
+        k++;
     }
-    cout <<mn<< endl;
+    k = m-1;
+    while(p[k].first == i && p[k].second == j){
+        mx++;
+        k--;
+    }
+    cout <<mx<< endl;
     return 0;
 }
