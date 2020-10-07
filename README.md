@@ -27,6 +27,23 @@
 * Blogs
     * Shafaet's planet
     * [নুন্যতম সংখ্যাতত্ত](http://www.progkriya.org/gyan/basic-number-theory.html) 
+    
+   <details>
+   <summary>Basic Technique</summary>  
+   
+   - [Basic Technique](https://www.youtube.com/user/dipmessi10/playlists)
+   - [Window Sliding Technique](#)
+   - [Two Pointer Technique](#)
+   - [Cumulative Sum/Prefix Sum](#)
+   - [Array Compressions](#)
+   - [Maximum Subarray Sum](#)
+   - [Binary Search, upper_bound,lower_bound ](#)
+   - [Largest Sum Contiguous Subarray Technique](#)
+   - [Counting](#)
+   - [Counting Inversion](#)
+    
+   </details>
+    
 * [LoveExtendsCode's Youtube Video](https://www.youtube.com/user/dipmessi10/playlists)
 
     * [Competitive Programming & Algorithm CP](https://www.youtube.com/watch?v=jF6U_Cf4RNs&list=PLgLCjVh3O6SjQ2CQ1AymnfCKVs1I68twx)
