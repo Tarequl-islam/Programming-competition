@@ -28,17 +28,20 @@
     * Shafaet's planet
     * [নুন্যতম সংখ্যাতত্ত](http://www.progkriya.org/gyan/basic-number-theory.html) 
     
-* [Basic Technique](https://www.youtube.com/user/dipmessi10/playlists)
-
-    * [Window Sliding Technique](#)
-    * [Two Pointer Technique](#)
-    * [Cumulative Sum/Prefix Sum](#)
-    * [Array Compressions](#)
-    * [Maximum Subarray Sum](#)
-    * [Binary Search, upper_bound,lower_bound ](#)
-    * [Largest Sum Contiguous Subarray Technique](#)
-    * [Counting](#)
-    * [Counting Inversion](#)
+<details>
+   <summary>Basic Technique](https://www.youtube.com/user/dipmessi10/playlists)</summary>  
+   
+   - [Window Sliding Technique](#)
+   - [Two Pointer Technique](#)
+   - [Cumulative Sum/Prefix Sum](#)
+   - [Array Compressions](#)
+   - [Maximum Subarray Sum](#)
+   - [Binary Search, upper_bound,lower_bound ](#)
+   - [Largest Sum Contiguous Subarray Technique](#)
+   - [Counting](#)
+   - [Counting Inversion](#)
+    
+</details>
     
 * [LoveExtendsCode's Youtube Video](https://www.youtube.com/user/dipmessi10/playlists)
 
