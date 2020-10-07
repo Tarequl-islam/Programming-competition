@@ -29,7 +29,7 @@
     * [নুন্যতম সংখ্যাতত্ত](http://www.progkriya.org/gyan/basic-number-theory.html) 
     
 <details>
-   <summary> [Basic Technique](https://www.youtube.com/user/dipmessi10/playlists) </summary>  
+   <summary>[Basic Technique](https://www.youtube.com/user/dipmessi10/playlists) </summary>  
    
    - [Window Sliding Technique](#)
    - [Two Pointer Technique](#)
