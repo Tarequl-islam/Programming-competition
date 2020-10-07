@@ -28,7 +28,7 @@
     * Shafaet's planet
     * [নুন্যতম সংখ্যাতত্ত](http://www.progkriya.org/gyan/basic-number-theory.html) 
     
-<details>
+   <details>
    <summary>Basic Technique</summary>  
    
    - [Basic Technique](https://www.youtube.com/user/dipmessi10/playlists)
@@ -42,7 +42,7 @@
    - [Counting](#)
    - [Counting Inversion](#)
     
-</details>
+   </details>
     
 * [LoveExtendsCode's Youtube Video](https://www.youtube.com/user/dipmessi10/playlists)
 
