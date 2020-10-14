@@ -32,35 +32,22 @@ int main(){
     int t;
     cin>>t;
     while(t--){
-        int n, x, a, b, c, i, j, mx=0, mn=0;
-        int ar[100], br[100];
-        vector <int> v;
-        si(n);
-        for ( i = 0; i < n; i++){
-            si(ar[i]);
-            mx+= ar[i];
-        }
-        if(mx==0){
-            printf("NO\n");
-            continue;
-        }
-        if(mx>0)
-            sort(ar, ar+n, greater<int>());
-        else
-            sort(ar, ar + n);
-        printf("YES\n");
-        for ( i = 0; i < n; i++){
-            mn+=ar[i];
-            if(mn==0){
-                v.push_back(ar[i]);
-                mn-=ar[i];
+        int n;
+        string s;
+        cin >> n >> s;
+        bool odd = false, even = false;
+        for (int i = 1; i <= n; ++i) {
+            if (i % 2 == 1) {
+                odd |= ((s[i - 1] - '0') % 2 == 1);
+            } else {
+                even |= ((s[i - 1] - '0') % 2 == 0);
             }
-            else printf("%d ",ar[i]);
         }
-        for ( j = 0; j < v.size(); j++){
-            printf("%d ", v[j]);
+        if (n % 2 == 1) {
+            cout << (odd ? 1 : 2) << '\n';
+        } else {
+            cout << (even ? 2 : 1) << '\n';
         }
-        printf("\n");
     }
     return 0;
 }
