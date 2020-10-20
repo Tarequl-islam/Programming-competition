@@ -29,13 +29,14 @@ int main(){
     int t, cs=1;
     cin>>t;
     while (t--){
-        int r1, r2, h, p;
-        double a, b, c, d, PI;
-        PI = 2 * acos(0.0);
-        cin>>r1>>r2>>h>>p;
-        c = r2 + (r1-r2) * ((double)p/h);
-        d = (c*c + c*r2 + r2*r2) *(PI*p*1/3.0);
-        printf("Case %d: %lf\n", cs++, d);
+        double v1, v2, v3, a1, a2, d1, d2, t1, t2, a, b;
+        cin>>v1>>v2>>v3>>a1>>a2;
+        d1 = (v1*v1)/(a1*2);
+        d2 = (v2*v2)/(a2*2);
+        t1 = v1/a1;
+        t2 = v2/a2;
+        
+        printf("Case %d: %lf %lf\n", cs++, d1+d2, v3*max(t1,t2));
     }
     return 0;
 }

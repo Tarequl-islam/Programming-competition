@@ -29,13 +29,15 @@ int main(){
     int t, cs=1;
     cin>>t;
     while (t--){
-        int r1, r2, h, p;
-        double a, b, c, d, PI;
-        PI = 2 * acos(0.0);
-        cin>>r1>>r2>>h>>p;
-        c = r2 + (r1-r2) * ((double)p/h);
-        d = (c*c + c*r2 + r2*r2) *(PI*p*1/3.0);
-        printf("Case %d: %lf\n", cs++, d);
+        int Ox, Oy, Ax, Ay, Bx, By;
+        double  oa, ob, ab, d;
+        cin>>Ox>>Oy>>Ax>>Ay>>Bx>>By;
+        oa = sqrt((double)(Ox-Ax)*(Ox-Ax) + (Oy-Ay)*(Oy-Ay));
+        ab = sqrt((double)(Ax-Bx)*(Ax-Bx) + (Ay-By)*(Ay-By));
+        ob = oa;
+        d = acos((oa*oa + ob*ob - ab*ab)/(2*oa*ob));
+
+        printf("Case %d: %lf\n", cs++, d*oa);
     }
     return 0;
 }
