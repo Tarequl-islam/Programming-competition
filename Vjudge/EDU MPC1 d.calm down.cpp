@@ -16,7 +16,7 @@ using namespace std;
 #define clr(x) memset(x, 0, sizeof(x))
 #define sortall(x) sort(all(x))
 #define tr(it, a) for (auto it = a.begin(); it != a.end(); it++)
-#define PI 3.1415926535897932384626
+#define PI acos(-1)
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pl;
 typedef vector<int> vi;
@@ -31,10 +31,9 @@ int main(){
     while (t--){
         double R, n, r, a, b, c, sm=0;
         cin>>R>>n;
-        a = (PI*R*R)/n;
-        b = R-a;
-        c = (PI*b*b)/n;
-        cout<<"Case "<<cs++<< ": "<<((a+c)/2)/2<<endl;
+        r = (R*sin(PI/n)) / (1+sin(PI/n));
+        //cout<<"Case "<<cs++<< ": "<<r<<endl;
+        printf("Case %d: %.7f\n", cs++, r);
     }
     return 0;
 }

@@ -34,19 +34,19 @@ int main(){
     int t, cs = 1;
     cin >> t;
     while (t--){
-        int n, m, a, b, c, i, j, mx = 0, mn = 2222222;
-        int ar[100005];
+        int n, m, k, c, i, mx = 0, mn = 2222222;
         si(n);
-        for (i = 0; i < n; i++){
-            si(ar[i]);
+        c = n%10;
+        k = (c-1)*10;
+        while(n>0){
+            n/=10;
+            mx++;
         }
-        sort(ar, ar + n);
-        for (i = 0; i < n; i++){
-            if (ar[i + (n - 1)] - ar[i] < mn){
-                mn = ar[i + (n - 1)] - ar[i];
-            }
+        for ( i = 1; i <= mx; i++){
+            k+=i;
         }
-        cout<<"Case "<<cs++<< ": "<<n<<endl;
-        return 0;
+        cout<<k<<endl;
+        
     }
+    return 0;
 }
