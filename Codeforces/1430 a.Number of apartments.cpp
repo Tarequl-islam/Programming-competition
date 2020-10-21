@@ -25,28 +25,31 @@ typedef vector<pii> vpii;
 typedef vector<pl> vpl;
 typedef vector<vi> vvi;
 typedef vector<vl> vvl;
-bool cmp(const pii &left, const pii &right){
-    return left.first > right.first || (left.first == right.first && left.second < right.second);
-}
 int main(){
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
     int t, cs = 1;
     cin >> t;
     while (t--){
-        int n, m, a, b, c, i, j, mx = 0, mn = 2222222;
-        int ar[100005];
-        si(n);
-        for (i = 0; i < n; i++){
-            si(ar[i]);
-        }
-        sort(ar, ar + n);
-        for (i = 0; i < n; i++){
-            if (ar[i + (n - 1)] - ar[i] < mn){
-                mn = ar[i + (n - 1)] - ar[i];
+        int n, a, b, c=0, d, mx=0;
+        cin>>n;
+        a = n/7;
+        if(a*7 == n) printf("0 0 %d\n", a);
+        else{
+            for (int i = a; i >= 0; i--){
+                b = n-(i*7);
+                for (int j = b/5; j >= 0; j--){
+                    if ((n-(i*7 + j*5))%3==0){
+                        printf("%d %d %d\n", (n-(i*7 + j*5))/3, j, i);
+                        c = 1;
+                        break;
+                    }
+                }
+                if(c==1) break;
             }
+            if(c==0) cout<<-1<<endl;
         }
-        cout<<"Case "<<cs++<< ": "<<n<<endl;
+
     }
     return 0;
 }

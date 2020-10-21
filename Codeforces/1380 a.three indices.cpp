@@ -25,9 +25,6 @@ typedef vector<pii> vpii;
 typedef vector<pl> vpl;
 typedef vector<vi> vvi;
 typedef vector<vl> vvl;
-bool cmp(const pii &left, const pii &right){
-    return left.first > right.first || (left.first == right.first && left.second < right.second);
-}
 int main(){
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
@@ -37,16 +34,18 @@ int main(){
         int n, m, a, b, c, i, j, mx = 0, mn = 2222222;
         int ar[100005];
         si(n);
-        for (i = 0; i < n; i++){
+        for (i = 1; i <= n; i++){
             si(ar[i]);
         }
-        sort(ar, ar + n);
-        for (i = 0; i < n; i++){
-            if (ar[i + (n - 1)] - ar[i] < mn){
-                mn = ar[i + (n - 1)] - ar[i];
+        for (i = 2; i < n; i++){
+            if (ar[i-1]<ar[i] && ar[i]>ar[i+1]){
+                printf("YES\n%d %d %d\n",i-1, i, i+1);
+                mx=1;
+                break;
             }
         }
-        cout<<"Case "<<cs++<< ": "<<n<<endl;
+        if(mx==0)
+            cout<<"NO\n";
     }
     return 0;
 }

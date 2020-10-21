@@ -25,28 +25,23 @@ typedef vector<pii> vpii;
 typedef vector<pl> vpl;
 typedef vector<vi> vvi;
 typedef vector<vl> vvl;
-bool cmp(const pii &left, const pii &right){
-    return left.first > right.first || (left.first == right.first && left.second < right.second);
-}
 int main(){
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
     int t, cs = 1;
     cin >> t;
     while (t--){
-        int n, m, a, b, c, i, j, mx = 0, mn = 2222222;
-        int ar[100005];
-        si(n);
-        for (i = 0; i < n; i++){
-            si(ar[i]);
+        int n, a=0, b=0;
+        string s;
+        cin>>s;
+        for (int i = 0; i < s.length(); i++){
+            if(s[i]=='0') a++;
+            else b++;
         }
-        sort(ar, ar + n);
-        for (i = 0; i < n; i++){
-            if (ar[i + (n - 1)] - ar[i] < mn){
-                mn = ar[i + (n - 1)] - ar[i];
-            }
-        }
-        cout<<"Case "<<cs++<< ": "<<n<<endl;
+        n = min(a, b);
+        if(n%2==1) printf("DA\n");
+        else printf("NET\n");
+        
     }
     return 0;
 }

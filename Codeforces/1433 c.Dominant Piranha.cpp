@@ -25,28 +25,29 @@ typedef vector<pii> vpii;
 typedef vector<pl> vpl;
 typedef vector<vi> vvi;
 typedef vector<vl> vvl;
-bool cmp(const pii &left, const pii &right){
-    return left.first > right.first || (left.first == right.first && left.second < right.second);
-}
 int main(){
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
     int t, cs = 1;
     cin >> t;
     while (t--){
-        int n, m, a, b, c, i, j, mx = 0, mn = 2222222;
-        int ar[100005];
-        si(n);
-        for (i = 0; i < n; i++){
-            si(ar[i]);
+        int n, a, b, c=0, d, mx=0;
+        int ar[500005];
+        cin>>n;
+        ar[0]=0;
+        for (int i = 1; i <= n; i++){
+            cin>>ar[i];
         }
-        sort(ar, ar + n);
-        for (i = 0; i < n; i++){
-            if (ar[i + (n - 1)] - ar[i] < mn){
-                mn = ar[i + (n - 1)] - ar[i];
-            }
+        for (int i = 1; i <= n; i++){
+            if((ar[i]>ar[mx] && ar[i+1]<ar[i]) || (ar[i]>ar[mx] && ar[i-1]<ar[i] && i!=1)) mx=i;
+            if(i>1 && ar[1]!=ar[i]) c=1;
         }
-        cout<<"Case "<<cs++<< ": "<<n<<endl;
+        if(c==0){
+            cout<<-1<<endl;
+        }
+        else{
+            cout<<mx<<endl;
+        }
     }
     return 0;
 }
