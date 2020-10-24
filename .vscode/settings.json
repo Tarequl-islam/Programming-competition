@@ -5,6 +5,7 @@
         "random": "cpp",
         "numeric": "cpp",
         "*.tcc": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "bitset": "cpp"
     }
 }
