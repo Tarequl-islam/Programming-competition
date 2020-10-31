@@ -29,21 +29,13 @@ int main(){
     int t, cs = 1;
     cin >> t;
     while (t--){
-        int n, m, tr=0, o=0, y=0, i, j, k, mx = 0;
-        cin>>n;
-        while (n>=2){
-            i=1;
-            tr=0;
-            while (tr+(3*i) <= n){
-                tr+= 3*i;
-                i++;
-            }
-            if(tr+(3*i)-i <= n) tr+=(3*i)-i;
-            else tr-= i-1;
-            mx++;
-            n-=tr;
-        }
-        cout<<mx<<endl;
+        ll a, b, c, d, x,y, x1, x2, y1, y2, i, j, k, mx = 0;
+        cin>>a>>b>>c>>d;
+        cin>>x>>y>>x1>>y1>>x2>>y2;
+        if ((x-a+b) >= x1 && (x-a+b) <= x2 && (x1 < x2 || a+b ==0) && (y-c+d) >= y1 && (y-c+d) <= y2 && (y1<y2 || c+d==0))
+            cout << "YES\n";
+        else
+            cout << "NO\n";
     }
     return 0;
 }

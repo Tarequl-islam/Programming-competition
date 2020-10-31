@@ -29,21 +29,26 @@ int main(){
     int t, cs = 1;
     cin >> t;
     while (t--){
-        int n, m, tr=0, o=0, y=0, i, j, k, mx = 0;
-        cin>>n;
-        while (n>=2){
-            i=1;
-            tr=0;
-            while (tr+(3*i) <= n){
-                tr+= 3*i;
-                i++;
-            }
-            if(tr+(3*i)-i <= n) tr+=(3*i)-i;
-            else tr-= i-1;
-            mx++;
-            n-=tr;
+        ll n, m, tr=0, o=0, y=0, i, j, k, mx = 0;
+        ll ar[100005];
+        cin>>n>>m;
+        for ( i = 0; i < n; i++){
+            sl(ar[i]);
+            mx+=ar[i];
         }
-        cout<<mx<<endl;
+        sort(ar, ar+n);
+        if(mx/n>=m) cout<<n<<endl;
+        else{
+            for ( i = 0; i < n-1; i++){
+                mx-=ar[i];
+                if(mx/(n-(i+1))>=m){
+                    cout<<n-(i+1)<<endl;
+                    y=1;
+                    break;
+                }
+            }
+            if(y==0) cout<<0<<endl;
+        }
     }
     return 0;
 }

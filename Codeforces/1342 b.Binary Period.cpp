@@ -29,21 +29,30 @@ int main(){
     int t, cs = 1;
     cin >> t;
     while (t--){
-        int n, m, tr=0, o=0, y=0, i, j, k, mx = 0;
-        cin>>n;
-        while (n>=2){
-            i=1;
-            tr=0;
-            while (tr+(3*i) <= n){
-                tr+= 3*i;
-                i++;
-            }
-            if(tr+(3*i)-i <= n) tr+=(3*i)-i;
-            else tr-= i-1;
-            mx++;
-            n-=tr;
+        int n, m, z=0, o=0, a, i, j, k, mx = 0;
+        string s;
+        cin>>s;
+        a = s.length();
+        for ( i = 0; i < a; i++){
+            if(s[i]=='0') z++;
+            else o++;
         }
-        cout<<mx<<endl;
+        if(z==a || o==a){
+            cout<<s<<endl;
+        }
+        else{
+            if(z>=o){
+                for ( i = 0; i < a; i++){
+                    cout<<"01";
+                }
+            }
+            else{
+                for ( i = 0; i < a; i++){
+                    cout<<"10";
+                }
+            }
+            cout<<endl;
+        }
     }
     return 0;
 }

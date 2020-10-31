@@ -30,20 +30,25 @@ int main(){
     cin >> t;
     while (t--){
         int n, m, tr=0, o=0, y=0, i, j, k, mx = 0;
-        cin>>n;
-        while (n>=2){
-            i=1;
-            tr=0;
-            while (tr+(3*i) <= n){
-                tr+= 3*i;
-                i++;
+        set<int> ss;
+        int p[200005]={0};
+        int ar[200005];
+        cin >> n;
+        for ( i = 0; i < n; i++){
+            si(ar[i]);
+            p[ar[i]]++;
+            if(p[ar[i]]>mx){ 
+                mx = p[ar[i]];
+                y = i;
             }
-            if(tr+(3*i)-i <= n) tr+=(3*i)-i;
-            else tr-= i-1;
-            mx++;
-            n-=tr;
+            ss.insert(ar[i]);
         }
-        cout<<mx<<endl;
+        if(ss.size()<mx) cout<<ss.size()<<endl;
+        else{
+            if(ss.end()!=ss.find(ar[y]) && mx==ss.size())
+                cout<<mx-1<<endl;
+            else cout<<mx<<endl;
+        }
     }
     return 0;
 }
