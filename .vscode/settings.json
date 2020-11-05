@@ -6,6 +6,8 @@
         "numeric": "cpp",
         "*.tcc": "cpp",
         "vector": "cpp",
-        "bitset": "cpp"
+        "bitset": "cpp",
+        "deque": "cpp",
+        "string": "cpp"
     }
 }
