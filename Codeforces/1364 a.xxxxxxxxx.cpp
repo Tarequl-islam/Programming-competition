@@ -34,12 +34,32 @@ int main(){
     int t, cs = 1;
     cin >> t;
     while (t--){
-        ll n, r, a, b, l=1, i, j=0,k=0, mx = 0, mn = -1e9;
+        ll n, r, a, b, ans, i, j=0,k=0, mx = 0, mn = -1e9;
+        int ar[100005];
+        ll p[100005]={0};
         cin>>n>>r;
-        if(n<=l) cout<<1<<endl;
-        else if(n<=r) cout<<1+((n*(n-1))/2)<<endl;
-        else cout<<(r*(r+1))/2<<endl;
-        
+        for ( i = 0; i < n; i++){
+            si(ar[i]);
+            mx+=1LL*ar[i];
+            p[i]=mx;
+        }
+        if(mx%r!=0) cout<<n<<endl;
+        else{
+            for ( i = 0; i < n; i++){
+                if((mx-p[i])%r!=0){
+                    j=1;
+                    ans = n-(i+1);
+                    break;
+                }
+                else if(p[n-(i+2)]%r!=0){
+                    j=1;
+                    ans = n-(i+1);
+                    break;
+                }
+            }
+            if(j==0) cout<<-1<<endl;
+            else cout<<ans<<endl;
+        }
     }
     return 0;
 }

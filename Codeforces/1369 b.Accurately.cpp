@@ -34,12 +34,21 @@ int main(){
     int t, cs = 1;
     cin >> t;
     while (t--){
-        ll n, r, a, b, l=1, i, j=0,k=0, mx = 0, mn = -1e9;
-        cin>>n>>r;
-        if(n<=l) cout<<1<<endl;
-        else if(n<=r) cout<<1+((n*(n-1))/2)<<endl;
-        else cout<<(r*(r+1))/2<<endl;
-        
+        int n, r, a, b, l=1, i, j=0,k=0, mx = 0, mn = -1e9;
+        string s;
+        vector<string> vs;
+        cin>>n;
+        cin>>s;
+        while (s[j]=='0') j++;
+        i= n-1;
+        while (s[i]=='1') i--;
+        i = (n-1) - i;
+        if(i+j==n) cout<<s<<endl;
+        else{
+            for ( k = 0; k <= j; k++) printf("0");
+            for ( k = 0; k < i; k++) printf("1");
+            printf("\n");
+        }
     }
     return 0;
 }
