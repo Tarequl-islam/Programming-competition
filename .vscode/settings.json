@@ -8,6 +8,7 @@
         "vector": "cpp",
         "bitset": "cpp",
         "deque": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "cmath": "cpp"
     }
 }
