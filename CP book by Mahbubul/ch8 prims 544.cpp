@@ -25,8 +25,7 @@ void Prims(){
         ans+= temp.cost;
         visited[temp.v] = 1;
         for(i = 0; i<vertices; i++){
-            if(visited[i])
-                continue;
+            if(visited[i]) continue;
             if(adj[temp.v][i]!=0)
                 pq.push(Node(i, adj[temp.v][i]));
         }
