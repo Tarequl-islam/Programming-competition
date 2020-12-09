@@ -16,8 +16,7 @@ using namespace std;
 #define clr(x) memset(x, 0, sizeof(x))
 #define sortall(x) sort(all(x))
 #define tr(it, a) for (auto it = a.begin(); it != a.end(); it++)
-#define PI 2*acos(0.0)
-#define M 998244353
+#define PI 3.1415926535897932384626
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pl;
 typedef vector<int> vi;
@@ -26,31 +25,26 @@ typedef vector<pii> vpii;
 typedef vector<pl> vpl;
 typedef vector<vi> vvi;
 typedef vector<vl> vvl;
-long long mod(long long x){
-    return ((x % M + M) % M);
-}
 bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second);
 }
 int main(){
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
     int t, cs = 1;
     cin >> t;
     while (t--){
         int n, m, a, b, c, i, j, mx = 0, mn = 2222222;
-        int ar[100005];
-        si(n);
-        for (i = 0; i < n; i++){
-            si(ar[i]);
+        string s[10];
+        for (i = 0; i < 9; i++){
+            cin>>s[i];
         }
-        sort(ar, ar + n);
-        for (i = 0; i < n; i++){
-            if (ar[i + (n - 1)] - ar[i] < mn){
-                mn = ar[i + (n - 1)] - ar[i];
+        for (i = 0; i < 9; i++){
+            for (j = 0; j < 9; j++){
+                if(s[i][j]=='1') s[i][j]='2';
             }
         }
-        cout<<"Case "<<cs++<< ": "<<n<<endl;
+        for (i = 0; i < 9; i++){
+            cout<<s[i]<<endl;
+        }
     }
     return 0;
 }

@@ -16,8 +16,7 @@ using namespace std;
 #define clr(x) memset(x, 0, sizeof(x))
 #define sortall(x) sort(all(x))
 #define tr(it, a) for (auto it = a.begin(); it != a.end(); it++)
-#define PI 2*acos(0.0)
-#define M 998244353
+#define PI 3.1415926535897932384626
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pl;
 typedef vector<int> vi;
@@ -26,9 +25,6 @@ typedef vector<pii> vpii;
 typedef vector<pl> vpl;
 typedef vector<vi> vvi;
 typedef vector<vl> vvl;
-long long mod(long long x){
-    return ((x % M + M) % M);
-}
 bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second);
 }
@@ -38,19 +34,18 @@ int main(){
     int t, cs = 1;
     cin >> t;
     while (t--){
-        int n, m, a, b, c, i, j, mx = 0, mn = 2222222;
-        int ar[100005];
-        si(n);
-        for (i = 0; i < n; i++){
-            si(ar[i]);
-        }
-        sort(ar, ar + n);
-        for (i = 0; i < n; i++){
-            if (ar[i + (n - 1)] - ar[i] < mn){
-                mn = ar[i + (n - 1)] - ar[i];
+        int n, m, a, b, c, i, j,k, mx = 0, mn = 2222222;
+        cin>>n>>k;
+        string s(n, 'a');
+        for(i=n-2; i>=0; i--){
+            if(k<=(n-i-1)){
+                s[i]='b';
+                s[n-k]='b';
+                break;
             }
+            k-= (n-i-1);
         }
-        cout<<"Case "<<cs++<< ": "<<n<<endl;
+        cout<<s<<endl;
     }
     return 0;
 }

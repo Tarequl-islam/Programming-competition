@@ -33,24 +33,30 @@ bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second);
 }
 int main(){
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
     int t, cs = 1;
     cin >> t;
     while (t--){
-        int n, m, a, b, c, i, j, mx = 0, mn = 2222222;
-        int ar[100005];
-        si(n);
+        int n, m, a, b, c, i, j=0, k, mx = 0, mn = 0;
+        int ar[200005], p[200005]={0};
+        cin>>n>>k;
         for (i = 0; i < n; i++){
             si(ar[i]);
         }
-        sort(ar, ar + n);
-        for (i = 0; i < n; i++){
-            if (ar[i + (n - 1)] - ar[i] < mn){
-                mn = ar[i + (n - 1)] - ar[i];
+        p[0]=0;
+        for ( i = 1; i < n-1; i++){
+            if(ar[i-1] < ar[i] && ar[i] > ar[i+1]) 
+                j++;
+            p[i]=j;
+        }
+        p[n-1] = j;
+        for(i = k; i <= n; i++){
+            if(p[i-2]-p[i-k] > mx){
+                mx = p[i-2]-p[i-k];
+                mn = i-(k-1);
             }
         }
-        cout<<"Case "<<cs++<< ": "<<n<<endl;
+        if(mx!=0) cout<<mx+1<<" "<<mn<<endl;
+        else cout<<1<<" "<<1<<endl;
     }
     return 0;
 }

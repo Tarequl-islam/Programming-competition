@@ -9,6 +9,7 @@
         "bitset": "cpp",
         "deque": "cpp",
         "string": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "list": "cpp"
     }
 }
