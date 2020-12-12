@@ -38,19 +38,17 @@ int main(){
     int t, cs = 1;
     cin >> t;
     while (t--){
-        int n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
+        int n, m, a, b, c, i, j, k=0, mx = 0, mn = 1e18;
         int ar[100005];
-        cin>>n;
-        for (i = 0; i < n; i++){
-            si(ar[i]);
+        cin>>n>>k;
+        for (i = 0; i < n; i+=3){
+            cout<<"a";
+            if(i+1>=n) break;
+            cout<<"b";
+            if(i+2>=n) break;
+            cout<<"c";
         }
-        sort(ar, ar + n);
-        for (i = 0; i < n; i++){
-            if (ar[i + (n - 1)] - ar[i] < mn){
-                mn = ar[i + (n - 1)] - ar[i];
-            }
-        }
-        cout<<n<<endl;
+        cout<<endl;
     }
     return 0;
 }

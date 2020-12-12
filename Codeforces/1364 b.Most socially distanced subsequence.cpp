@@ -40,17 +40,28 @@ int main(){
     while (t--){
         int n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
         int ar[100005];
+        vector<int> v;
         cin>>n;
         for (i = 0; i < n; i++){
             si(ar[i]);
         }
-        sort(ar, ar + n);
-        for (i = 0; i < n; i++){
-            if (ar[i + (n - 1)] - ar[i] < mn){
-                mn = ar[i + (n - 1)] - ar[i];
+        v.push_back(ar[0]);
+        for (i = 0; i < n-1; i++){
+            if (ar[i] > ar[i + 1] && i<n-1){
+                while(ar[i]>ar[i+1] && i<n-1) i++;
+                v.push_back(ar[i]);
+            }
+            if (ar[i] < ar[i + 1] && i<n-1){
+                while(ar[i]<ar[i+1] && i<n-1) i++;
+                v.push_back(ar[i]);
+                if(i<n-1) i--;
             }
         }
-        cout<<n<<endl;
+        cout<<v.size()<<endl;
+        for ( i = 0; i < v.size(); i++)
+            cout<<v[i]<<" ";
+        cout<<endl;
+        
     }
     return 0;
 }

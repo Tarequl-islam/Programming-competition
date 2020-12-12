@@ -1,8 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
-int edge, vertices, weight, u, v, i, ans = 0;
+int edges, vertices, weight, u, v, i, ans = 0;
 int adj[100][100];
 bool visited[100];
+vector<int> vec;
 struct Node{
     int v, cost;
     Node(int vv, int cc){
@@ -21,17 +22,21 @@ void Prims(){
         pq.pop();
         if(visited[temp.v]) continue;
         ans+= temp.cost;
+        vec.push_back(temp.v);
         visited[temp.v] = 1;
         for(i = 0; i<vertices; i++){
-            if(visited[i]) continue;
-            if(adj[temp.v][i]!=0)
+            if(adj[temp.v][i]!=0 && visited[i]==0)
                 pq.push(Node(i, adj[temp.v][i]));
         }
     }
-    cout<<"minimum cost is: "<<ans;
+    cout<<"minimum cost is: "<<ans<<endl;
+    for (int i = 0; i < vec.size(); i++){
+        cout<<vec[i]<<" ";
+    }
+    
 }
 int main(){
-    cin>>edge>>vertices;
+    cin>>edges>>vertices;
     for(i=0; i<vertices; i++){
         cin>>u>>v>>weight;
         adj[u][v]=weight;

@@ -40,17 +40,16 @@ int main(){
     while (t--){
         int n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
         int ar[100005];
-        cin>>n;
-        for (i = 0; i < n; i++){
-            si(ar[i]);
-        }
-        sort(ar, ar + n);
-        for (i = 0; i < n; i++){
-            if (ar[i + (n - 1)] - ar[i] < mn){
-                mn = ar[i + (n - 1)] - ar[i];
+        cin>>n>>a>>m;
+        int l=a,r=a, L,R;
+        for (i = 0; i < m; i++){
+            cin>>L>>R;
+            if(max(l,L)<=min(r,R)){
+                l=min(l,L);
+                r=max(r,R);
             }
         }
-        cout<<n<<endl;
+        cout<<1+r-l<<endl;
     }
     return 0;
 }

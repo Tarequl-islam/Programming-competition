@@ -33,24 +33,22 @@ bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second);
 }
 int main(){
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
     int t, cs = 1;
     cin >> t;
-    while (t--){
+    while (t--){ 
         int n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        int ar[100005];
+        string s[105];
         cin>>n;
         for (i = 0; i < n; i++){
-            si(ar[i]);
+            cin>>s[i];
         }
-        sort(ar, ar + n);
-        for (i = 0; i < n; i++){
-            if (ar[i + (n - 1)] - ar[i] < mn){
-                mn = ar[i + (n - 1)] - ar[i];
+        for (i = 0; i < n-1; i++){
+            for ( j = 0; j < n-1; j++){
+                if(s[i][j]=='1' && s[i][j+1]=='0' && s[i+1][j]=='0')
+                    mx = 1;
             }
         }
-        cout<<n<<endl;
+        cout<<(mx? "NO\n" : "YES\n");
     }
     return 0;
 }
