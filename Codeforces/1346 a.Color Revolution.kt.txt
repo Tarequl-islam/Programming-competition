@@ -1,0 +1,12 @@
+import java.io.BufferedReader
+import java.io.InputStreamReader
+import kotlin.math.max
+
+fun main() {
+    val jin = BufferedReader(InputStreamReader(System.`in`))
+    for (c in 1..readLine()!!.toInt()) {
+        val (n, k) = jin.readLine().split(" ").map { it.toInt() }
+        var a = n/(1+k+(k*k)+(k*k*k))
+        println("${a} ${k*a} ${k*k*a} ${k*k*k*a}")
+    }
+}

@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 #define fo(i, n) for (i = 0; i < n; i++)
 #define ll long long
@@ -16,7 +16,8 @@ using namespace std;
 #define clr(x) memset(x, 0, sizeof(x))
 #define sortall(x) sort(all(x))
 #define tr(it, a) for (auto it = a.begin(); it != a.end(); it++)
-#define PI 3.1415926535897932384626
+#define PI 2*acos(0.0)
+#define M 998244353
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pl;
 typedef vector<int> vi;
@@ -25,14 +26,28 @@ typedef vector<pii> vpii;
 typedef vector<pl> vpl;
 typedef vector<vi> vvi;
 typedef vector<vl> vvl;
+long long mod(long long x){
+    return ((x % M + M) % M);
+}
+bool cmp(const pii &left, const pii &right){
+    return left.first > right.first || (left.first == right.first && left.second < right.second);
+}
 int main(){
+    // s 04.15 am - e 04.53am
     int t, cs = 1;
     cin >> t;
     while (t--){
-        ll n, a,b,c,d, i, j=1, k, mx = 0, mn = 0;
-        cin>>n>>k;
-        a = n/(1+k+(k*k)+(k*k*k));
-        cout<<a<<" "<<k*a<<" "<<k*k*a<<" "<<k*k*k*a<<endl;
+        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
+        cin>>n;
+        a = sqrt(n);
+        for ( i = 2; i < a+5; i++){
+            if(n%i==0){
+                mx=i;
+                break;
+            }
+        }
+        if(mx==0) mx=n;
+        cout<<n/mx<<" "<<n-(n/mx)<<endl;
     }
     return 0;
 }

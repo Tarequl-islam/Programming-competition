@@ -16,7 +16,8 @@ using namespace std;
 #define clr(x) memset(x, 0, sizeof(x))
 #define sortall(x) sort(all(x))
 #define tr(it, a) for (auto it = a.begin(); it != a.end(); it++)
-#define PI 3.1415926535897932384626
+#define PI 2*acos(0.0)
+#define M 998244353
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pl;
 typedef vector<int> vi;
@@ -25,39 +26,32 @@ typedef vector<pii> vpii;
 typedef vector<pl> vpl;
 typedef vector<vi> vvi;
 typedef vector<vl> vvl;
+long long mod(long long x){
+    return ((x % M + M) % M);
+}
 bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second);
 }
 int main(){
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
+    //s 6.50am - e 7.47am
     int t, cs = 1;
     cin >> t;
     while (t--){
-        int n, m, a, b, c, i, j, k, mx = 0, mn = 1e9;
-        int ar[205];
-        int bs[2000]={0};
-        cin>>n;
-        for ( i = 1; i <= n; i++)
-            si(ar[i]);
-        sort(ar+1, ar+n+1);
-        for ( i = 1; i <= n; i++){
-            if(bs[ar[i]]==0) bs[ar[i]]=1;
-            else{
-                a = b = ar[i];
-                while(bs[a]==1 && a>=1) a--;
-                while(bs[b]==1) b++;
-                if(ar[i]-a <= b-ar[i] && a!=0){
-                    mx += (ar[i]-a);
-                    bs[a]=1;
-                }
-                else{
-                    mx += (b-ar[i]);
-                    bs[b] = 1;
+        ll n, m, a, b=0, c=0, init, j, k, res = 0, mn = 0;
+        string s;
+        cin>>s;
+        for (int i = 0; i < s.size(); i++){
+            if (s[i] == '+')c++;
+            else {
+                c--;
+                if(c<mn){
+                    mn=c;
+                    res+= i+1;
                 }
             }
         }
-        cout<<mx<<endl;
+        if(mn>=0) cout<<s.length()<<endl;
+        else cout<<res+s.length()<<endl;
     }
     return 0;
 }

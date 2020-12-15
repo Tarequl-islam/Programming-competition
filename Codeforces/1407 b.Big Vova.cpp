@@ -20,6 +20,7 @@ using namespace std;
 #define M 998244353
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pl;
+typedef pair<int, pair<int, int>> pipii;
 typedef vector<int> vi;
 typedef vector<ll> vl;
 typedef vector<pii> vpii;
@@ -28,28 +29,42 @@ typedef vector<vi> vvi;
 typedef vector<vl> vvl;
 ll GCD(ll a, ll b) { return (a % b) == 0 ? b : GCD(b, a % b); }
 ll mod(ll x) { return ((x % M + M) % M); }
-bool cmp(const pii &left, const pii &right){
-    return left.first > right.first || (left.first == right.first && left.second < right.second);
+bool cmp(const pipii &left, const pipii &right){
+    return left.first > right.first;
 }
 int main(){
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
+    // s: 02.10am - e: 
     int t, cs = 1;
     cin >> t;
     while (t--){
-        int n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        int ar[100005];
+        int n, m, a, b, c, i, j, k=0, mx = 0, gc=0;
+        int ar[1005], p[1005]={0};
+        vi v;
         cin>>n;
         for (i = 0; i < n; i++){
             si(ar[i]);
+            if(ar[i]>ar[mx]) mx=i;
         }
-        sort(ar, ar + n);
-        for (i = 0; i < n; i++){
-            if (ar[i + (n - 1)] - ar[i] < mn){
-                mn = ar[i + (n - 1)] - ar[i];
+        gc=ar[mx];
+        ar[mx]=0;
+        v.pb(gc);
+        for (i = 1; i < n; i++){
+            mx=0;
+            for ( j = 0; j < n; j++){
+                if(ar[j]==0) continue;
+                b = GCD(gc, ar[j]);
+                if(b>mx){ 
+                    mx = b;
+                    k=j;
+                }
             }
+            v.pb(ar[k]);
+            ar[k]=0;
+            gc=mx;
         }
-        cout<<n<<endl;
+        for ( i = 0; i < v.size(); i++)
+            cout<<v[i]<<" ";
+        cout<<endl;
     }
     return 0;
 }
