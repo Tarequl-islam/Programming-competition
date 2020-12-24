@@ -31,25 +31,31 @@ ll mod(ll x) { return ((x % M + M) % M); }
 bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second);
 }
-int main(){ //s: 06.24am - e: 07.00am;
+int main(){ //s: 08.45am - e: 09.25am;
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
     int t, cs = 1;
     cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
+        ll n, m, a, b, c, i, j, k, mx = 0, mn = 0;
         ll ar[100005];
-        cin>>n;
+        cin>>n>>m;
         for (i = 0; i < n; i++){
             sl(ar[i]);
+            mx = max(mx, ar[i]);
         }
-        sort(ar, ar + n);
         for (i = 0; i < n; i++){
-            if (ar[i + (n - 1)] - ar[i] < mn){
-                mn = ar[i + (n - 1)] - ar[i];
+            if(ar[i]==m){
+                mn=1;
+                break;
             }
         }
-        cout<<n<<endl;
+        if(mn==1) cout<<1<<endl;
+        else{
+            if(mx>m) cout<<2<<endl;
+            else if(m%mx==0) cout<<m/mx<<endl;
+            else cout<<(m/mx)+1<<endl;
+        }
     }
     return 0;
 }

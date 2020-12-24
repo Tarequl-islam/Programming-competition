@@ -31,25 +31,22 @@ ll mod(ll x) { return ((x % M + M) % M); }
 bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second);
 }
-int main(){ //s: 06.24am - e: 07.00am;
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
+int main(){
     int t, cs = 1;
     cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        ll ar[100005];
-        cin>>n;
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
+        int n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
+        cin>>n>>m;
+        if(n>m) swap(n, m);
+        if(2*n<m) cout<<"NO\n";
+        else if(n==m){
+            if(m%3!=0) cout<<"NO\n";
+            else cout<<"YES\n";
         }
-        sort(ar, ar + n);
-        for (i = 0; i < n; i++){
-            if (ar[i + (n - 1)] - ar[i] < mn){
-                mn = ar[i + (n - 1)] - ar[i];
-            }
-        }
-        cout<<n<<endl;
+        else if(n%3==0 && m%3==0) cout<<"YES\n";
+        else if(2*(n%3)==(m%3) || (n%3)==(m%3)*2) cout<<"YES\n";
+        else cout<<"NO\n";
+        //cout<<((((a + b) % 3) == 0 && a * 2 >= b)? "YES\n" : "NO\n"); //simple solution
     }
     return 0;
 }

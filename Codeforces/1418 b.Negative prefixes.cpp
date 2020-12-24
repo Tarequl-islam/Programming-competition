@@ -32,7 +32,7 @@ bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second);
 }
 int main(){
-    // s: 06.24am - 07.00ame:
+    //s: 06.24am - e: 07.00am;
     int t, cs = 1;
     cin >> t;
     while (t--){

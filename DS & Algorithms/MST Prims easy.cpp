@@ -30,6 +30,7 @@ void Prims(){
         }
     }
     cout<<"minimum cost is: "<<ans<<endl;
+    cout<<"Shortest Path is: ";
     for (int i = 0; i < vec.size(); i++){
         cout<<vec[i]<<" ";
     }

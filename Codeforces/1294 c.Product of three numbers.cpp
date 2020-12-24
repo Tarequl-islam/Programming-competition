@@ -31,25 +31,34 @@ ll mod(ll x) { return ((x % M + M) % M); }
 bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second);
 }
-int main(){ //s: 06.24am - e: 07.00am;
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
+int main(){ //s: 11.20am - e: 12.08am;
     int t, cs = 1;
     cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
+        ll n, m, a, b, c, i, j, k, mx = 0, mn = 0;
         ll ar[100005];
         cin>>n;
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
-        }
-        sort(ar, ar + n);
-        for (i = 0; i < n; i++){
-            if (ar[i + (n - 1)] - ar[i] < mn){
-                mn = ar[i + (n - 1)] - ar[i];
+        for (i = 2; i*i <= n; i++){
+            if(n%i==0){
+                a = i;
+                n /= i;
+                mx = 1;
+                break;
             }
         }
-        cout<<n<<endl;
+        if(mx==1){
+            for ( i = 2; i*i < n; i++){
+                if(n%i==0 && i!=a && a/i!=a){
+                    b = i;
+                    c = n/i;
+                    mn =1;
+                    break;
+                }
+            }
+        }
+        if(mn==0) cout<<"NO\n";
+        else
+            cout<<"YES\n"<<a<<" "<<b<<" "<<c<<endl;
     }
     return 0;
 }
