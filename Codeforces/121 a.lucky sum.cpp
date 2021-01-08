@@ -31,14 +31,35 @@ ll mod(ll x) { return ((x % M + M) % M); }
 bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second);
 }
-int main(){ //s- , e-
-    ll n, m, a, b, c, i, j, k, mx = INT_MIN, mn = 1e18;
-    ll ar[100005];
-    cin>>n>>k;
-    for (i=0; i<n; i++){
-        cin>>a>>b;
-        mx = max(mx, (b>k? a-(b-k):a));
+
+int main(){ //s- 07.12, e-
+    ll n, l ,r , m, a, b, c,d, i, j, k, mx = 0, mn = 1e18;
+    cin>>l>>r;
+    bool start = false;
+    ll sum = 0;
+    ll old = l-1;
+    for (int len = 1; len < 15; ++len){
+        int tmp = 1<<len;
+        for (int i = 0; i < tmp; ++i){
+            ll ans = 0;
+            for (int m = len-1; m >= 0; --m){
+                ans *= 10;
+                if ((i&(1<<m))> 0)
+                    ans += 7;
+                else
+                    ans += 4;
+            }
+            if (ans >= l){
+                if (ans <= r)
+                    sum += (ans-old)*ans;
+                else{
+                    sum += (r-old)*ans;
+                    printf("%I64d\n", sum);
+                    return 0;
+                }
+                old = ans;
+            }
+        }
     }
-    cout<<mx<<endl;
     return 0;
 }

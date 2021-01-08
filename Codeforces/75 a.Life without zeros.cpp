@@ -31,14 +31,31 @@ ll mod(ll x) { return ((x % M + M) % M); }
 bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second);
 }
-int main(){ //s- , e-
-    ll n, m, a, b, c, i, j, k, mx = INT_MIN, mn = 1e18;
-    ll ar[100005];
-    cin>>n>>k;
-    for (i=0; i<n; i++){
-        cin>>a>>b;
-        mx = max(mx, (b>k? a-(b-k):a));
+int main(){
+    ll n=0, m=0, a, b, c,d, i, j, k=0, mx = INT_MIN, mn = 1e18;
+    cin>>a>>b;
+    c=a+b;
+    d = 0;
+    while(a>=10){
+        if(a%10!=0) n+= (a%10)*pow(10,d++);
+        a /= 10;
     }
-    cout<<mx<<endl;
+    n+= a*pow(10,d++);
+    d = 0;
+    while(b>=10){
+        if(b%10!=0) m+= (b%10)*pow(10,d++);
+        b /= 10;
+    }
+    m+= b*pow(10,d++);
+    d = 0;
+    while(c>=10){
+        if(c%10!=0) k+= (c%10)*pow(10,d++);
+        c /= 10;
+    }
+    k+= c*pow(10,d++);
+    j = n+m;
+    if(j==k)
+        cout<<"YES"<<endl;
+    else cout<<"NO"<<endl;
     return 0;
 }

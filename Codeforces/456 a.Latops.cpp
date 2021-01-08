@@ -32,13 +32,14 @@ bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second);
 }
 int main(){ //s- , e-
-    ll n, m, a, b, c, i, j, k, mx = INT_MIN, mn = 1e18;
-    ll ar[100005];
-    cin>>n>>k;
+    int n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
+    vpii v;
+    cin>>n;
     for (i=0; i<n; i++){
         cin>>a>>b;
-        mx = max(mx, (b>k? a-(b-k):a));
+        if(a!=b) mx=1;
+        v.pb(mp(a,b));
     }
-    cout<<mx<<endl;
+    cout<<(mx?"Happy Alex": "Poor Alex")<<endl;
     return 0;
 }
