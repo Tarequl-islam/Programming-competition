@@ -31,40 +31,20 @@ ll mod(ll x) { return ((x % M + M) % M); }
 bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second);
 }
-int p[105];
-int Find(int x){
-    if(p[x]==x) return x;
-    return p[x]=Find(p[x]);
-}
-int main(){ //s- , e-
+int main(){
     int n, m, a, b, c, i, j, k, mx = 0;
-    vi ar[120];
-    cin>>n>>m;
-    for ( i = 0; i <= m; i++) p[i]=i;
-    for (i=0; i<n; i++){
-        cin>>a;
-        if(a==0)mx++; 
-        else{ 
-            cin>>b;
-            c=b;
-            ar[i].push_back(b);
-        }
-        for ( j = 1; j < a; j++){
-            cin>>c;
-            ar[i].push_back(c);
-            p[p[c]]=p[b];
-            //p[Find(c)]=Find(b);
-        }
-    }
-    for ( i = 0; i < n; i++){
-        for ( j = 0; j < ar[i].size(); j++){
-            if(Find(c)!=Find(ar[i][j])){
-                mx++;
-                p[p[ar[i][j]]] = p[c];
-                //p[Find(ar[i][j])]=Find(c);
-            }
-        }
-    }
+    cin>>n>>k;
+    int ar[100020];
+    for (i = 0; i < n; i++)
+        si(ar[i]);
+    for(int i = 0; i < n && k && ar[i] < 0; i++){
+		ar[i] *= -1;
+		k--;
+	}
+    sort(ar, ar + n);
+	if(k & 1) ar[0]*= -1;
+    for ( i = 0; i < n; i++)
+        mx+=ar[i];
     cout<<mx<<endl;
     return 0;
 }
