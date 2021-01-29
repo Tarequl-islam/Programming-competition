@@ -40,10 +40,10 @@ int main(){
     FOR(i,1,n) cin >> a[i];
     FOR(i,1,n) s[i] = s[i-1] + a[i];
     FOR(i,m,n)
-    FOR(j,1,k){
-        f[i][j] = max(f[i][j], f[i-1][j]);
-        f[i][j] = max(f[i][j], f[i-m][j-1] + s[i] - s[i-m]);
-    }
+        FOR(j,1,k){
+            f[i][j] = max(f[i][j], f[i-1][j]);
+            f[i][j] = max(f[i][j], f[i-m][j-1] + s[i] - s[i-m]);
+        }
     cout << f[n][k];
     return 0;
 }
