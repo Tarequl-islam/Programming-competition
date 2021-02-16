@@ -31,40 +31,36 @@ ll mod(ll x) { return ((x % M + M) % M); }
 bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second);
 }
+
+int l=0, ar[105], p[105];
+void f(int s, int e, int n){
+    if(s>=e) return;
+    int mx=s;
+    for (int i = s; i < e; i++){
+        if(ar[i]>ar[mx]) mx=i;
+    }
+    p[mx]=n++;
+    f(s, mx, n);
+    f(mx+1, e, n);
+}
+
 int main(){ //s: 06.24am - e: 07.00am;
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
     int t, cs = 1;
     cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        cin>>a>>b;
-        n=a/b;
-        if(n*b!=a) n++;
-        if(b>a) cout<<1<<endl;
-        else if(a==b) cout<<2<<endl;
-        else{
-            if(b!=1){ 
-                m=a; k=0;
-                while(m>0){
-                    m/=b;
-                    k++;
-                }
-                mn=k;
-            }
-            for ( i = 1; i <= a; i++){
-                m=a; k=0;
-                while(m>0){
-                    m/=(b+i);
-                    k++;
-                }
-                if((k+i)<=mn){
-                    mn = k+i;
-                }
-                else break;
-            }
-            cout << mn << endl;
+        int n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
+        cin>>n;
+        for (i = 0; i < n; i++){
+            sl(ar[i]);
+            if(ar[i]>ar[mx]) mx=i;
         }
+        f(0, n, 0);
+        for (i = 0; i < n; i++){
+            cout<<p[i]<<" ";
+        }
+        cout<<endl;
     }
     return 0;
 }

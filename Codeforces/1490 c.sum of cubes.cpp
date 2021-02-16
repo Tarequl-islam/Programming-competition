@@ -35,36 +35,21 @@ int main(){ //s: 06.24am - e: 07.00am;
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
     int t, cs = 1;
+    vector<ll>v;
+    for (ll i = 1; i <= 10000; i++){ 
+        v.pb(i*i*i);
+    }
     cin >> t;
     while (t--){
         ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        cin>>a>>b;
-        n=a/b;
-        if(n*b!=a) n++;
-        if(b>a) cout<<1<<endl;
-        else if(a==b) cout<<2<<endl;
-        else{
-            if(b!=1){ 
-                m=a; k=0;
-                while(m>0){
-                    m/=b;
-                    k++;
-                }
-                mn=k;
+        cin>>n;
+        for (i = 1; i*i*i <= n; i++){
+            if(binary_search(v.begin(), v.end(), n-i*i*i)){
+                mx=1;
+                break;
             }
-            for ( i = 1; i <= a; i++){
-                m=a; k=0;
-                while(m>0){
-                    m/=(b+i);
-                    k++;
-                }
-                if((k+i)<=mn){
-                    mn = k+i;
-                }
-                else break;
-            }
-            cout << mn << endl;
         }
+        cout<<(mx?"YES":"NO")<<endl;
     }
     return 0;
 }

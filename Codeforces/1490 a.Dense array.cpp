@@ -38,33 +38,22 @@ int main(){ //s: 06.24am - e: 07.00am;
     cin >> t;
     while (t--){
         ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        cin>>a>>b;
-        n=a/b;
-        if(n*b!=a) n++;
-        if(b>a) cout<<1<<endl;
-        else if(a==b) cout<<2<<endl;
-        else{
-            if(b!=1){ 
-                m=a; k=0;
-                while(m>0){
-                    m/=b;
-                    k++;
-                }
-                mn=k;
-            }
-            for ( i = 1; i <= a; i++){
-                m=a; k=0;
-                while(m>0){
-                    m/=(b+i);
-                    k++;
-                }
-                if((k+i)<=mn){
-                    mn = k+i;
-                }
-                else break;
-            }
-            cout << mn << endl;
+        ll ar[105];
+        cin>>n;
+        for (i = 0; i < n; i++){
+            sl(ar[i]);
         }
+        for (i = 1; i < n; i++){
+            if(max(ar[i-1], ar[i])> 2*min(ar[i-1], ar[i])){
+                a = min(ar[i-1], ar[i]);
+                b= max(ar[i-1], ar[i]);
+                while(a*2<b){
+                    a*=2;
+                    mx++;
+                }
+            }
+        }
+        cout<<mx<<endl;
     }
     return 0;
 }
