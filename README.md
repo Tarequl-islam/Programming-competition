@@ -27,6 +27,7 @@
 * Blogs
     * Shafaet's planet
     * [নুন্যতম সংখ্যাতত্ত](http://www.progkriya.org/gyan/basic-number-theory.html) 
+    * [Bit masking](http://zobayer.blogspot.com/2009/12/bitwise-operations-in-cc-part-1.html)
     
    <details>
    <summary>Basic Technique</summary>  
