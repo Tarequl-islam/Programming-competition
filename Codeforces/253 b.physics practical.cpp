@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 #define fo(i, n) for (i = 0; i < n; i++)
 #define ll long long
@@ -16,9 +16,9 @@ using namespace std;
 #define clr(x) memset(x, 0, sizeof(x))
 #define sortall(x) sort(all(x))
 #define tr(it, a) for (auto it = a.begin(); it != a.end(); it++)
-#define PI 2*acos(0.0)
+#define PI 2 * acos(0.0)
 #define M 998244353
-#define N 100005
+#define INF 1000000
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pl;
 typedef vector<int> vi;
@@ -32,19 +32,31 @@ ll mod(ll x) { return ((x % M + M) % M); }
 bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second);
 }
-int main(){
-    ll n, a, b, i, j, mx=0;
-    ll ar[100005], p[100005]={0}, v[100005];
-    sl(n);
-    for(i=1; i<=n; i++){
-        sl(ar[i]);
+int ar[100005], n, p[5005];
+int mem[5005][5005];
+int dp(int i, int j){
+    if(i*2>=j) return 0;
+    if(i>=j) return INF;
+    if(mem[i][j]!=-1) return mem[i][j];
+    int ans= 0, a=1, b=1;
+    while(p[i+a]==0) a++;
+    while(p[j-b]==0) b++;
+    ans=min(dp(i+a, j)+p[i], dp(i, j-b)+p[j]);
+    return mem[i][j]=ans;
+}
+
+int main(){ 
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    int m, i, j, k, mx=0, mn=1e8, ans=0;
+    cin >> n;
+    for (i = 0; i < n; i++){
+        si(ar[i]);
         p[ar[i]]++;
+        mx=max(mx,ar[i]);
+        mn=min(mn,ar[i]);
     }
-    v[1]=p[1]; v[2]=p[2]*2;
-    v[2]=max(v[1], v[2]);
-    for ( i = 3; i <= 100000; i++){
-        v[i]=max(v[i-2]+p[i]*i, v[i-1]);
-    }
-    pl(v[100000]);
+    memset(mem, -1, sizeof(mem));
+    cout <<dp(mn, mx)<< endl;
     return 0;
 }

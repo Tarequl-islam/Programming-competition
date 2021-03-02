@@ -18,7 +18,6 @@ using namespace std;
 #define tr(it, a) for (auto it = a.begin(); it != a.end(); it++)
 #define PI 2*acos(0.0)
 #define M 998244353
-#define N 100005
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pl;
 typedef vector<int> vi;
@@ -32,19 +31,19 @@ ll mod(ll x) { return ((x % M + M) % M); }
 bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second);
 }
+int mem[5][4005];
+int n, ar[5];
+int dp(int i, int w){
+    if(w==0) return 0;
+    if(w<=0 || i==3) return -9000000;
+    if(mem[i][w]!=-1) return mem[i][w];
+    int ans =  max(dp(i, w-ar[i])+1, dp(i+1, w));
+    return mem[i][w]=ans;
+}
 int main(){
-    ll n, a, b, i, j, mx=0;
-    ll ar[100005], p[100005]={0}, v[100005];
-    sl(n);
-    for(i=1; i<=n; i++){
-        sl(ar[i]);
-        p[ar[i]]++;
-    }
-    v[1]=p[1]; v[2]=p[2]*2;
-    v[2]=max(v[1], v[2]);
-    for ( i = 3; i <= 100000; i++){
-        v[i]=max(v[i-2]+p[i]*i, v[i-1]);
-    }
-    pl(v[100000]);
+    int m, a, b, c, i, j, k, mx = 0, mn = 1e18;
+    cin>>n>>ar[0]>>ar[1]>>ar[2];
+    memset(mem, -1, sizeof(mem));
+    cout<<dp(0, n)<<endl;
     return 0;
 }

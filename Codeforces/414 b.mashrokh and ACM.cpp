@@ -17,8 +17,7 @@ using namespace std;
 #define sortall(x) sort(all(x))
 #define tr(it, a) for (auto it = a.begin(); it != a.end(); it++)
 #define PI 2*acos(0.0)
-#define M 998244353
-#define N 100005
+#define M 1000000007
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pl;
 typedef vector<int> vi;
@@ -32,19 +31,20 @@ ll mod(ll x) { return ((x % M + M) % M); }
 bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second);
 }
+ll n,k;
+ll dp[2020][2020];
 int main(){
-    ll n, a, b, i, j, mx=0;
-    ll ar[100005], p[100005]={0}, v[100005];
-    sl(n);
-    for(i=1; i<=n; i++){
-        sl(ar[i]);
-        p[ar[i]]++;
+    ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
+    cin>>n>>k;
+    for (i = 1; i <= n; i++) dp[1][i]=1;
+    for (i = 1; i < k; i++){ 
+        for ( j = 1; j <= n; j++){
+            for (int kk = j; kk <= n; kk+=j){
+                dp[i+1][kk] = (dp[i+1][kk]+dp[i][j])%M;
+            }
+        }
     }
-    v[1]=p[1]; v[2]=p[2]*2;
-    v[2]=max(v[1], v[2]);
-    for ( i = 3; i <= 100000; i++){
-        v[i]=max(v[i-2]+p[i]*i, v[i-1]);
-    }
-    pl(v[100000]);
+    for (i = 1; i <= n; i++) mx = (mx+dp[k][i])%M;
+    cout<<mx<<endl;
     return 0;
 }
