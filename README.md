@@ -10,7 +10,7 @@
         * Sorting and Searching
         * [Data Structure](#)
          <details>
-         <summary>Graph</summary>
+         <summary>Graph Algorithms</summary>
 
          - [Adjecency list & Matrix](https://www.youtube.com/watch?v=OswJO4BXfYU&list=PLgLCjVh3O6Sh88ebyMzRtREnncdX10WZD)
          - [BFS](https://www.youtube.com/watch?v=MNfkgLkBtdk&list=PLgLCjVh3O6Sh88ebyMzRtREnncdX10WZD&index=7)
@@ -20,6 +20,17 @@
          - [MST Kruskals](https://www.youtube.com/watch?v=YVkyxUCzI4c&list=PLL92cM93q1x2g6BDrISJ6xdGouA2my1a-&index=14)
          - [Dijkstra's](https://www.youtube.com/watch?v=uRgCXl5bmhI&list=PLKiZXxQe7OiAipuezfE6udFFAhd1gNUhL&index=12)
          - [Bellman Ford](https://www.youtube.com/watch?v=KudAWAMiQog)
+         
+         </details>
+         <details>
+         <summary>Dynamic Programming</summary>
+
+         - [Fibonacci DP](http://www.shafaetsplanet.com/?p=1022)
+         - [Shortest Path DP](http://www.shafaetsplanet.com/?p=1072)
+         - [LIS DP](http://www.shafaetsplanet.com/?p=1211)
+         - [LCS DP](http://www.shafaetsplanet.com/?p=3602)
+         - [Coin Change, knapsack DP](http://www.shafaetsplanet.com/?p=3638)
+         - [Subset Sum, Combinatorics, decision problem DP](http://www.shafaetsplanet.com/?p=3662)
          
          </details>
             
@@ -71,9 +82,13 @@
 
 #### সেম টপিক স্টিভেন হালিমের বই থেকে পড়ে রিলেটেড প্রব্লেম গুলো সল্ভ করতেছি।
 
-### শাফায়েতস ব্লগ থেকে DS, Graph শেষ করে দিবো। ১ Topics daily 
+#### শাফায়েতস ব্লগ থেকে DS, Graph শেষ করে দিবো। ১ Topics daily 
 
-## ১০ সেপ্টেম্বর থেকে লেভেল ধরে Codeforces এ প্রব্লেম সল্ভিং করে যাচ্ছি। কোন রকম আউটকাম আশা না করে ৩১ ডিসেম্বর পর্যন্ত চালাই যাবো। 
+#### ১০ সেপ্টেম্বর থেকে লেভেল ধরে Codeforces এ প্রব্লেম সল্ভিং করে যাচ্ছি। কোন রকম আউটকাম আশা না করে ৩১ ডিসেম্বর পর্যন্ত চালাই যাবো। 
+
+## শাফায়েতস ব্লগ থেকে Dynamic Programming ও leetcode, codeforces থেকে রিলেটেড প্রবলেম সল্ভ করবো। 
+
+## Codejam এর আগে ladder13 শেষ করবো ও DS&Algo ভাল ভাবে একবার রিভিশন দিবো। 
 
 <br>
 <br>
