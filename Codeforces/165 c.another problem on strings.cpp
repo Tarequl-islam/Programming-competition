@@ -34,26 +34,19 @@ ll mod(ll x) { return ((x % M + M) % M); }
 bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second);
 }
-
-int main(){ //s: 06.24am - e: 07.00am;
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
-    int t, cs = 1;
-    cin >> t;
-    while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        ll ar[100005];
-        cin>>n;
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
-        }
-        sort(ar, ar + n);
-        for (i = 0; i < n; i++){
-            if (ar[i + (n - 1)] - ar[i] < mn){
-                mn = ar[i + (n - 1)] - ar[i];
-            }
-        }
-        cout<<n<<endl;
+int main(){
+    ll n, m, a, b, c, i, j, k, sum=0, ans=0;
+    string s;
+    ll ar[1000005]={0};
+    cin>>k;
+    cin>>s;
+    n=s.length();
+    ar[0]=1;
+    for(i=0; i<n; i++){
+        if(s[i]=='1') sum++;
+        if(sum>=k) ans+=ar[sum-k];
+        ar[sum]++;
     }
+    cout<<ans<<endl;
     return 0;
 }

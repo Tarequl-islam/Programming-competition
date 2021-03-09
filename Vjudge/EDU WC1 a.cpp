@@ -35,25 +35,22 @@ bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second);
 }
 
-int main(){ //s: 06.24am - e: 07.00am;
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
-    int t, cs = 1;
-    cin >> t;
-    while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        ll ar[100005];
-        cin>>n;
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
-        }
-        sort(ar, ar + n);
-        for (i = 0; i < n; i++){
-            if (ar[i + (n - 1)] - ar[i] < mn){
-                mn = ar[i + (n - 1)] - ar[i];
-            }
-        }
-        cout<<n<<endl;
-    }
+int main(){
+     int n, q, a, b, mx=0;
+     int ar[n+5];
+     cin>>n>>q;
+     for(int i=0; i<n; i++) si(ar[i]);
+     sort(ar, ar+n, greater<>());
+     for(int i=0; i<q; i++){
+         si(a);
+         si(b);
+         if(a==1){
+             ar[b-1]=1-ar[b-1];
+         }
+         else if(a==2){
+             sort(ar, ar+n, greater<>());
+             cout<<ar[b-1]<<endl;
+         }
+     }
     return 0;
 }

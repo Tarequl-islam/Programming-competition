@@ -32,28 +32,30 @@ const int MAXN = 10 * 1000 * 1000 + 10, MAXV = 4;
 ll GCD(ll a, ll b) { return (a % b) == 0 ? b : GCD(b, a % b); }
 ll mod(ll x) { return ((x % M + M) % M); }
 bool cmp(const pii &left, const pii &right){
-    return left.first > right.first || (left.first == right.first && left.second < right.second);
+    return left.first > right.first || (left.first == right.first && left.second > right.second);
 }
 
-int main(){ //s: 06.24am - e: 07.00am;
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
-    int t, cs = 1;
-    cin >> t;
-    while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        ll ar[100005];
-        cin>>n;
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
-        }
-        sort(ar, ar + n);
-        for (i = 0; i < n; i++){
-            if (ar[i + (n - 1)] - ar[i] < mn){
-                mn = ar[i + (n - 1)] - ar[i];
-            }
-        }
-        cout<<n<<endl;
+int main(){
+    int n, m, a, b=-1, c, i, j, k, mx = 0, mn=1000000;
+    int ar[15];
+    vpii v;
+    cin>>n;
+    for (i = 1; i <= 9; i++){
+        si(ar[i]);
+        mn=min(mn, ar[i]);
     }
+    a=n/mn;
+    if(a<=0){
+        cout<<-1<<endl;
+        return 0;
+    }
+    while (a--){
+        for(i=9; i>=1; i--){
+            if(((n-ar[i])/mn>=a)&&(n-ar[i]>=0)) break;
+        }
+        n-=ar[i];
+        cout<<i;
+    }
+    cout<<endl;
     return 0;
 }

@@ -41,19 +41,50 @@ int main(){ //s: 06.24am - e: 07.00am;
     int t, cs = 1;
     cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        ll ar[100005];
-        cin>>n;
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
-        }
-        sort(ar, ar + n);
-        for (i = 0; i < n; i++){
-            if (ar[i + (n - 1)] - ar[i] < mn){
-                mn = ar[i + (n - 1)] - ar[i];
+        ll n, m, a=0, b=0, c=0,d, i, j, k, mx = 0, mn = 1e18;
+        string s, ss = "                                                                                                              ";
+        char aa, bb, cc;
+        cin>>s;
+        ss[0]='(';
+        aa=s[0];
+        for (i = 0; i < s.length(); i++){
+            if(s[i]==aa){ 
+                ss[i]='(';
+                a++;
             }
         }
-        cout<<n<<endl;
+        if(s[s.length()-1]==aa){
+            cout<<"NO"<<endl;
+        }
+        else{
+            bb=s[s.length()-1];
+            for (i = 0; i < s.length(); i++){
+                if(s[i]==bb){ 
+                    ss[i]=')';
+                    b++;
+                }
+            }
+            if(a>b) for(i=0; i<s.length(); i++) {
+                if(s[i]!=bb &&s[i]!=aa){ 
+                    ss[i]=')';
+                    c++;
+                }
+            }
+            else for(i=0; i<s.length(); i++) {
+                if(s[i]!=bb &&s[i]!=aa){ 
+                    ss[i]='(';
+                    c++;
+                }
+            }
+            stack<char> stk;
+            for(i=0; i<s.length(); i++){
+                if(ss[i]=='(') stk.push('(');
+                else if(stk.size()==0) mx=1;
+                else stk.pop();
+            }
+            if(mx==1 || stk.size()>0) cout<<"NO"<<endl;
+            else cout<<"YES"<<endl;
+        }
     }
     return 0;
 }
