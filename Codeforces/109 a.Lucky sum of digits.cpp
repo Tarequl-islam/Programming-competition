@@ -32,28 +32,26 @@ const int MAXN = 10 * 1000 * 1000 + 10, MAXV = 4;
 ll GCD(ll a, ll b) { return (a % b) == 0 ? b : GCD(b, a % b); }
 ll mod(ll x) { return ((x % M + M) % M); }
 bool cmp(const pii &left, const pii &right){
-    return left.first > right.first || (left.first == right.first && left.second < right.second); }
-//int find(int x) { return (p[x] == x ? x : p[x] = find(p[x])); } //p[find(i)]=find(j);
+    return left.first > right.first || (left.first == right.first && left.second < right.second);
+}
 
-int main(){ //s: 06.24am - e: 07.00am;
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
-    int t, cs = 1;
-    cin >> t;
-    while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        ll ar[100005];
-        cin>>n;
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
+int main(){ //s: 02.16am - e: 02.59am;
+    int n, m, a, b, c, i=1, j=0, k, mx = 0, mn = 1e8;
+    cin>>n;
+    a=n/7;
+    b=(n+3)/4;
+    for(i=0; i<=b; i++){
+        if((n-4*i)%7==0){
+            j=(n-4*i)/7;
+            mx=1;
+            break;
         }
-        sort(ar, ar + n);
-        for (i = 0; i < n; i++){
-            if (ar[i + (n - 1)] - ar[i] < mn){
-                mn = ar[i + (n - 1)] - ar[i];
-            }
-        }
-        cout<<n<<endl;
     }
+    if(mx){
+        while(i--) cout<<4;
+        while(j--) cout<<7;
+        cout<<endl;
+    }
+    else cout<<-1<<endl;
     return 0;
 }
