@@ -35,25 +35,30 @@ bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second); }
 //int find(int x) { return (p[x] == x ? x : p[x] = find(p[x])); } //p[find(i)]=find(j);
 
-int main(){ //s: 06.24am - e: 07.00am;
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
-    int t=1, cs = 1;
-    //cin >> t;
+int main(){
+    int t, cs = 1;
+    cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        ll ar[100005];
+        ll n, m, a, b, c, i, j, k, mx = 0, mn = 0;
+        ll ar[105];
         cin>>n;
         for (i = 0; i < n; i++){
             sl(ar[i]);
         }
-        sort(ar, ar + n);
-        for (i = 0; i < n; i++){
-            if (ar[i + (n - 1)] - ar[i] < mn){
-                mn = ar[i + (n - 1)] - ar[i];
+        for (i = 0; i < n-1; i++){
+            mn = i;
+            for(j=i; j<n; j++){
+                if(ar[j]<ar[mn]) mn=j;
             }
+            if(i!=mn){
+                mx+=1+mn-i;
+                for(j=i; j<i+(1+mn-i)/2; j++){
+                    swap(ar[j], ar[mn-(j-i)]);
+                }
+            }
+            else mx++;
         }
-        cout<<n<<endl;
+        cout<<"Case #"<<cs++<<": "<<mx<<endl;
     }
     return 0;
 }

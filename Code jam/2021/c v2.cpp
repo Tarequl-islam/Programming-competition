@@ -35,25 +35,39 @@ bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second); }
 //int find(int x) { return (p[x] == x ? x : p[x] = find(p[x])); } //p[find(i)]=find(j);
 
-int main(){ //s: 06.24am - e: 07.00am;
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
-    int t=1, cs = 1;
-    //cin >> t;
+int main(){
+    int t, cs = 1;
+    cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        ll ar[100005];
-        cin>>n;
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
-        }
-        sort(ar, ar + n);
-        for (i = 0; i < n; i++){
-            if (ar[i + (n - 1)] - ar[i] < mn){
-                mn = ar[i + (n - 1)] - ar[i];
+        ll n, m, a, b, c, i, j, k, mx = 0, mn = 0;
+        ll ar[105];
+        cin>>n>>c;
+        for (i = n; i >= 0; i-=2) mn+=i;
+        mn+= (n-n/2)-1;
+        if(c<n-1 || c > mn)
+            cout<<"Case #"<<cs++<<": IMPOSSIBLE"<<endl;
+        else{
+            for (i = 0; i <= n; i++) ar[i]=i;
+            for (i = 1; i < n; i++){
+                if(c >= (n-i)*2){
+                    for(j=i; j<i+(1+n-i)/2; j++){
+                        swap(ar[j], ar[n-(j-i)]);
+                    }
+                    c -= (1+n-i);
+                }
+                else if(c>n-i){
+                    k=(n-i)*2-c;
+                    for(j=k; j<k+(1+n-i)/2; j++){
+                        swap(ar[j], ar[n-i-(j-k)]);
+                    }
+                    break;
+                }
+                else break;
             }
+            cout<<"Case #"<<cs++<<": ";
+            for (i = 1; i <= n; i++) cout<<ar[i]<<" ";
+            cout<<endl;
         }
-        cout<<n<<endl;
     }
     return 0;
 }

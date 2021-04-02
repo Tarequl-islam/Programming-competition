@@ -38,22 +38,21 @@ bool cmp(const pii &left, const pii &right){
 int main(){ //s: 06.24am - e: 07.00am;
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
-    int t=1, cs = 1;
-    //cin >> t;
-    while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        ll ar[100005];
+    int t, cs = 1;
+    while (1){
+        ll n, m=1, a, b, c, i, j, k, mx = 0, mn = 0;
         cin>>n;
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
-        }
-        sort(ar, ar + n);
-        for (i = 0; i < n; i++){
-            if (ar[i + (n - 1)] - ar[i] < mn){
-                mn = ar[i + (n - 1)] - ar[i];
+        if(n==0) break;
+        i=0;
+        while(i<32){
+            if((1<<i&n)){
+                if(m) mx+= 1<<i;
+                else mn+= 1<<i;
+                m^=1;
             }
+            i++;
         }
-        cout<<n<<endl;
+        cout<<mx<<" "<<mn<<endl;
     }
     return 0;
 }

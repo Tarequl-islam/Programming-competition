@@ -12,7 +12,7 @@ using namespace std;
 #define pb push_back
 #define mp make_pair
 #define F first
-#define S second
+#define Ss second
 #define all(x) x.begin(), x.end()
 #define CLR(a, b) memset(a, b, sizeof(a))
 #define sortall(x) sort(all(x))
@@ -35,25 +35,27 @@ bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second); }
 //int find(int x) { return (p[x] == x ? x : p[x] = find(p[x])); } //p[find(i)]=find(j);
 
-int main(){ //s: 06.24am - e: 07.00am;
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
-    int t=1, cs = 1;
-    //cin >> t;
-    while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        ll ar[100005];
-        cin>>n;
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
-        }
-        sort(ar, ar + n);
-        for (i = 0; i < n; i++){
-            if (ar[i + (n - 1)] - ar[i] < mn){
-                mn = ar[i + (n - 1)] - ar[i];
-            }
-        }
-        cout<<n<<endl;
+int main(){ 
+    int N, P;
+    string S;
+    cin >> N >> P;
+    cin >> S;
+    int c = (N+1)/2;
+    if(P > c) P = N%2 ? c - (P-c) : c - (P-c-1);
+    P--;
+    int a = 0, b = N-1, l = 100005, r = -1, ans = 0;
+    while(a < b){
+        int req = min(abs(S[a]-S[b]), 26 - abs(S[a]-S[b]));
+        if(req) l = min(l,a), r = max(r,a);
+        ans += req;
+        a++, b--;
+    }
+    if(l>r) cout << "0";
+    else if(P > r) cout << ans + P-l;
+    else if(P < l) cout << ans + r-P;
+    else{
+        int best = min(P-l+r-l,r-P+r-l);
+        cout << ans + best;
     }
     return 0;
 }
