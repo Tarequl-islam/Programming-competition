@@ -73,7 +73,7 @@ void traverseList(){
 
     temp = head;
     while (temp != NULL){
-        printf("Data = %d\n", temp->data); // Print data of current node
+        printf("Data = %d, address = %d\n", temp->data, temp); // Print data of current node
         temp = temp->next;                 // Move to next node
     }
 }

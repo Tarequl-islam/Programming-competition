@@ -14,6 +14,7 @@ int main(){
     cout<<"Enter the limit: ";
     int n;
     cin >> n;
+    cout<<"First "<<n<<" Fibonacci numbers are: ";
     fibonacci(0, 1, n);
     return 0; 
 }
