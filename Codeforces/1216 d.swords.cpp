@@ -29,27 +29,39 @@ typedef vector<vi> vvi;
 typedef vector<vl> vvl;
 const int MOD = 1000 * 1000 * 1000 + 7;
 const int MAXN = 10 * 1000 * 1000 + 10, MAXV = 4;
-ll GCD(ll a, ll b) { return (a % b) == 0 ? b : GCD(b, a % b); }
+ll GCD(ll a, ll b) { 
+    while (a != 0 && b != 0) {
+		if (a > b) {
+			a %= b;
+		} else {
+			b %= a;
+		}
+	}
+	return max(a, b);
+}
 ll mod(ll x) { return ((x % M + M) % M); }
 bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second); }
 //int find(int x) { return (p[x] == x ? x : p[x] = find(p[x])); } //p[find(i)]=find(j);
 
-int main(){ //s: 06.24am - e: 07.00am;
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
+int main(){
     int t=1, cs = 1;
-    cin >> t;
+    //cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        cin>>n>>m;
-        a = abs(n-m);
-        b = min(n, m);
-        if(a==0) cout<<"0 0"<<endl;
-        else{
-            b = min(n%a, a- n%a);
-            cout<<a<<" "<<b<<endl;
+        ll n, m, a, b, c, i, j, k, mx = 0, mn = 0;
+        ll ar[200005];
+        cin>>n;
+        for (i = 0; i < n; i++){
+            sl(ar[i]);
+            mx = max(mx, ar[i]);
+            mn+=ar[i];
         }
+        a = mx-ar[0];
+        for (i = 1; i < n; i++){
+            a = GCD(mx-ar[i], a);
+        }
+        k = (mx*n)-mn;
+        cout << k / a << " " << a << endl;
     }
     return 0;
 }

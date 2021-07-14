@@ -35,21 +35,43 @@ bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second); }
 //int find(int x) { return (p[x] == x ? x : p[x] = find(p[x])); } //p[find(i)]=find(j);
 
-int main(){ //s: 06.24am - e: 07.00am;
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
+int main(){ 
     int t=1, cs = 1;
     cin >> t;
     while (t--){
         ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        cin>>n>>m;
-        a = abs(n-m);
-        b = min(n, m);
-        if(a==0) cout<<"0 0"<<endl;
-        else{
-            b = min(n%a, a- n%a);
-            cout<<a<<" "<<b<<endl;
+        string s, t, p;
+        cin>>s>>t>>p;
+        if(s.length()>t.length()){ cout<<"NO"<<endl;
+            continue;
         }
+        queue<char> q;
+        for (i = 0; i < s.length(); i++) q.push(s[i]);
+        int cnt[200]={0};
+        for (i = 0; i < p.length(); i++){
+            cnt[p[i]]++;
+        }
+        for (i = 0; i < t.length(); i++){
+            if(q.size()>0){
+                if(t[i]==q.front()) q.pop();
+                else{
+                    if(cnt[t[i]]>0) cnt[t[i]]--;
+                    else{
+                        mx=1;
+                    }
+                }
+            }
+            else{
+                if(cnt[t[i]]>0) cnt[t[i]]--;
+                else{
+                    mx=1;
+                }
+            }
+            
+        }
+        if(!q.empty() || mx)
+            cout<<"NO"<<endl;
+        else cout<<"YES"<<endl;
     }
     return 0;
 }

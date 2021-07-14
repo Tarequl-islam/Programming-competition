@@ -39,16 +39,20 @@ int main(){ //s: 06.24am - e: 07.00am;
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
     int t=1, cs = 1;
-    cin >> t;
+    //cin >> t;
     while (t--){
         ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        cin>>n>>m;
-        a = abs(n-m);
-        b = min(n, m);
-        if(a==0) cout<<"0 0"<<endl;
-        else{
-            b = min(n%a, a- n%a);
-            cout<<a<<" "<<b<<endl;
+        string s;
+        cin>>s;
+        char mc = s[0];
+        for (i = 0; i < s.length(); i++){
+            if(mc < s[i]){
+                printf("Ann\n");
+            }
+            else{
+                printf("Mike\n");
+                mc = s[i];
+            }
         }
     }
     return 0;

@@ -35,21 +35,29 @@ bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second); }
 //int find(int x) { return (p[x] == x ? x : p[x] = find(p[x])); } //p[find(i)]=find(j);
 
-int main(){ //s: 06.24am - e: 07.00am;
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
+int main(){
     int t=1, cs = 1;
-    cin >> t;
+    //cin >> t;       2 2 3 1 2
     while (t--){
         ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        cin>>n>>m;
-        a = abs(n-m);
-        b = min(n, m);
-        if(a==0) cout<<"0 0"<<endl;
-        else{
-            b = min(n%a, a- n%a);
-            cout<<a<<" "<<b<<endl;
+        ll ar[1005][1005];
+        cin>>n;
+        for (i = 0; i < n; i++){
+            for(j=0; j<n; j++)
+                sl(ar[i][j]);
         }
+        ll xy = ar[0][1];
+        ll yz = ar[0][2];
+        ll xz = ar[1][2];
+        a = xy*yz / xz;
+        b = sqrtl(a);
+        while((b+1)*(b+1) <= a) b++;
+        while((b*b) > a) b--;
+        cout<<b<<" ";
+        for (i = 1; i < n; i++){
+            printf("%lld ", ar[0][i]/b);
+        }
+
     }
     return 0;
 }

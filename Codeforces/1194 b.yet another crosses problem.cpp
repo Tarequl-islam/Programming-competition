@@ -35,21 +35,25 @@ bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second); }
 //int find(int x) { return (p[x] == x ? x : p[x] = find(p[x])); } //p[find(i)]=find(j);
 
-int main(){ //s: 06.24am - e: 07.00am;
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
+int main(){
     int t=1, cs = 1;
     cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        cin>>n>>m;
-        a = abs(n-m);
-        b = min(n, m);
-        if(a==0) cout<<"0 0"<<endl;
-        else{
-            b = min(n%a, a- n%a);
-            cout<<a<<" "<<b<<endl;
-        }
+        int n, m, a, b, c, d, i, j, k, mx = 0, mx2 = 0;
+		cin >> n >> m;
+		vector<string> s(n);
+		fo(i, n)
+			cin >> s[i];
+		vector<int> cntn(n), cntm(m);
+		fo(i, n) fo(j, m){
+			cntn[i] += (s[i][j] == '.');
+			cntm[j] += (s[i][j] == '.');
+		}
+		int ans = n + m;
+		fo(i, n) fo(j, m){
+			ans = min(ans, cntn[i] + cntm[j] - (s[i][j] == '.'));
+		}
+		cout << ans << "\n";
     }
     return 0;
 }

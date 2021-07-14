@@ -41,15 +41,35 @@ int main(){ //s: 06.24am - e: 07.00am;
     int t=1, cs = 1;
     cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        cin>>n>>m;
-        a = abs(n-m);
-        b = min(n, m);
-        if(a==0) cout<<"0 0"<<endl;
-        else{
-            b = min(n%a, a- n%a);
-            cout<<a<<" "<<b<<endl;
+        ll n, m, a, b, c, d, i, j, k, mx = 0, mn = 0, ans;
+        ll ar[200005];
+        map<ll, ll>s;
+        cin>>n>>k>>d;
+        for (i = 0; i < n; i++){
+            sl(ar[i]);
         }
+        for (i = 0; i < d; i++){
+            if(s.count(ar[i])==0){
+                s.insert(mp(ar[i], 1));
+                mn++;
+            }
+            else s[ar[i]]++;
+        }
+        ans = mn;
+        for (i = d; i < n; i++){
+            if(s.count(ar[i])==0){
+                s.insert(mp(ar[i],1));
+                mn++;
+            }
+            else s[ar[i]]++;
+            if(s[ar[i-d]]<=1){
+                mn--;
+                s.erase(ar[i-d]);
+            }
+            else s[ar[i-d]]--;
+            ans = min(ans, mn);
+        }
+        cout<<ans<<endl;
     }
     return 0;
 }

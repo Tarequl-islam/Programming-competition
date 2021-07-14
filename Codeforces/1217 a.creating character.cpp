@@ -42,14 +42,12 @@ int main(){ //s: 06.24am - e: 07.00am;
     cin >> t;
     while (t--){
         ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        cin>>n>>m;
-        a = abs(n-m);
-        b = min(n, m);
-        if(a==0) cout<<"0 0"<<endl;
-        else{
-            b = min(n%a, a- n%a);
-            cout<<a<<" "<<b<<endl;
-        }
+        cin>>a>>b>>c;
+        a+=c;
+        n = a - b;
+        m = (n+1)/2;
+        if(m<0) m=0;
+        cout<<min(m, c+1)<<endl;
     }
     return 0;
 }

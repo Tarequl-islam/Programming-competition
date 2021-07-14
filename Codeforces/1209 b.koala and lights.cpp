@@ -34,22 +34,39 @@ ll mod(ll x) { return ((x % M + M) % M); }
 bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second); }
 //int find(int x) { return (p[x] == x ? x : p[x] = find(p[x])); } //p[find(i)]=find(j);
-
-int main(){ //s: 06.24am - e: 07.00am;
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
+ll p[105];
+int main(){
     int t=1, cs = 1;
-    cin >> t;
+    //cin >> t;
     while (t--){
         ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        cin>>n>>m;
-        a = abs(n-m);
-        b = min(n, m);
-        if(a==0) cout<<"0 0"<<endl;
-        else{
-            b = min(n%a, a- n%a);
-            cout<<a<<" "<<b<<endl;
+        string s;
+        cin>>n;
+        cin>>s;
+        vpl v;
+        v.pb(mp(0,0));
+        for (i = 0; i < n; i++){
+            cin>>a>>b;
+            v.pb(mp(a, b));
+            if(s[i]=='1') p[i+1]=1;
+            if(s[i]=='1') mx++;
         }
+
+        for(i=1; i<= 10000; i++){
+            for(j=1; j<=n; j++){
+                if(i==v[j].second){
+                    if(p[j]==1) p[j]=0;
+                    else p[j]=1;
+                    v[j].second+=v[j].first;
+                }
+            }
+            ll tmp = 0;
+            for(j=1; j<=n; j++){
+                if(p[j]==1) tmp++;
+            }
+            mx = max(mx, tmp);
+        }
+        cout<<mx<<endl;
     }
     return 0;
 }
