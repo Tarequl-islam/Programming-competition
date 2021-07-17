@@ -35,7 +35,7 @@ bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second); }
 //int find(int x) { return (p[x] == x ? x : p[x] = find(p[x])); } //p[find(i)]=find(j);
 
-int main(){ //s: 06.24am - e: 07.00am;
+int main(){ //s: 0.0 am - e: 0.00am;
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
     int t=1, cs = 1;
@@ -49,8 +49,8 @@ int main(){ //s: 06.24am - e: 07.00am;
         }
         sort(ar, ar + n);
         for (i = 0; i < n; i++){
-            if (ar[i + (n - 1)] - ar[i] < mn){
-                mn = ar[i + (n - 1)] - ar[i];
+            if (ar[i] < mn){
+                mn = ar[i];
             }
         }
         cout<<n<<endl;

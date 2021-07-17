@@ -31,20 +31,24 @@ ll mod(ll x) { return ((x % M + M) % M); }
 bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second);
 }
-ll n,k;
+
+ll N,K;
 ll dp[2020][2020];
-int main(){
-    ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-    cin>>n>>k;
-    for (i = 1; i <= n; i++) dp[1][i]=1;
-    for (i = 1; i < k; i++){ 
-        for ( j = 1; j <= n; j++){
-            for (int kk = j; kk <= n; kk+=j){
-                dp[i+1][kk] = (dp[i+1][kk]+dp[i][j])%M;
-            }
-        }
+ll cal(ll kk, ll i){
+    if(kk<=0) return 1;
+    else if(dp[i][kk]!=-1) return dp[i][kk];
+    ll ans =0;
+    for(ll j = i; j<=N; j+=i){
+        if(j%i==0) ans += cal(kk-1, j);
+        ans %= M;
     }
-    for (i = 1; i <= n; i++) mx = (mx+dp[k][i])%M;
+    return dp[i][kk] = ans;
+}
+int main(){
+    ll m, a, b, c, i, j, mx = 0, mn = 1e18;
+    cin>>N>>K;
+    memset(dp, -1, sizeof(dp));
+    mx = cal(K, 1);
     cout<<mx<<endl;
     return 0;
 }

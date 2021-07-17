@@ -35,36 +35,21 @@ bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second); }
 //int find(int x) { return (p[x] == x ? x : p[x] = find(p[x])); } //p[find(i)]=find(j);
 
-int main(){ //s: 11.02pm - e: 11.44pm;
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
+int main(){ //s: 05.40am - e: 0.00am;
     int t=1, cs = 1;
-    cin >> t;
+    //cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j=0, k, mx = 0, mn = 1e18;
-        cin>>n>>k;
-        ll ar[n+5], br[k+5];
+        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
+        ll ar[200005];
+        cin>>n>>m;
         for (i = 0; i < n; i++) sl(ar[i]);
-        for (i = 0; i < k; i++) sl(br[i]);
-
-        sort(ar, ar + n, greater<int>());
-        sort(br, br + k);
-        stack<int> v;
-        for (i = 0; i < k; i++){
-            if(br[i]==1) mx+= ar[j++]*2;
-            else if(br[i]==2) mx+= ar[j++]+ar[j++];
-            else v.push(ar[j++]);
+        for (i = 1; i < n; i++){
+            mx = __gcd(mx, abs(ar[i]-ar[i-1]));
         }
-        j = n-1;
-        k--;
-        a = v.size();
-        for (i = 0; i < a; i++){
-            int tmp = br[k--]-1;
-            mx+= (v.top()+ar[j]);
-            v.pop();
-            while(tmp--) j--;
+        for (i = 0; i < m; i++){
+            sl(a);
+            printf("%lld ", __gcd(mx, a+ar[0]));
         }
-        cout<<mx<<endl;
     }
     return 0;
 }
