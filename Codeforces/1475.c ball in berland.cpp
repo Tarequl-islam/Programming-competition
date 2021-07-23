@@ -28,49 +28,33 @@ typedef vector<pl> vpl;
 typedef vector<vi> vvi;
 typedef vector<vl> vvl;
 const int MOD = 1000 * 1000 * 1000 + 7;
-const int MAXN = 10 * 1000 * 1000 + 10, MAXV = 4;
+const int MAXN = 200 * 1000 + 10, MAXV = 4;
 ll GCD(ll a, ll b) { return (a % b) == 0 ? b : GCD(b, a % b); }
 ll mod(ll x) { return ((x % M + M) % M); }
 bool cmp(const pii &left, const pii &right){
-    return left.first > right.first || (left.first == right.first && left.second < right.second);
-}
+    return left.first > right.first || (left.first == right.first && left.second < right.second); }
+//int find(int x) { return (p[x] == x ? x : p[x] = find(p[x])); } //p[find(i)]=find(j);
 
-int main(){ //s: 06.24am - e: 07.00am;
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
-    int t, cs = 1;
+int main(){ //s: 0.0 am - e: 0.00am;
+    int t=1, cs = 1;
     cin >> t;
     while (t--){
-        ll n, m, u, r, d, l, i, j, k, mx = 0, mn = 1e18;
-        cin>>n>>u>>r>>d>>l;
-        for(i=0; i<16; i++){
-            ll rU=u;
-            ll rR=r;
-            ll rD=d;
-            ll rL=l;
-            if(i&1) {
-                rU--;
-                rR--;
-            }
-            if(i&2) {
-                rR--;
-                rD--;
-            }
-            if(i&4) {
-                rD--;
-                rL--;
-            }
-            if(i&8) {
-                rL--;
-                rU--;
-            }
-            if(min({rU, rR, rD, rL})>=0 && max({rU,rR,rD,rL})<=n-2){
-                cout<<"YES"<<endl;
-                mx=1;
-                break;
-            }
+        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
+        ll ar[MAXN], br[MAXN];
+        int ap[MAXN]={0}, bp[MAXN]={0};
+        cin>>a>>b>>k;
+        for (i = 1; i <= k; i++){
+            sl(ar[i]);
+            ap[ar[i]]++;
         }
-        if(mx==0) cout<<"NO"<<endl;
+        for (i = 1; i <= k; i++){
+            sl(br[i]);
+            bp[br[i]]++;
+        }
+        for (i = 1; i <= k; i++){
+            mx+= k+1- ap[ar[i]]-bp[br[i]];
+        }
+        cout<<mx/2<<endl;
     }
     return 0;
 }

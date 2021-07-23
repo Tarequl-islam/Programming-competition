@@ -32,45 +32,30 @@ const int MAXN = 10 * 1000 * 1000 + 10, MAXV = 4;
 ll GCD(ll a, ll b) { return (a % b) == 0 ? b : GCD(b, a % b); }
 ll mod(ll x) { return ((x % M + M) % M); }
 bool cmp(const pii &left, const pii &right){
-    return left.first > right.first || (left.first == right.first && left.second < right.second);
-}
+    return left.first > right.first || (left.first == right.first && left.second < right.second); }
+//int find(int x) { return (p[x] == x ? x : p[x] = find(p[x])); } //p[find(i)]=find(j);
 
-int main(){ //s: 06.24am - e: 07.00am;
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
-    int t, cs = 1;
-    cin >> t;
-    while (t--){
-        ll n, m, u, r, d, l, i, j, k, mx = 0, mn = 1e18;
-        cin>>n>>u>>r>>d>>l;
-        for(i=0; i<16; i++){
-            ll rU=u;
-            ll rR=r;
-            ll rD=d;
-            ll rL=l;
-            if(i&1) {
-                rU--;
-                rR--;
-            }
-            if(i&2) {
-                rR--;
-                rD--;
-            }
-            if(i&4) {
-                rD--;
-                rL--;
-            }
-            if(i&8) {
-                rL--;
-                rU--;
-            }
-            if(min({rU, rR, rD, rL})>=0 && max({rU,rR,rD,rL})<=n-2){
-                cout<<"YES"<<endl;
-                mx=1;
-                break;
-            }
-        }
-        if(mx==0) cout<<"NO"<<endl;
+char s[505][505]; 
+ll dp[505][505]; 
+int main(){ //s: 0.0 am - e: 0.00am; 
+    int t=1, cs = 1; 
+    cin >> t; 
+    while (t--){ 
+        ll n, m, a, b, c, i, j, k, mx = 0, ans = 0; 
+        cin>>n>>m;
+        for(ll i=0;i<=n+1;i++) for(ll j=0;j<=m+1;j++) s[i][j]='.',dp[i][j]=0; 
+        for(ll i=1;i<=n;i++) for(ll j=1;j<=m;j++) cin>>s[i][j]; 
+        for(ll i=n;i>0;i--){ 
+            for(ll j=1;j<=m;j++){ 
+                if(s[i][j]=='*'){ 
+                    dp[i][j]=min({dp[i+1][j-1], dp[i+1][j], dp[i+1][j+1]})+1; 
+                    ans+=dp[i][j]; 
+                } 
+                else dp[i][j]=0; 
+            } 
+        } 
+        
+        cout<<ans<<endl;
     }
     return 0;
 }

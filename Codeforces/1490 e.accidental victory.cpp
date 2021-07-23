@@ -32,45 +32,38 @@ const int MAXN = 10 * 1000 * 1000 + 10, MAXV = 4;
 ll GCD(ll a, ll b) { return (a % b) == 0 ? b : GCD(b, a % b); }
 ll mod(ll x) { return ((x % M + M) % M); }
 bool cmp(const pii &left, const pii &right){
-    return left.first > right.first || (left.first == right.first && left.second < right.second);
-}
+    return left.first > right.first || (left.first == right.first && left.second < right.second); }
+//int find(int x) { return (p[x] == x ? x : p[x] = find(p[x])); } //p[find(i)]=find(j);
 
-int main(){ //s: 06.24am - e: 07.00am;
+int main(){ //s: 0.0 am - e: 0.00am;
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
-    int t, cs = 1;
+    int t=1, cs = 1;
     cin >> t;
     while (t--){
-        ll n, m, u, r, d, l, i, j, k, mx = 0, mn = 1e18;
-        cin>>n>>u>>r>>d>>l;
-        for(i=0; i<16; i++){
-            ll rU=u;
-            ll rR=r;
-            ll rD=d;
-            ll rL=l;
-            if(i&1) {
-                rU--;
-                rR--;
-            }
-            if(i&2) {
-                rR--;
-                rD--;
-            }
-            if(i&4) {
-                rD--;
-                rL--;
-            }
-            if(i&8) {
-                rL--;
-                rU--;
-            }
-            if(min({rU, rR, rD, rL})>=0 && max({rU,rR,rD,rL})<=n-2){
-                cout<<"YES"<<endl;
-                mx=1;
-                break;
-            }
+        ll n, m, a, b, c, i, j, k, mx = 0, ans = 0;
+        vpl v;
+        set<ll>s;
+        set<ll> :: iterator it;
+        cin>>n;
+        for (i = 0; i < n; i++){
+            sl(a);
+            v.pb(mp(a, i+1));
         }
-        if(mx==0) cout<<"NO"<<endl;
+        sort(v.begin(), v.end());
+        for (i = 0; i < n-1; i++){
+            if (v[i].first+mx >= v[i+1].first){
+                s.insert(v[i].second);
+            }
+            else s.clear();
+            mx+=v[i].first;
+        }
+        s.insert(v[n-1].second);
+        cout<<s.size()<<endl;
+        for(it = s.begin(); it!=s.end(); it++){
+            printf("%lld ", *it);
+        }
+        cout<<endl;
     }
     return 0;
 }

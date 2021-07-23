@@ -2,7 +2,7 @@
 using namespace std;
 #define fo(i, n) for (i = 0; i < n; i++)
 #define FOR(i,a,b) for (int i = (a); i < (b); ++i)
-#define ll long long
+#define ll int
 #define si(x) scanf("%d", &x)
 #define sl(x) scanf("%lld", &x)
 #define ss(s) scanf("%s", s)
@@ -32,45 +32,37 @@ const int MAXN = 10 * 1000 * 1000 + 10, MAXV = 4;
 ll GCD(ll a, ll b) { return (a % b) == 0 ? b : GCD(b, a % b); }
 ll mod(ll x) { return ((x % M + M) % M); }
 bool cmp(const pii &left, const pii &right){
-    return left.first > right.first || (left.first == right.first && left.second < right.second);
-}
+    return left.first > right.first || (left.first == right.first && left.second < right.second); }
+//int find(int x) { return (p[x] == x ? x : p[x] = find(p[x])); } //p[find(i)]=find(j);
 
-int main(){ //s: 06.24am - e: 07.00am;
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
-    int t, cs = 1;
+int main(){ //s: 0.0 am - e: 0.00am;
+    int t=1, cs = 1;
     cin >> t;
+    cs=t;
+    vpl v;
+    priority_queue<pii> m;
+    multimap<ll, ll, greater<ll>> :: iterator it;
+    ll n, a, b, c, idx=0, j, k, mx = 0, mn = 1e8;
     while (t--){
-        ll n, m, u, r, d, l, i, j, k, mx = 0, mn = 1e18;
-        cin>>n>>u>>r>>d>>l;
-        for(i=0; i<16; i++){
-            ll rU=u;
-            ll rR=r;
-            ll rD=d;
-            ll rL=l;
-            if(i&1) {
-                rU--;
-                rR--;
-            }
-            if(i&2) {
-                rR--;
-                rD--;
-            }
-            if(i&4) {
-                rD--;
-                rL--;
-            }
-            if(i&8) {
-                rL--;
-                rU--;
-            }
-            if(min({rU, rR, rD, rL})>=0 && max({rU,rR,rD,rL})<=n-2){
-                cout<<"YES"<<endl;
-                mx=1;
-                break;
-            }
+        cin>>n;
+        if(n==1){
+            cin>>a;
+            v.pb(mp(a, 0));
+            m.push(mp(a, -(v.size()-1)));
         }
-        if(mx==0) cout<<"NO"<<endl;
+        else if(n==2){
+            while(v[idx].second==1) idx++;
+            v[idx].second=1;
+            idx++;
+            cout<<idx<<" ";
+        }
+        else if(n==3){
+            while (v[-m.top().second].second)
+                m.pop();
+            v[-m.top().second].second = 1;
+            cout<<-m.top().second+1<<" ";
+            m.pop();
+        }
     }
     return 0;
 }

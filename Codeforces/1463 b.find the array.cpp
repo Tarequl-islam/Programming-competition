@@ -32,45 +32,34 @@ const int MAXN = 10 * 1000 * 1000 + 10, MAXV = 4;
 ll GCD(ll a, ll b) { return (a % b) == 0 ? b : GCD(b, a % b); }
 ll mod(ll x) { return ((x % M + M) % M); }
 bool cmp(const pii &left, const pii &right){
-    return left.first > right.first || (left.first == right.first && left.second < right.second);
-}
+    return left.first > right.first || (left.first == right.first && left.second < right.second); }
+//int find(int x) { return (p[x] == x ? x : p[x] = find(p[x])); } //p[find(i)]=find(j);
 
-int main(){ //s: 06.24am - e: 07.00am;
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
-    int t, cs = 1;
+int main(){ //s: 0.0 am - e: 0.00am;
+    int t=1, cs = 1;
     cin >> t;
     while (t--){
-        ll n, m, u, r, d, l, i, j, k, mx = 0, mn = 1e18;
-        cin>>n>>u>>r>>d>>l;
-        for(i=0; i<16; i++){
-            ll rU=u;
-            ll rR=r;
-            ll rD=d;
-            ll rL=l;
-            if(i&1) {
-                rU--;
-                rR--;
-            }
-            if(i&2) {
-                rR--;
-                rD--;
-            }
-            if(i&4) {
-                rD--;
-                rL--;
-            }
-            if(i&8) {
-                rL--;
-                rU--;
-            }
-            if(min({rU, rR, rD, rL})>=0 && max({rU,rR,rD,rL})<=n-2){
-                cout<<"YES"<<endl;
-                mx=1;
-                break;
+        ll n, m, a, b, c, i, j, k, mx = 0, mn = 0, mn2=0;
+        ll ar[105];
+        cin>>n;
+        for (i = 0; i < n; i++){
+            sl(ar[i]);
+            if(i%2==0) mn+=ar[i]-1;
+            else mn2+=ar[i]-1;
+        }
+        if(mn < mn2){
+            for (i = 0; i < n; i++){
+                if(i%2==0) cout<<1<<" ";
+                else cout<<ar[i]<<" ";
             }
         }
-        if(mx==0) cout<<"NO"<<endl;
+        else{
+            for (i = 0; i < n; i++){
+                if(i%2==1) cout<<1<<" ";
+                else cout<<ar[i]<<" ";
+            }
+        }
+        cout<<endl;
     }
     return 0;
 }
