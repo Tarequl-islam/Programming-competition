@@ -28,7 +28,7 @@ typedef vector<pl> vpl;
 typedef vector<vi> vvi;
 typedef vector<vl> vvl;
 const int MOD = 1000 * 1000 * 1000 + 7;
-const int MAXN = 10 * 1000 * 1000 + 10, MAXV = 4;
+const int MAXN = 10 * 1000 * 1000 + 10, MAXV = 100005;
 ll GCD(ll a, ll b) { return (a % b) == 0 ? b : GCD(b, a % b); }
 ll mod(ll x) { return ((x % M + M) % M); }
 bool cmp(const pii &left, const pii &right){
@@ -37,38 +37,34 @@ bool cmp(const pii &left, const pii &right){
 
 int main(){ //s: 0.0 am - e: 0.00am;
     int t=1, cs = 1;
-    //cin >> t;
+    cin >> t;
     while (t--){
-        ll n;
-        cin >> n;
-        vector<ll> mins, maxs;
-        ll al = 0;
-        for (ll i = 0; i < n; ++i) {
-            ll m, c, cmin = INT_MAX, cmax = 0;
-            cin >> m;
-            bool ok = 0;
-            for (ll j = 0; j < m; ++j) {
-                cin >> c;
-                if (c > cmin) ok = true;
-                cmin = min(cmin, c);
-                cmax = max(cmax, c);
-            }
-            al += ok;
-            if (!ok) {
-                mins.push_back(cmin);
-                maxs.push_back(cmax);
-            }
+        ll n, m, a, b, c=0, i, j=0, k=0, mx = 0, mn = 0, ans=0;
+        ll ar[MAXV],br[MAXV], p[MAXV]={0}; 
+        cin>>n>>m;
+        for (i = 0; i < n; i++){
+            sl(ar[i]);
         }
-        sort(mins.begin(), mins.end());
-        sort(maxs.begin(), maxs.end());
-        ll answ = 2 * al * n - al * al;
-        n = mins.size();
-        for (ll i = 0; i < n; ++i) {
-            ll c = mins[i];
-            ll ni = lower_bound(maxs.begin(), maxs.end(), c + 1) - maxs.begin();
-            answ += n - ni;
+        for(i=0; i<m; i++){
+            sl(br[i]);
+            p[br[i]]=1;
         }
-        cout << answ;
+        for(i=0; i<m; i++){
+            if(p[br[i]]==0){
+                mx++;
+                mn++;
+                continue;
+            }
+            while (ar[j] !=br[i]){
+                if(p[ar[j]]){
+                    p[ar[j]]=0;
+                }
+                j++;
+            }
+            mx+= (j-mn)*2 + 1;
+            mn++; p[ar[j]]=0; j++;
+        }
+        cout<<mx<<endl;
     }
     return 0;
 }

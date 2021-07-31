@@ -37,38 +37,29 @@ bool cmp(const pii &left, const pii &right){
 
 int main(){ //s: 0.0 am - e: 0.00am;
     int t=1, cs = 1;
-    //cin >> t;
+    cin >> t;
     while (t--){
-        ll n;
-        cin >> n;
-        vector<ll> mins, maxs;
-        ll al = 0;
-        for (ll i = 0; i < n; ++i) {
-            ll m, c, cmin = INT_MAX, cmax = 0;
-            cin >> m;
-            bool ok = 0;
-            for (ll j = 0; j < m; ++j) {
-                cin >> c;
-                if (c > cmin) ok = true;
-                cmin = min(cmin, c);
-                cmax = max(cmax, c);
-            }
-            al += ok;
-            if (!ok) {
-                mins.push_back(cmin);
-                maxs.push_back(cmax);
-            }
+        ll n, m, a, b, c=0, i, j, k, mx = 0, mn = 0, ans=0;
+        ll ar[200005]={0};
+        cin>>n>>m>>k;
+        for (i = 0; i < n; i++){
+            sl(ar[i]);
         }
-        sort(mins.begin(), mins.end());
-        sort(maxs.begin(), maxs.end());
-        ll answ = 2 * al * n - al * al;
-        n = mins.size();
-        for (ll i = 0; i < n; ++i) {
-            ll c = mins[i];
-            ll ni = lower_bound(maxs.begin(), maxs.end(), c + 1) - maxs.begin();
-            answ += n - ni;
+        sort(ar, ar + n);
+        for (i = 0; i <= k; i++){
+            mx=c; mn=i;
+            if(mx>m) break;
+            for(j=i+k-1; j<n; j+=k){
+                if(mx+ar[j]<= m){ 
+                    mx+=ar[j];
+                    mn += k;
+                }
+                else break;
+            }
+            c += ar[i];
+            ans = max(ans, mn);
         }
-        cout << answ;
+        cout<<ans<<endl;
     }
     return 0;
 }

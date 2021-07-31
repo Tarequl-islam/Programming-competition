@@ -36,39 +36,34 @@ bool cmp(const pii &left, const pii &right){
 //int find(int x) { return (p[x] == x ? x : p[x] = find(p[x])); } //p[find(i)]=find(j);
 
 int main(){ //s: 0.0 am - e: 0.00am;
+    // freopen("input.txt", "r", stdin);
+    // freopen("output.txt", "w", stdout);
     int t=1, cs = 1;
-    //cin >> t;
+    cin >> t;
     while (t--){
-        ll n;
-        cin >> n;
-        vector<ll> mins, maxs;
-        ll al = 0;
-        for (ll i = 0; i < n; ++i) {
-            ll m, c, cmin = INT_MAX, cmax = 0;
-            cin >> m;
-            bool ok = 0;
-            for (ll j = 0; j < m; ++j) {
-                cin >> c;
-                if (c > cmin) ok = true;
-                cmin = min(cmin, c);
-                cmax = max(cmax, c);
+        ll n, m, a, b, c, i, k, mx = 0, mn = 0;
+        ll ar[200005]={0};
+        cin>>n>>m>>k;
+        for (i = 1; i <= n; i++){
+            sl(ar[i]);
+        }
+        sort(ar+1, ar + n+1);
+        pl j=mp(0, 0);
+        for (i = 1; i <= n; i++){
+            if(i&1){
+                mn+=ar[i];
+                if(mn<=m)
+                    j = max(j, mp(i, mn));
             }
-            al += ok;
-            if (!ok) {
-                mins.push_back(cmin);
-                maxs.push_back(cmax);
+            else{ 
+                mx+=ar[i];
+                if(mx<=m) 
+                    j = max(j, mp(i, mx));
             }
         }
-        sort(mins.begin(), mins.end());
-        sort(maxs.begin(), maxs.end());
-        ll answ = 2 * al * n - al * al;
-        n = mins.size();
-        for (ll i = 0; i < n; ++i) {
-            ll c = mins[i];
-            ll ni = lower_bound(maxs.begin(), maxs.end(), c + 1) - maxs.begin();
-            answ += n - ni;
-        }
-        cout << answ;
+        if(j.first!=n && j.second<m)
+            if(ar[j.first+1]+j.second<=m) j.first++;
+        cout<<j.first<<endl;
     }
     return 0;
 }

@@ -36,8 +36,6 @@ bool cmp(const pii &left, const pii &right){
 //int find(int x) { return (p[x] == x ? x : p[x] = find(p[x])); } //p[find(i)]=find(j);
 
 int main(){ //s: 0.0 am - e: 0.00am;
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
     int t=1, cs = 1;
     cin >> t;
     while (t--){

@@ -17,7 +17,9 @@
 			"string": "cpp",
 			"cmath": "cpp",
 			"list": "cpp",
-			"type_traits": "cpp"
+			"type_traits": "cpp",
+			"typeindex": "cpp",
+			"typeinfo": "cpp"
 		}
 	}
 }
