@@ -26,48 +26,28 @@ typedef vector<pl> vpl;
 typedef vector<vi> vvi;
 typedef vector<vl> vvl;
 int main(){
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
-
-    int n, k, i, a, b, c=0, d, mx=0;
-    int ar[100005];
-    vector<int> v;
-    vector<int> u;
+    ll n, k, i, a, b, c=0, d, mx=0;
+    ll ar[100005];
+    vector<ll> v;
     cin>>n;
     for ( i = 0; i < n; i++){
-        si(ar[i]);
+        sl(ar[i]);
     }
-    sort(ar, ar+n);
-    a= (n/2)-1;
-    b = n-1;
-    while (a>=0){
-        if(ar[b]>ar[i] && ar[b-1]>ar[i]){
-            v.push_back(ar[b]);
-            v.push_back(ar[a]);
-            a--;
-            b--;
-            mx++;
-        }
-        else{
-            u.push_back(ar[a]);
-            a--;
-        }
+    sort(ar, ar+n, greater<ll>());
+    a = b = (n-1)/2;
+    if(n%2==0) b++;
+    b++;
+    for(i=0; i<a; i++){
+        v.pb(ar[i]);
+        v.pb(ar[b++]);
     }
-    while (b >= (n / 2))
-    {
-        u.push_back(ar[b]);
-        b--;
+    v.pb(ar[a]);
+    if(n%2==0) v.pb(ar[a+1]);
+    for ( i = 1; i < n-1; i++){
+        if(v[i-1]>v[i] && v[i]<v[i+1]) mx++;
     }
-    if(n==2) mx =0;
     cout<<mx<<endl;
-    for ( i = 0; i < v.size(); i++){
-        cout<<v[i]<<" ";
-    }
-    for ( i = 0; i < u.size(); i++)
-    {
-        cout<<u[i]<<" ";
-    }
+    for (i = 0; i < n; i++) cout<<v[i]<<" ";
     cout<<endl;
     return 0;
 }
-// 1.11-1.20 stop
