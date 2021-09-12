@@ -8,7 +8,7 @@ ll BigMod(ll base, ll pow, ll modvalue){
     if(pow % 2 == 0)
         return total;
     else{
-        return (total * (base % modvalue) ) % modvalue;
+        return (total * (base % modvalue)) % modvalue; 
     }
 }
 int main(){
