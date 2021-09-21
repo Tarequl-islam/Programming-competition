@@ -66,9 +66,6 @@
     
 * [Basic understanding of C++ in sololearn](https://www.sololearn.com/Play/CPlusPlus/)
 <br>
-<br>নতুন যা শেখার জন্য সিলেক্ট করবো তা লিষ্ট এর উপরে বসবে
-<br> আর যেগুলা শেখা শেষ সেগুলোর টেক্সট নীল রঙ এর হবে 
-<br>
 <br>
 <br>ধাপে ধাপে শেষ করতে হবে।  
 <br>যেমন প্রথমে LoveExtendsCode এর ভিডিও টিউটোরিয়াল গুলো ভাল করে শেষ করেছি।
