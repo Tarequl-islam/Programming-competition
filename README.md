@@ -66,9 +66,6 @@
     
 * [Basic understanding of C++ in sololearn](https://www.sololearn.com/Play/CPlusPlus/)
 <br>
-<br>নতুন যা শেখার জন্য সিলেক্ট করবো তা লিষ্ট এর উপরে বসবে
-<br> আর যেগুলা শেখা শেষ সেগুলোর টেক্সট নীল রঙ এর হবে 
-<br>
 <br>
 <br>ধাপে ধাপে শেষ করতে হবে।  
 <br>যেমন প্রথমে LoveExtendsCode এর ভিডিও টিউটোরিয়াল গুলো ভাল করে শেষ করেছি।
@@ -76,7 +73,7 @@
 
 #### এখন Programming Contest by Mahbubul Hasan বইটা ভাল করে শেষ করছি। 
 
-#### আর বইয়ের যেই টপিক গুলো শেষ করছি সেই টপিক গুলো না বুঝলে geeksforgeeks,
+#### বইয়ের যেই টপিক গুলো শেষ করছি সেই টপিক গুলো না বুঝলে geeksforgeeks,
 
 #### shafayets algo, youtube ইত্যাদি থেকে ক্লিয়ার করে নিচ্ছি।
 
@@ -86,15 +83,17 @@
 
 #### ১০ সেপ্টেম্বর থেকে লেভেল ধরে Codeforces এ প্রব্লেম সল্ভিং করে যাচ্ছি। কোন রকম আউটকাম আশা না করে ৩১ ডিসেম্বর পর্যন্ত চালাই যাবো। 
 
-## শাফায়েতস ব্লগ থেকে Dynamic Programming ও leetcode, codeforces থেকে রিলেটেড প্রবলেম সল্ভ করবো। 
+#### শাফায়েতস ব্লগ থেকে Dynamic Programming ও leetcode, codeforces থেকে রিলেটেড প্রবলেম সল্ভ করবো। 
 
-## Codejam এর আগে ladder13 শেষ করবো ও DS&Algo ভাল ভাবে একবার রিভিশন দিবো। 
+#### Codejam এর আগে ladder13 শেষ করবো ও DS&Algo ভাল ভাবে একবার রিভিশন দিবো। 
+
+#### টানা Codeforces এ প্রব্লেম সল্ভ করে যাবো। 
 
 <br>
 <br>
-<br>তারপর BACS এর Camp টা কমপ্লিট করতে হবে। 
+<br>তারপর BACS এর Camp টা রিভিশন করতে হবে। 
 <br>
-### don't miss weekly contest
+#### don't miss weekly contest
 <br>
 <br>
 <br>
@@ -122,4 +121,4 @@
 <br>
 <br>
 <br>
-<br>REMEMBER সব এইখানে লিখে রাখতে হবে। আমার কোন কিছু মনে থাকে না। 
+<br>REMEMBER সব এইখানে লিখে রাখতে হবে। । 
