@@ -37,21 +37,50 @@ bool cmp(const pii &left, const pii &right){
 
 int main(){ //s: 0.0 am - e: 0.00am;
     int t=1, cs = 1;
-    //cin >> t;
+    cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        ll ar[100005];
+        ll n, m, a, b, c, i, j, k,l, mn = 0;
+        long double mx =0;
+        ll ar[200005];
         cin>>n;
         for (i = 0; i < n; i++){
             sl(ar[i]);
+            mx+=ar[i];
         }
-        sort(ar, ar + n);
-        for (i = 0; i < n; i++){
-            if (ar[i] < mn){
-                mn = ar[i];
+        mx/=(long double)n;
+        mx*=2;
+        sort(ar, ar+n);
+        i = 0;
+        j = n - 1;
+        while (i < j){
+            if (ar[i] + ar[j] == mx){
+                k = i;
+                l = j;
+                while(ar[k+1]==ar[i] && k  <n-1) k++;
+                while(ar[l-1]==ar[j] && l > 0) l--;
+                if(k!=i || l!=j){
+                    if(k<l){
+                        a = 1+(k-i);
+                        b = 1+(j-l);
+                        mn += a*b;
+                    }
+                    else{
+                        a = 1+(j-i);
+                        mn += (a*(a-1))/2;
+                    }
+                    i=k+1; j = l-1;
+                }
+                else{ 
+                    mn++;
+                    i++;
+                    j--;
+                }
+
             }
+            else if (ar[i] + ar[j] < mx) i++;
+            else j--;
         }
-        cout<<n<<endl;
+        cout<<mn<<endl;
     }
     return 0;
 }

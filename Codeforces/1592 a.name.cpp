@@ -37,21 +37,22 @@ bool cmp(const pii &left, const pii &right){
 
 int main(){ //s: 0.0 am - e: 0.00am;
     int t=1, cs = 1;
-    //cin >> t;
+    cin >> t;
     while (t--){
         ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        ll ar[100005];
-        cin>>n;
+        ll ar[1005];
+        cin>>n>>m;
         for (i = 0; i < n; i++){
             sl(ar[i]);
         }
-        sort(ar, ar + n);
-        for (i = 0; i < n; i++){
-            if (ar[i] < mn){
-                mn = ar[i];
-            }
+        sort(ar, ar+n, greater<ll>());
+        if(m<=ar[0]) cout<<1<<endl;
+        else{
+            a = m/(ar[0]+ar[1]);
+            if(a*(ar[0]+ar[1])==m) pl(a*2);
+            else if(a*(ar[0]+ar[1])+ar[0] >= m) pl(1+ a*2);
+            else pl((a+1)*2);
         }
-        cout<<n<<endl;
     }
     return 0;
 }

@@ -28,30 +28,24 @@ typedef vector<pl> vpl;
 typedef vector<vi> vvi;
 typedef vector<vl> vvl;
 const int MOD = 1000 * 1000 * 1000 + 7;
-const int MAXN = 10 * 1000 * 1000 + 10, MAXV = 4;
+const int MAXN = 250 * 1000 + 10, MAXV = 4;
 ll GCD(ll a, ll b) { return (a % b) == 0 ? b : GCD(b, a % b); }
-ll mod(ll x) { return ((x % M + M) % M); }
+ll Mod(ll x) { return ((x % M + M) % M); }
 bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second); }
 //int find(int x) { return (p[x] == x ? x : p[x] = find(p[x])); } //p[find(i)]=find(j);
 
-int main(){ //s: 0.0 am - e: 0.00am;
-    int t=1, cs = 1;
-    //cin >> t;
-    while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        ll ar[100005];
-        cin>>n;
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
-        }
-        sort(ar, ar + n);
-        for (i = 0; i < n; i++){
-            if (ar[i] < mn){
-                mn = ar[i];
-            }
-        }
-        cout<<n<<endl;
-    }
-    return 0;
+int n, mod;
+ll fact[MAXN];
+ 
+int main(){
+	fact[0] = 1;
+	cin >> n >> mod;
+	for(int i=1; i<=n; i++) fact[i] = fact[i-1] * i % mod;
+	ll ret = 0;
+	for(int i=1; i<=n; i++){
+		ret += (n - i + 1) * (fact[i] * fact[n - i + 1] % mod);
+		ret %= mod;
+	}
+	cout << ret << endl;
 }

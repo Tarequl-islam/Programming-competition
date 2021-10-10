@@ -37,21 +37,36 @@ bool cmp(const pii &left, const pii &right){
 
 int main(){ //s: 0.0 am - e: 0.00am;
     int t=1, cs = 1;
-    //cin >> t;
+    cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        ll ar[100005];
+        ll n, m, a, b, c, i, j, k, mx = 0, mn = 0;
+        ll ar[1005][10];
         cin>>n;
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
+        for (i = 1; i <= n; i++){
+            scanf("%lld %lld %lld %lld %lld", &ar[i][1], &ar[i][2], &ar[i][3], &ar[i][4], &ar[i][5]);
         }
-        sort(ar, ar + n);
-        for (i = 0; i < n; i++){
-            if (ar[i] < mn){
-                mn = ar[i];
+        for (i = 1; i <= 5 && mn==0; i++){
+            ll grp1 = 0;
+            for (j = 1; j <= n; j++){
+                grp1 += ar[j][i];
+            }
+            for (j = i+1; j <= 5; j++){
+                ll grp2 = 0;
+                mx = 0;
+                for (k = 1; k <= n; k++){
+                    grp2 += ar[k][j];
+                    if(ar[k][i]==0 && ar[k][j]==0){
+                        mx = 1;
+                    }
+                }
+                if(grp1>= n/2 && grp2>=n/2 && mx==0){
+                    mn = 1;
+                    break;
+                }
             }
         }
-        cout<<n<<endl;
+        if(mn==1) cout<<"YES"<<endl;
+        else cout<<"NO"<<endl;
     }
     return 0;
 }
