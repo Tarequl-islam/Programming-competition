@@ -6,7 +6,7 @@ void dfs(int at){
     visited[at] = 1;
     cout<<at<<" ";
     for (int i = 0; i < vec[at].size(); i++){
-        if(visited[at]==0)
+        if(visited[vec[at][i]]==0)
             dfs(vec[at][i]);
     }
 }

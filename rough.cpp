@@ -34,6 +34,17 @@ ll mod(ll x) { return ((x % M + M) % M); }
 bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second); }
 //int find(int x) { return (p[x] == x ? x : p[x] = find(p[x])); } //p[find(i)]=find(j);
+int visited[10];
+vector<int>vec[10];
+void dfs(int at){
+    visited[at] = 1;
+    cout<<at<<" ";
+    for (int i = 0; i < vec[at].size(); i++){
+        if(visited[vec[at][i]]==0)
+            dfs(vec[at][i]);
+    }
+}
+
 
 int main(){ //s: 0.0 am - e: 0.00am;
     int t=1, cs = 1;
