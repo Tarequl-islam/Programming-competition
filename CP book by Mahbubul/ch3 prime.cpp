@@ -14,6 +14,16 @@ void sieve(int n){
         }
     }
 }
+vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
+    vector<pair<ll,int>> pri;
+    for (ll i = 2; i*i <= x; ++i) if (x % i == 0) {
+        int t = 0;
+        while (x % i == 0) x /= i, t ++;
+        pri.push_back({i,t});
+    }
+    if (x > 1) pri.push_back({x,1});
+    return pri;
+}
 int main(){
     ll t, lim, tem=0;
     sieve(1000002);

@@ -58,17 +58,46 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
 
 
 int main(){ //s: 0.0 am - e: 0.00am;
-    int t=1, cs = 1;
-    //cin >> t;
-    while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        ll ar[100005];
-        cin>>n;
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
-        }
-        
-        cout<<n<<endl;
+    
+    ll n, m, a = -1, b = -1, c, i, j, k, mx = 0, mn = 0;
+    string s[505];
+    cin>>n>>m;
+    for (i = 0; i < n; i++){
+        cin>>s[i];
     }
+    for (i = 0; i < n; i++){
+        int cnt = 0;
+        for(j = 0; j < m; j++){
+            if(s[i][j]=='*') cnt++, mx++;
+        }
+        if(cnt>=3) a = i;
+    }
+    for (i = 0; i < m; i++){
+        int cnt = 0;
+        for(j = 0; j < n; j++){
+            if(s[j][i]=='*') cnt++;
+        }
+        if(cnt>=3) b = i;
+    }
+    if(a <= 0 || b <= 0 || a == n-1 || b == m-1){
+        cout<<"NO\n";
+        return 0;
+    }
+    int ok = 0;
+    i = a;
+    while(i >= 0 && s[i][b] == '*') i--, mn++;
+    if(i==a) ok = 1;
+    i = a+1;
+    while(i < n && s[i][b] == '*') i++, mn++;
+    if(i==a+1) ok = 1;
+    i = b-1;
+    while(i >= 0 && s[a][i] == '*') i--, mn++;
+    if(i==b-1) ok = 1;
+    i = b+1;
+    while(i < m && s[a][i] == '*') i++, mn++;
+    if(i==b+1) ok = 1;
+
+    if(mx == mn && ok==0) cout<<"YES"<<endl;
+    else cout<<"NO"<<endl;
     return 0;
 }

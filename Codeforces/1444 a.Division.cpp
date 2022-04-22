@@ -44,6 +44,7 @@ void dfs(int at){
             dfs(vec[at][i]);
     }
 }
+
 vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
     vector<pair<ll,int>> pri;
     for (ll i = 2; i*i <= x; ++i) 
@@ -56,19 +57,28 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
     return pri;
 }
 
-
-int main(){ //s: 0.0 am - e: 0.00am;
+int main(){ 
     int t=1, cs = 1;
-    //cin >> t;
+    cin >> t;
     while (t--){
         ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        ll ar[100005];
-        cin>>n;
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
+        cin>>n>>m;
+        a = sqrt(n)+1;
+        if(n<m || n%m!=0){
+            cout<<n<<endl;
+            continue;
         }
-        
-        cout<<n<<endl;
+
+        vector<pair<ll, int>> v = factor(m);
+        ll ans = 0;
+        for(auto& tr: v){
+            ll P = n;
+            while (P % m == 0)
+                P /= tr.F;
+            ans = max(ans, P);
+        }
+        cout<<ans<<endl;
+
     }
     return 0;
 }
