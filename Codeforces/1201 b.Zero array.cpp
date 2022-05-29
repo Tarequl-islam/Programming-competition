@@ -61,40 +61,24 @@ int main(){ //s: 0.0 am - e: 0.00am;
     int t=1, cs = 1;
     //cin >> t;
     while (t--){
-        int n, m, b, c, j, k, mx = 0, mn = 1e8;
-        cin>>n>>k;
-        vector<int> a(n);
-        for (int i = 0; i < n; ++i) {
-            cin >> a[i];
+        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
+        ll ar[100005];
+        cin>>n;
+        for (i = 0; i < n; i++){
+            sl(ar[i]);
+            mx += ar[i];
         }
-        
-        vector<int> poss;
-        for (int i = 0; i < n; ++i) {
-            int x = a[i];
-            while (x > 0) {
-                poss.push_back(x);
-                x /= 2;
+        if(mx&1)
+            cout<<"NO"<<endl;
+        else{
+            sort(ar, ar+n);
+            mn = ar[n-1];
+            for(i=n-2; i>=0; i--){
+                mn -= ar[i];
             }
+            if(mn>0) cout<<"NO"<<endl;
+            else cout<<"YES"<<endl;
         }
-        int ans = 1e9;
-        for (auto res : poss) {
-            vector<int> cnt;
-            for (int i = 0; i < n; ++i) {
-                int x = a[i];
-                int cur = 0;
-                while (x > res) {
-                    x /= 2;
-                    ++cur;
-                }
-                if (x == res) {
-                    cnt.push_back(cur);
-                }
-            }
-            if (int(cnt.size()) < k) continue;
-            sort(cnt.begin(), cnt.end());
-            ans = min(ans, accumulate(cnt.begin(), cnt.begin() + k, 0));
-        }
-        cout << ans << endl;
     }
     return 0;
 }

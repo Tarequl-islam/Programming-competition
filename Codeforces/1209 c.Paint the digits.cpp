@@ -57,44 +57,41 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
 }
 
 
-int main(){ //s: 0.0 am - e: 0.00am;
+int main(){ //s: 04.15 am - e: 04.54am;
     int t=1, cs = 1;
-    //cin >> t;
+    cin >> t;
     while (t--){
-        int n, m, b, c, j, k, mx = 0, mn = 1e8;
-        cin>>n>>k;
-        vector<int> a(n);
-        for (int i = 0; i < n; ++i) {
-            cin >> a[i];
+        int n, m, a, b, c, i, j=0, k, mx = 0, mn = 0;
+        cin>>n;
+        string ss;
+        cin>>ss;
+        int ar[n+5], br[n+5];
+        for (i = 0; i < n; i++){
+            br[i]=ar[i]=ss[i]-'0';
         }
-        
-        vector<int> poss;
-        for (int i = 0; i < n; ++i) {
-            int x = a[i];
-            while (x > 0) {
-                poss.push_back(x);
-                x /= 2;
+        sort(ar, ar+n);
+        string s="";
+        for (i = 0; i < n; i++){
+            if(br[i]==ar[j]){
+                s+='1';
+                mx = max(mx, br[i]);
+                j++;
+            }
+            else s+='2';
+        }
+        for (i = 0; i < n; i++){
+            if(s[i]=='2'){
+                if(br[i] >= mx){
+                    mx = br[i];
+                }
+                else{
+                    mn = 1;
+                    break;
+                }
             }
         }
-        int ans = 1e9;
-        for (auto res : poss) {
-            vector<int> cnt;
-            for (int i = 0; i < n; ++i) {
-                int x = a[i];
-                int cur = 0;
-                while (x > res) {
-                    x /= 2;
-                    ++cur;
-                }
-                if (x == res) {
-                    cnt.push_back(cur);
-                }
-            }
-            if (int(cnt.size()) < k) continue;
-            sort(cnt.begin(), cnt.end());
-            ans = min(ans, accumulate(cnt.begin(), cnt.begin() + k, 0));
-        }
-        cout << ans << endl;
+        if(mn==1) cout<<"-"<<endl;
+        else cout<<s<<endl;
     }
     return 0;
 }

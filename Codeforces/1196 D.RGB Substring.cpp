@@ -59,42 +59,29 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
 
 int main(){ //s: 0.0 am - e: 0.00am;
     int t=1, cs = 1;
-    //cin >> t;
+    cin >> t;
     while (t--){
-        int n, m, b, c, j, k, mx = 0, mn = 1e8;
+        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
+        string s, ss="";
         cin>>n>>k;
-        vector<int> a(n);
-        for (int i = 0; i < n; ++i) {
-            cin >> a[i];
+        cin>>s;
+        a = 2+ n/3;
+        ll ar[n + 5] = {0};
+        for (i = 0; i < a; i++) ss += "RGB";
+        for(ll l=0; l<3; l++){
+            CLR(ar, 0);
+            mx = 0;
+            for (i = 0; i < n; i++){
+                if(s[i]!= ss[i+l]){
+                    mx++;
+                }
+                ar[i] = mx;
+                if(i+1 == k) mn = min(mn, ar[i]);
+                else if(i >= k) mn = min(mn, ar[i] - ar[i-k]);
+            }
         }
         
-        vector<int> poss;
-        for (int i = 0; i < n; ++i) {
-            int x = a[i];
-            while (x > 0) {
-                poss.push_back(x);
-                x /= 2;
-            }
-        }
-        int ans = 1e9;
-        for (auto res : poss) {
-            vector<int> cnt;
-            for (int i = 0; i < n; ++i) {
-                int x = a[i];
-                int cur = 0;
-                while (x > res) {
-                    x /= 2;
-                    ++cur;
-                }
-                if (x == res) {
-                    cnt.push_back(cur);
-                }
-            }
-            if (int(cnt.size()) < k) continue;
-            sort(cnt.begin(), cnt.end());
-            ans = min(ans, accumulate(cnt.begin(), cnt.begin() + k, 0));
-        }
-        cout << ans << endl;
+        cout<<mn<<endl;
     }
     return 0;
 }

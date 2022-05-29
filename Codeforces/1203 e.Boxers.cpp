@@ -57,44 +57,31 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
 }
 
 
-int main(){ //s: 0.0 am - e: 0.00am;
+int main(){ //s: 01.50 am - e: 03.06am;
     int t=1, cs = 1;
     //cin >> t;
     while (t--){
-        int n, m, b, c, j, k, mx = 0, mn = 1e8;
-        cin>>n>>k;
-        vector<int> a(n);
-        for (int i = 0; i < n; ++i) {
-            cin >> a[i];
+        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
+        cin>>n;
+        ll br[n+5];
+        set<ll> ss;
+        for (i = 0; i < n; i++){
+            sl(br[i]);
         }
-        
-        vector<int> poss;
-        for (int i = 0; i < n; ++i) {
-            int x = a[i];
-            while (x > 0) {
-                poss.push_back(x);
-                x /= 2;
-            }
+        sort(br, br+n);
+        br[n-1]++;
+        for(i=n-2; i>=0; i--){
+            if(br[i] == br[i+1]) continue;
+            if(br[i]+1 != br[i+1]) br[i]++;
         }
-        int ans = 1e9;
-        for (auto res : poss) {
-            vector<int> cnt;
-            for (int i = 0; i < n; ++i) {
-                int x = a[i];
-                int cur = 0;
-                while (x > res) {
-                    x /= 2;
-                    ++cur;
-                }
-                if (x == res) {
-                    cnt.push_back(cur);
-                }
-            }
-            if (int(cnt.size()) < k) continue;
-            sort(cnt.begin(), cnt.end());
-            ans = min(ans, accumulate(cnt.begin(), cnt.begin() + k, 0));
+        if(br[0] > 1) br[0]--;
+        ss.insert(br[0]);
+        for (i = 1; i < n; i++){
+            if(br[i] == br[i-1]) continue;
+            if(br[i]-1 != br[i-1]) br[i]--;
+            ss.insert(br[i]);
         }
-        cout << ans << endl;
+        cout<<ss.size()<<endl;
     }
     return 0;
 }

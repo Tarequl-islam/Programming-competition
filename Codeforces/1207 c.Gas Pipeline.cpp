@@ -59,42 +59,40 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
 
 int main(){ //s: 0.0 am - e: 0.00am;
     int t=1, cs = 1;
-    //cin >> t;
+    cin >> t;
     while (t--){
-        int n, m, b, c, j, k, mx = 0, mn = 1e8;
-        cin>>n>>k;
-        vector<int> a(n);
-        for (int i = 0; i < n; ++i) {
-            cin >> a[i];
-        }
-        
-        vector<int> poss;
-        for (int i = 0; i < n; ++i) {
-            int x = a[i];
-            while (x > 0) {
-                poss.push_back(x);
-                x /= 2;
-            }
-        }
-        int ans = 1e9;
-        for (auto res : poss) {
-            vector<int> cnt;
-            for (int i = 0; i < n; ++i) {
-                int x = a[i];
-                int cur = 0;
-                while (x > res) {
-                    x /= 2;
-                    ++cur;
-                }
-                if (x == res) {
-                    cnt.push_back(cur);
-                }
-            }
-            if (int(cnt.size()) < k) continue;
-            sort(cnt.begin(), cnt.end());
-            ans = min(ans, accumulate(cnt.begin(), cnt.begin() + k, 0));
-        }
-        cout << ans << endl;
+        ll n, m, a, b, c, i=0, j, k, mx = 0, mn = 0;
+        string s;
+        cin>>n>>a>>b;
+        cin>>s;
+        long long ans = 0;
+		for(int i=0;i<n;){
+			if(s[i]=='1'){
+				ans+= 2*b+a;
+				i++;
+				continue;
+			}
+			if(i!=0) ans+= 2*b;
+			int j = i;
+			while(j<n&&s[j]=='0') j++;
+			if(i==0&&j==n){
+				ans = (n+1)*b+n*a;
+				break;
+			}
+ 
+			int l = j-i;
+			if(i==0){
+				ans+=a+l*b+l*a;
+			}else if(j==n){
+				ans+=a+l*b+l*a;
+			}else{
+				ans+=min((l-1)*b,a*2)+(l-1)*b+l*a;
+ 
+			}
+			i = j;
+		}
+ 
+		cout<<ans<<endl;
     }
     return 0;
 }

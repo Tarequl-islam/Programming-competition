@@ -61,40 +61,40 @@ int main(){ //s: 0.0 am - e: 0.00am;
     int t=1, cs = 1;
     //cin >> t;
     while (t--){
-        int n, m, b, c, j, k, mx = 0, mn = 1e8;
-        cin>>n>>k;
-        vector<int> a(n);
-        for (int i = 0; i < n; ++i) {
-            cin >> a[i];
+        ll n, m, a, b, c, i, j, k, mx = 1e18, mn = 1e18;
+        ll ar[2005];
+        cin>>n;
+        for (i = 0; i < n; i++){
+            sl(ar[i]);
         }
-        
-        vector<int> poss;
-        for (int i = 0; i < n; ++i) {
-            int x = a[i];
-            while (x > 0) {
-                poss.push_back(x);
-                x /= 2;
+        for(k=0; k<n; k++){
+            set<ll> st;
+            for (i = 0; i < k; i++){
+                if(st.find(ar[i]) == st.end())
+                    st.insert(ar[i]);
+                else break; 
             }
-        }
-        int ans = 1e9;
-        for (auto res : poss) {
-            vector<int> cnt;
-            for (int i = 0; i < n; ++i) {
-                int x = a[i];
-                int cur = 0;
-                while (x > res) {
-                    x /= 2;
-                    ++cur;
-                }
-                if (x == res) {
-                    cnt.push_back(cur);
-                }
+            for(j = n-1; j>= k; j--){
+                if(st.find(ar[j]) == st.end())
+                    st.insert(ar[j]);
+                else break; 
             }
-            if (int(cnt.size()) < k) continue;
-            sort(cnt.begin(), cnt.end());
-            ans = min(ans, accumulate(cnt.begin(), cnt.begin() + k, 0));
+            mx = min(mx, 1+ j-i);
+            st.clear();
+            for(j = n-1; j>=k; j--){
+                if(st.find(ar[j]) == st.end())
+                    st.insert(ar[j]);
+                else break; 
+            }
+            for (i = 0; i <= k; i++){
+                if(st.find(ar[i]) == st.end())
+                    st.insert(ar[i]);
+                else break; 
+            }
+            mx = min(mx, 1+j-i);
+            st.clear();
         }
-        cout << ans << endl;
+        cout<<mx<<endl;
     }
     return 0;
 }
