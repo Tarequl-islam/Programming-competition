@@ -33,6 +33,11 @@ ll GCD(ll a, ll b) { return (a % b) == 0 ? b : GCD(b, a % b); }
 ll mod(ll x) { return ((x % M + M) % M); }
 bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second); }
+bool cmpr(char a, char b){
+    int aa = a-'0';
+    int bb = b-'0';
+    return (aa%2 != bb%2? (a < b) : false);
+}
 //int find(int x) { return (p[x] == x ? x : p[x] = find(p[x])); } //p[find(i)]=find(j);
 int visited[10];
 vector<int>vec[10];
@@ -57,18 +62,36 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
 }
 
 
-int main(){ //s: 0.0 am - e: 0.00am;
+int main(){ //s: 02.22 am - e: 03.22am;
     int t=1, cs = 1;
-    //cin >> t;
+    cin >> t;
     while (t--){
         ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        cin>>n;
-        ll ar[n+5];
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
+        string s, sa="", sb="", ans="";
+        cin>>s;
+        for (i = s.length()-1; i>=0; i--){
+            if((s[i]-'0')%2) sa += s[i];
+            else sb += s[i];
         }
-        
-        cout<<n<<endl;
+        while(!sa.empty() || !sb.empty()){
+            if(sa.empty()){
+                ans += sb.back();
+                sb.pop_back();
+            }
+            else if(sb.empty()){
+                ans += sa.back();
+                sa.pop_back();
+            }
+            else if(sa.back() < sb.back()){ 
+                ans += sa.back(); 
+                sa.pop_back();
+            }
+            else{
+                ans += sb.back();
+                sb.pop_back();
+            }
+        }
+        cout<<ans<<endl;
     }
     return 0;
 }

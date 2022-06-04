@@ -61,14 +61,32 @@ int main(){ //s: 0.0 am - e: 0.00am;
     int t=1, cs = 1;
     //cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        cin>>n;
-        ll ar[n+5];
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
+        int n, m, a, b, c, d, i, j, k, mx = 0, mn = 1e8;
+        cin>>n>>m;
+        int ar[n+5], br[n+5];
+        int ac[n+5]={0}, bc[n+5]={0};
+        for (i = 1; i <= n; i++){
+            si(ar[i]);
         }
-        
-        cout<<n<<endl;
+        for (i = 1; i <= n; i++){
+            sl(br[i]);
+        }
+        a = 0; b = 0;
+        for (i = 2; i <= n; i++){
+            if(ar[i-1]%2 != ar[i]%2) a++;
+            if(br[i-1]%2 != br[i]%2) b++;
+            ac[i] = a;
+            bc[i] = b;
+
+        }
+        int ra, rb, ca, cb;
+        for (i = 1; i <= m; i++){
+            mx = 0;
+            scanf("%d %d %d %d", &ra, &rb, &ca, &cb);
+            if(ac[ra] != ac[ca]) mx = 1;
+            if(bc[rb] != bc[cb]) mx = 1;
+            cout<<(mx? "NO" : "YES")<<endl;
+        }
     }
     return 0;
 }

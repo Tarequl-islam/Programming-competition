@@ -56,19 +56,30 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
     return pri;
 }
 
-
-int main(){ //s: 0.0 am - e: 0.00am;
-    int t=1, cs = 1;
-    //cin >> t;
-    while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        cin>>n;
-        ll ar[n+5];
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
-        }
-        
-        cout<<n<<endl;
-    }
-    return 0;
+const int nax = 1000 * 1007;
+int n, k;
+int tab[nax];
+int zm[nax];
+ 
+int roz(int a, int b){	return zm[b]-zm[a]+1;}
+ 
+int main(){
+	scanf("%d%d", &n, &k);
+	for (int i=1; i<=n; i++)
+		scanf("%d", &tab[i]);
+	k = (k*8)/n;
+	k=min(k, 25);
+	k=(1<<k);
+	sort(tab+1, tab+1+n);
+	for (int i=2; i<=n; i++)
+		zm[i] = (zm[i-1] + (tab[i]!=tab[i-1]));
+	int w=0, wyn = n;
+	for (int i=1; i<=n; i++){
+		w=max(w, i);
+		while(w<n && roz(i, w+1)<=k)
+			w++;
+		wyn=min(wyn, n-(w-i+1));
+	}
+	printf("%d\n", wyn);
+	return 0;
 }

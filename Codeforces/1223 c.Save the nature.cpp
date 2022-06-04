@@ -34,41 +34,55 @@ ll mod(ll x) { return ((x % M + M) % M); }
 bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second); }
 //int find(int x) { return (p[x] == x ? x : p[x] = find(p[x])); } //p[find(i)]=find(j);
-int visited[10];
-vector<int>vec[10];
-void dfs(int at){
-    visited[at] = 1;
-    cout<<at<<" ";
-    for (int i = 0; i < vec[at].size(); i++){
-        if(visited[vec[at][i]]==0)
-            dfs(vec[at][i]);
-    }
-}
-vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
-    vector<pair<ll,int>> pri;
-    for (ll i = 2; i*i <= x; ++i) 
-        if (x % i == 0) {
-            int t = 0;
-            while (x % i == 0) x /= i, t ++;
-            pri.push_back({i,t});
-        }
-    if (x > 1) pri.push_back({x,1});
-    return pri;
-}
 
 
-int main(){ //s: 0.0 am - e: 0.00am;
+ll p[200005], n, x, a, y, b, k;
+bool check(ll ind) {
+	vector<ll> c;
+	for (ll i = 0; i < ind; i++) {
+		ll prod = 0;
+		if ((i + 1) % a == 0) {
+			prod += x;
+		}
+		if ((i + 1) % b == 0) {
+			prod += y;
+		}
+		c.push_back(prod);
+	}
+	sort(c.rbegin(), c.rend());
+	ll sum = 0;
+	for (ll i = 0; i < ind; i++) {
+		sum += c[i] * p[i];
+	}
+	return (sum >= k);
+}
+
+int main(){ //s: 11.11 am - e: 0.00am;
     int t=1, cs = 1;
-    //cin >> t;
+    cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        cin>>n;
-        ll ar[n+5];
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
+        cin >> n;
+        for (ll i = 0; i < n; i++) {
+            cin >> p[i];
+            p[i] /= 100;
         }
-        
-        cout<<n<<endl;
+        sort(p, p + n);
+        reverse(p, p + n);
+        cin >> x >> a >> y >> b >> k;
+        ll low = 0, high = n + 1;
+        if (!check(n)) {
+            cout << "-1\n";
+            continue;
+        }
+        while (high - low > 1) {
+            ll mid = (low + high) / 2;
+            if (check(mid)) {
+                high = mid;
+            } else {
+                low = mid;
+            }
+        }
+        cout << high << '\n';
     }
     return 0;
 }

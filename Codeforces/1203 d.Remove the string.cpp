@@ -61,14 +61,21 @@ int main(){ //s: 0.0 am - e: 0.00am;
     int t=1, cs = 1;
     //cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        cin>>n;
-        ll ar[n+5];
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
+        ll n, m, a, b, c, i, j, k, ans = 0, mn = 0;
+        string sa, sb;
+        cin>>sa>>sb;
+        n =sa.length(); m = sb.length();
+        for ( i = 0; i < n; ++i) {
+            for ( j = i; j < n; ++j) {
+                ll pos = 0;
+                for (ll p = 0; p < n; ++p) {
+                    if (i <= p && p <= j) continue;
+                    if (pos < m && sb[pos] == sa[p]) ++pos;
+                }
+                if (pos == m) ans = max(ans, j - i + 1);
+            }
         }
-        
-        cout<<n<<endl;
+        cout << ans << endl;
     }
     return 0;
 }

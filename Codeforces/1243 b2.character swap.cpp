@@ -57,18 +57,52 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
 }
 
 
-int main(){ //s: 0.0 am - e: 0.00am;
+int main(){ //s: 04.42 am - e: 05.32am;
     int t=1, cs = 1;
-    //cin >> t;
+    cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
+        int n, m, a, b, c, i, j, k, mx = 0, mn = 1e8;
         cin>>n;
-        ll ar[n+5];
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
+        string sa, sb;
+        cin>>sa>>sb;
+        int ar[200]={0};
+        for(i = 0; i < n; i++){
+            ar[sa[i]]++;
+            ar[sb[i]]++;
         }
-        
-        cout<<n<<endl;
+        for(char ii = 'a'; ii <= 'z'; ii++){
+            if(ar[ii]%2) mx = 1;
+        }
+        if(mx) cout<<"No"<<endl;
+        else{
+            vpii vv;
+            for(i = 0; i < n; i++){
+                mn = 0; 
+                if(sa[i]!=sb[i]){
+                    for(j=i+1; j<n; j++){
+                        if(sa[j]==sa[i]){
+                            mn = 1;
+                            vv.pb(mp(j+1, i+1));
+                            swap(sa[j], sb[i]);
+                            break;
+                        }
+                    }
+                    if(mn==1) continue;
+                    for(j=i+1; j<n; j++){
+                        if(sa[i]==sb[j]){
+                            vv.pb(mp(j+1, j+1));
+                            vv.pb(mp(j+1, i+1));
+                            swap(sa[j], sb[j]);
+                            swap(sa[j], sb[i]);
+                            break;
+                        }
+                    }
+                }
+            }
+            cout<<"Yes\n"<<vv.size()<<endl;
+            for(i = 0; i <vv.size(); i++)
+                cout<<vv[i].first<<" "<<vv[i].second<<endl;
+        }
     }
     return 0;
 }

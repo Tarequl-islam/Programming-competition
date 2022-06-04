@@ -58,17 +58,28 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
 
 
 int main(){ //s: 0.0 am - e: 0.00am;
-    int t=1, cs = 1;
+    int t=1, cs = 1, LGN=30;
     //cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        cin>>n;
-        ll ar[n+5];
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
+        int n, p;
+        cin >> n >> p;
+    
+        int ans = -1;
+        for (int i = 1; i <= LGN; i++) {
+            int n2 = n - i * p;
+            if (n2 <= 0) {
+                continue;
+            }
+            int bc = 0;
+            for (int j = 0; j < LGN; j++) {
+                bc += n2 >> j & 1;
+            }
+            if (bc <= i && i <= n2) {
+                ans = i;
+                break;
+            }
         }
-        
-        cout<<n<<endl;
+        cout << ans << endl;
     }
     return 0;
 }

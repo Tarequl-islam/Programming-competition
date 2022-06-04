@@ -31,8 +31,11 @@ const int MOD = 1000 * 1000 * 1000 + 7;
 const int MAXN = 10 * 1000 * 1000 + 10, MAXV = 4;
 ll GCD(ll a, ll b) { return (a % b) == 0 ? b : GCD(b, a % b); }
 ll mod(ll x) { return ((x % M + M) % M); }
-bool cmp(const pii &left, const pii &right){
+bool cmpr(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second); }
+
+bool cmp(const pii &left, const pii &right){
+    return left.second < right.second; }
 //int find(int x) { return (p[x] == x ? x : p[x] = find(p[x])); } //p[find(i)]=find(j);
 int visited[10];
 vector<int>vec[10];
@@ -61,14 +64,22 @@ int main(){ //s: 0.0 am - e: 0.00am;
     int t=1, cs = 1;
     //cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
+        int n, m, a, b, c, i, j, k, mx = 0, mn = 1e8;
         cin>>n;
-        ll ar[n+5];
+        vpii v;
         for (i = 0; i < n; i++){
-            sl(ar[i]);
+            si(a);
+            v.pb(mp(a, i));
         }
-        
-        cout<<n<<endl;
+        sort(v.begin(), v.end(), cmpr);
+        cin>>m;
+        for(i=0; i<m; i++){
+            cin>>a>>b; 
+            vpii vv;
+            for(j=0; j<a; j++) vv.pb(mp(v[j].first, v[j].second));
+            sort(vv.begin(), vv.end(), cmp);
+            cout<<vv[b-1].first<<endl;
+        }
     }
     return 0;
 }

@@ -57,18 +57,38 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
 }
 
 
-int main(){ //s: 0.0 am - e: 0.00am;
+int main(){ //s: 04.23 am - e: 0.00am;
     int t=1, cs = 1;
-    //cin >> t;
+    string s;
+    cin>>s;
+    cin >> t;
+    int n = s.length(), cnt=0;
+    vector<set<int>> poss(26);
+    for (int i = 0; i < n; i++){
+        poss[s[i]-'a'].insert(i);
+    }
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        cin>>n;
-        ll ar[n+5];
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
-        }
-        
-        cout<<n<<endl;
+        int  m, a, b, c, j, k, mx = 0, mn = 1e18;
+        cin>>a;
+        if (a == 1) {
+			int pos;
+			char c;
+			cin >> pos >> c;
+			--pos;
+			poss[s[pos] - 'a'].erase(pos);
+			s[pos] = c;
+			poss[s[pos] - 'a'].insert(pos);
+		} else {
+			int l, r;
+			cin >> l >> r;
+			--l, --r;
+			int cnt = 0;
+			for (int c = 0; c < 26; ++c) {
+				auto it = poss[c].lower_bound(l);
+				if (it != poss[c].end() && *it <= r) ++cnt;
+			}
+			cout << cnt << endl;
+		}
     }
     return 0;
 }
