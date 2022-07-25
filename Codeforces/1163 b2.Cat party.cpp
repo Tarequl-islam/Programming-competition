@@ -56,37 +56,29 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
     return pri;
 }
 
+const int N = 1e5 + 10;
+int n, color, ans, mx, f[N], cnt[N];
 
-int main(){ //s: 0.0 am - e: 0.00am;
-    int t=1, cs = 1;
-    //cin >> t;
-    while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 0;
-        cin>>n;
-        string s;
-        cin>>s;
-        for (i = 0; i < n; i++){
-            if(s[i]=='G'){
-                mn++;
-            }
-        }
-        for (i = 0; i < n; i++){
-            j = i;
-            ll last = j;
-            ll ok = 1;
-            while(j<n && (s[j]=='G' || ok)){
-                if(s[j]=='S'){
-                    ok = 0;
-                    last = j;
-                }
-                j++;
-            }
-            mx = max(mx, j - i);
-            i = last;
-        }
-        if(mx > mn)
-            cout<<mx-1<<endl;
-        else cout<<mx<<endl;
+int main(){
+    scanf("%d", &n);
+    for (int i = 1; i <= n; i++){
+        scanf("%d", &color);
+        cnt[f[color]]--;
+        f[color]++;
+        cnt[f[color]]++;
+        mx = max(mx, f[color]);
+        bool ok = false;
+        if (cnt[1] == i) // every color has occurence of 1
+            ok = true;
+        else if (cnt[i] == 1) // only one color has the maximum occurence and the occurence is i
+            ok = true;
+        else if (cnt[1] == 1 && cnt[mx] * mx == i - 1) // one color has occurence of 1 and other colors have the same occurence
+            ok = true;
+        else if (cnt[mx - 1] * (mx - 1) == i - mx && cnt[mx] == 1) // one color has the occurence 1 more than any other color
+            ok = true;
+        if (ok)
+            ans = i;
     }
+    printf("%d", ans);
     return 0;
 }

@@ -57,36 +57,23 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
 }
 
 
-int main(){ //s: 0.0 am - e: 0.00am;
+int main(){ //s: 01.29 am - e: 0.00am;
     int t=1, cs = 1;
-    //cin >> t;
+    cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 0;
-        cin>>n;
-        string s;
-        cin>>s;
+        int n, m, a, b, c, i, j, k, mx = 0, mn = 1e8;
+        cin>>n>>k;
+        int ar[n+5];
         for (i = 0; i < n; i++){
-            if(s[i]=='G'){
-                mn++;
-            }
+            si(ar[i]);
         }
-        for (i = 0; i < n; i++){
-            j = i;
-            ll last = j;
-            ll ok = 1;
-            while(j<n && (s[j]=='G' || ok)){
-                if(s[j]=='S'){
-                    ok = 0;
-                    last = j;
-                }
-                j++;
-            }
-            mx = max(mx, j - i);
-            i = last;
+        pair<int, int> ans = {1e9, -1};
+        for(i=0; i< n - k; i++) {
+            int dist = ar[i + k] - ar[i];
+            ans = min(ans, make_pair(dist, ar[i] + dist / 2));
         }
-        if(mx > mn)
-            cout<<mx-1<<endl;
-        else cout<<mx<<endl;
+        
+        cout << ans.second << endl;
     }
     return 0;
 }

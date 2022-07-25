@@ -56,37 +56,38 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
     return pri;
 }
 
-
-int main(){ //s: 0.0 am - e: 0.00am;
-    int t=1, cs = 1;
-    //cin >> t;
-    while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 0;
-        cin>>n;
-        string s;
-        cin>>s;
-        for (i = 0; i < n; i++){
-            if(s[i]=='G'){
-                mn++;
-            }
-        }
-        for (i = 0; i < n; i++){
-            j = i;
-            ll last = j;
-            ll ok = 1;
-            while(j<n && (s[j]=='G' || ok)){
-                if(s[j]=='S'){
-                    ok = 0;
-                    last = j;
-                }
-                j++;
-            }
-            mx = max(mx, j - i);
-            i = last;
-        }
-        if(mx > mn)
-            cout<<mx-1<<endl;
-        else cout<<mx<<endl;
-    }
-    return 0;
+char s[500010];
+char t[500010];
+int n, one, C;
+int f[500010];
+void put(int p, int v){
+	s[p] = '0';
+	if(v && C){
+		s[p] = '1';
+		--C;
+	}
+}
+ 
+int main(){
+	cin >> s >> t;
+	n = strlen(t);
+	for(int i=1, m=0; i<n; ++i){
+		while(m && t[i] != t[m]) m=f[m-1];
+		if(t[i] == t[m]) ++m;
+		f[i] = m;
+	}
+	int m = strlen(s);
+	for(int i=0; i<m; ++i) C += (s[i] == '1');
+	for(int i=0, j=0; i<m; ++i){
+		put(i, t[j]-'0');
+		if(++j == n){
+			j = f[j-1];
+		}
+	}
+	for(int i=m-1; 0<=i; --i) if(C && s[i] != '1'){
+		s[i] = '1';
+		--C;
+	}
+	cout << s << endl;
+	return 0;
 }

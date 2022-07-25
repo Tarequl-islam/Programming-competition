@@ -31,8 +31,10 @@ const int MOD = 1000 * 1000 * 1000 + 7;
 const int MAXN = 10 * 1000 * 1000 + 10, MAXV = 4;
 ll GCD(ll a, ll b) { return (a % b) == 0 ? b : GCD(b, a % b); }
 ll mod(ll x) { return ((x % M + M) % M); }
+
 bool cmp(const pii &left, const pii &right){
-    return left.first > right.first || (left.first == right.first && left.second < right.second); }
+    return left.second > right.second || (left.second == right.second && left.first > right.first); }
+
 //int find(int x) { return (p[x] == x ? x : p[x] = find(p[x])); } //p[find(i)]=find(j);
 int visited[10];
 vector<int>vec[10];
@@ -56,37 +58,27 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
     return pri;
 }
 
+int n, k;
+pair<int, int> a[300005];
 
-int main(){ //s: 0.0 am - e: 0.00am;
-    int t=1, cs = 1;
-    //cin >> t;
-    while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 0;
-        cin>>n;
-        string s;
-        cin>>s;
-        for (i = 0; i < n; i++){
-            if(s[i]=='G'){
-                mn++;
-            }
-        }
-        for (i = 0; i < n; i++){
-            j = i;
-            ll last = j;
-            ll ok = 1;
-            while(j<n && (s[j]=='G' || ok)){
-                if(s[j]=='S'){
-                    ok = 0;
-                    last = j;
-                }
-                j++;
-            }
-            mx = max(mx, j - i);
-            i = last;
-        }
-        if(mx > mn)
-            cout<<mx-1<<endl;
-        else cout<<mx<<endl;
-    }
-    return 0;
+int main() {  //s: 01.42 am - e: 0.00am;
+	cin >> n >> k;
+	for(int i = 0; i < n; ++i)
+		cin >> a[i].second >> a[i].first;
+	sort(a, a + n);
+	long long res = 0;
+	long long sum = 0;
+	set<pair<int, int> > s;
+	for(int i = n - 1; i >= 0; --i){
+		s.insert(make_pair(a[i].second, i));
+		sum += a[i].second;
+		while(s.size() > k){
+			auto it = s.begin();
+			sum -= it->first;
+			s.erase(it);
+		}
+		res = max(res, sum * a[i].first);
+	}
+	cout << res << endl;
+	return 0;
 }

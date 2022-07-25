@@ -57,36 +57,42 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
 }
 
 
-int main(){ //s: 0.0 am - e: 0.00am;
+int main(){ //s: 0.0 am - e: 09.47am; // 50 minute
     int t=1, cs = 1;
     //cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 0;
-        cin>>n;
-        string s;
-        cin>>s;
+        ll n, m, a, b, c, i, j, k, mx = 0, ans = 0;
+        cin>>n>>m;
+        priority_queue<int> ar[m+5];
         for (i = 0; i < n; i++){
-            if(s[i]=='G'){
-                mn++;
-            }
+            cin>>a>>b;
+            ar[a].push(b);
         }
-        for (i = 0; i < n; i++){
-            j = i;
-            ll last = j;
-            ll ok = 1;
-            while(j<n && (s[j]=='G' || ok)){
-                if(s[j]=='S'){
-                    ok = 0;
-                    last = j;
+        vector<pair<int, vector<int>>> vec;
+        for(i = 1; i<=m; i++){
+            a = ar[i].size();
+            if(a>0){
+                vi v;
+                int tm = 0;
+                for(j=0; j<a; j++){
+                    tm += ar[i].top();
+                    ar[i].pop();
+                    v.pb(tm);
                 }
-                j++;
+                vec.pb(mp(a, v));
             }
-            mx = max(mx, j - i);
-            i = last;
+            mx = max(mx, a);
         }
-        if(mx > mn)
-            cout<<mx-1<<endl;
-        else cout<<mx<<endl;
+        sort(vec.rbegin(), vec.rend());
+        for(i = 0; i<mx; i++){
+            ll tm = 0;
+            for(j = 0; j< vec.size(); j++){
+                if(vec[j].first < i+1) break;
+                if(vec[j].second[i]>0) tm += vec[j].second[i];
+            }
+            ans = max(tm, ans);
+        }
+        cout<<(ans>0? ans: 0)<<endl;
     }
     return 0;
 }

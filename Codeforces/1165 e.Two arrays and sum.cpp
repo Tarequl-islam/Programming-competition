@@ -27,7 +27,7 @@ typedef vector<pii> vpii;
 typedef vector<pl> vpl;
 typedef vector<vi> vvi;
 typedef vector<vl> vvl;
-const int MOD = 1000 * 1000 * 1000 + 7;
+const int MOD = 998244353;
 const int MAXN = 10 * 1000 * 1000 + 10, MAXV = 4;
 ll GCD(ll a, ll b) { return (a % b) == 0 ? b : GCD(b, a % b); }
 ll mod(ll x) { return ((x % M + M) % M); }
@@ -57,36 +57,31 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
 }
 
 
-int main(){ //s: 0.0 am - e: 0.00am;
+int main(){ //s: 01.19 am - e: 0.00am;
     int t=1, cs = 1;
     //cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 0;
-        cin>>n;
-        string s;
-        cin>>s;
-        for (i = 0; i < n; i++){
-            if(s[i]=='G'){
-                mn++;
-            }
+        int n;
+        cin >> n;
+        vector<int> a(n), b(n);
+        for (int i = 0; i < n; ++i) {
+            cin >> a[i];
         }
-        for (i = 0; i < n; i++){
-            j = i;
-            ll last = j;
-            ll ok = 1;
-            while(j<n && (s[j]=='G' || ok)){
-                if(s[j]=='S'){
-                    ok = 0;
-                    last = j;
-                }
-                j++;
-            }
-            mx = max(mx, j - i);
-            i = last;
+        for (int i = 0; i < n; ++i) {
+            cin >> b[i];
         }
-        if(mx > mn)
-            cout<<mx-1<<endl;
-        else cout<<mx<<endl;
+        sort(b.begin(), b.end());
+        vector<pair<long long, int>> val(n);
+        for (int i = 0; i < n; ++i) {
+            val[i].first = (i + 1) * 1ll * (n - i) * a[i];
+            val[i].second = i;
+        }
+        sort(val.rbegin(), val.rend());
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans = (ans + (val[i].first % MOD * 1ll * b[i]) % MOD) % MOD;
+        }
+        cout << ans << endl;
     }
     return 0;
 }
