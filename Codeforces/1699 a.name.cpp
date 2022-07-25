@@ -61,32 +61,32 @@ int main(){ //s: 0.0 am - e: 0.00am;
     int t=1, cs = 1;
     //cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 0;
-        cin>>n;
+        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
         string s;
-        cin>>s;
-        for (i = 0; i < n; i++){
-            if(s[i]=='G'){
-                mn++;
-            }
-        }
-        for (i = 0; i < n; i++){
-            j = i;
-            ll last = j;
-            ll ok = 1;
-            while(j<n && (s[j]=='G' || ok)){
-                if(s[j]=='S'){
-                    ok = 0;
-                    last = j;
+        cin >> n;
+        cin.ignore();
+        getline(cin, s);
+        string temp1 = "";
+        string temp2 = "";
+        for (i = 0; i < s.length(); i++){
+            if(s[i] == ' ' || i == s.length()-1){
+                if(i==s.length()-1) temp2 += s[i];
+                if((temp1.length() + temp2.length()) <= n){
+                    temp1 += temp2;
+                    temp1 += " ";
+                    temp2 = "";
+                    //cout<<temp1+ " " + temp2<<endl;
                 }
-                j++;
+                else{
+                    cout<<temp1<<endl;
+                    temp1 = temp2;
+                    temp1 += " ";
+                    temp2 = "";
+                }
             }
-            mx = max(mx, j - i);
-            i = last;
+            else temp2 += s[i];
         }
-        if(mx > mn)
-            cout<<mx-1<<endl;
-        else cout<<mx<<endl;
+        cout<<temp1<<endl;
     }
     return 0;
 }

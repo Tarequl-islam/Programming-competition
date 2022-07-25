@@ -55,38 +55,53 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
     if (x > 1) pri.push_back({x,1});
     return pri;
 }
-
-
+ll n, ans, mn, mx, idx;
+vector<pair<string, ll>> v;
+ll ff(ll tm){
+    if(idx >=n) return tm;
+    if(v[idx].first =="for"){
+        ll a = v[idx].second;
+        idx++;
+        ll b = ff(0LL);
+        tm += a*b;
+        if(tm >= (1LL<<32)){
+            mn = 1;
+            tm = 0;
+            return tm;
+        }
+        idx++;
+        return ff(tm);
+    }
+    else if(v[idx].first=="add"){
+        tm ++;
+        idx++;
+        return ff(tm);
+    }
+    else{ //if(v[idx].first=="end")
+        return tm;
+    }
+}
 int main(){ //s: 0.0 am - e: 0.00am;
     int t=1, cs = 1;
     //cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 0;
+        ll m, a, b, c, i, j, k;
         cin>>n;
         string s;
-        cin>>s;
         for (i = 0; i < n; i++){
-            if(s[i]=='G'){
-                mn++;
+            cin>>s;
+            if(s=="for"){
+                cin>>a;
             }
+            else a = 0;
+            v.pb(mp(s, a));
         }
-        for (i = 0; i < n; i++){
-            j = i;
-            ll last = j;
-            ll ok = 1;
-            while(j<n && (s[j]=='G' || ok)){
-                if(s[j]=='S'){
-                    ok = 0;
-                    last = j;
-                }
-                j++;
-            }
-            mx = max(mx, j - i);
-            i = last;
+        ans = ff(0LL);
+        if(ans >= (1LL<<32)){
+            mn = 1;
         }
-        if(mx > mn)
-            cout<<mx-1<<endl;
-        else cout<<mx<<endl;
+        if(mn==1) cout<<"OVERFLOW!!!"<<endl;
+        else cout<<ans<<endl;
     }
     return 0;
 }

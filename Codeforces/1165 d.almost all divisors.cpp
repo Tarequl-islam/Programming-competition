@@ -44,49 +44,37 @@ void dfs(int at){
             dfs(vec[at][i]);
     }
 }
-vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
-    vector<pair<ll,int>> pri;
+vector<ll> factor(ll x) {    // to findout all prime factors
+    vector<ll> pri;
     for (ll i = 2; i*i <= x; ++i) 
         if (x % i == 0) {
-            int t = 0;
-            while (x % i == 0) x /= i, t ++;
-            pri.push_back({i,t});
+            pri.push_back(i);
+            if(i!= x/i) pri.push_back(x/i);
         }
-    if (x > 1) pri.push_back({x,1});
     return pri;
 }
 
 
-int main(){ //s: 0.0 am - e: 0.00am;
+int main(){ //s: 12.53 am - e: 01.24am;
     int t=1, cs = 1;
-    //cin >> t;
+    cin >> t;
     while (t--){
         ll n, m, a, b, c, i, j, k, mx = 0, mn = 0;
         cin>>n;
-        string s;
-        cin>>s;
+        ll ar[n+5];
         for (i = 0; i < n; i++){
-            if(s[i]=='G'){
-                mn++;
-            }
+            sl(ar[i]);
         }
-        for (i = 0; i < n; i++){
-            j = i;
-            ll last = j;
-            ll ok = 1;
-            while(j<n && (s[j]=='G' || ok)){
-                if(s[j]=='S'){
-                    ok = 0;
-                    last = j;
-                }
-                j++;
-            }
-            mx = max(mx, j - i);
-            i = last;
+        sort(ar, ar+n);
+        j = n-1;
+        mx = ar[0]*ar[j];
+        for (i = 0; i <= j; i++){
+            if(ar[i] * ar[j] != mx) mn = 1;
+            j--;
         }
-        if(mx > mn)
-            cout<<mx-1<<endl;
-        else cout<<mx<<endl;
+        vl v = factor(mx);
+        if(v.size()!= n) mn = 1;
+        cout<<(mn? -1 : mx)<<endl;
     }
     return 0;
 }

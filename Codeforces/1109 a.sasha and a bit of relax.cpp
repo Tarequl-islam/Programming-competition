@@ -56,37 +56,26 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
     return pri;
 }
 
+const int maxn = (int)3e5 + 3;
+const int maxa = (1 << 20) + 3;
 
-int main(){ //s: 0.0 am - e: 0.00am;
-    int t=1, cs = 1;
-    //cin >> t;
-    while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 0;
-        cin>>n;
-        string s;
-        cin>>s;
-        for (i = 0; i < n; i++){
-            if(s[i]=='G'){
-                mn++;
-            }
-        }
-        for (i = 0; i < n; i++){
-            j = i;
-            ll last = j;
-            ll ok = 1;
-            while(j<n && (s[j]=='G' || ok)){
-                if(s[j]=='S'){
-                    ok = 0;
-                    last = j;
-                }
-                j++;
-            }
-            mx = max(mx, j - i);
-            i = last;
-        }
-        if(mx > mn)
-            cout<<mx-1<<endl;
-        else cout<<mx<<endl;
+int n;
+int a[maxn];
+int cnt[2][maxa];
+
+int main(){
+    cin >> n;
+    for (int i = 0; i < n; ++i){
+        cin >> a[i];
     }
+    cnt[1][0] = 1;
+    int x = 0;
+    ll res = 0;
+    for (int i = 0; i < n; ++i){
+        x ^= a[i];
+        res += cnt[i % 2][x];
+        ++cnt[i % 2][x];
+    }
+    cout << res << endl;
     return 0;
 }

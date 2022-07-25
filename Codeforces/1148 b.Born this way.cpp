@@ -61,31 +61,21 @@ int main(){ //s: 0.0 am - e: 0.00am;
     int t=1, cs = 1;
     //cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 0;
-        cin>>n;
-        string s;
-        cin>>s;
-        for (i = 0; i < n; i++){
-            if(s[i]=='G'){
-                mn++;
-            }
+        int n, m, a, b, c, i, j, k, mx = 0, mn = 0;
+        cin>>n>>m>>a>>b>>k;
+        int ar[n+5], br[m+5];
+        for (i = 0; i < n; i++) si(ar[i]);
+        for (i = 0; i < m; i++) si(br[i]);
+        if(k>= n || k>= m) mn = 1;
+        for (i = k; i >= 0 && i < n; i--){
+            int tmp = ar[i]+a;
+            int idx = upper_bound(br, br+m, tmp) - br;
+            if(br[idx-1]==tmp) idx--;
+            idx += k-i;
+            if(idx>= m) mn = 1;
+            else mx = max(mx, br[idx]+b);
         }
-        for (i = 0; i < n; i++){
-            j = i;
-            ll last = j;
-            ll ok = 1;
-            while(j<n && (s[j]=='G' || ok)){
-                if(s[j]=='S'){
-                    ok = 0;
-                    last = j;
-                }
-                j++;
-            }
-            mx = max(mx, j - i);
-            i = last;
-        }
-        if(mx > mn)
-            cout<<mx-1<<endl;
+        if(mn == 1) cout<<-1<<endl;
         else cout<<mx<<endl;
     }
     return 0;

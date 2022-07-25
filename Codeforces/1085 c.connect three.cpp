@@ -56,37 +56,49 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
     return pri;
 }
 
-
-int main(){ //s: 0.0 am - e: 0.00am;
-    int t=1, cs = 1;
-    //cin >> t;
-    while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 0;
-        cin>>n;
-        string s;
-        cin>>s;
-        for (i = 0; i < n; i++){
-            if(s[i]=='G'){
-                mn++;
-            }
-        }
-        for (i = 0; i < n; i++){
-            j = i;
-            ll last = j;
-            ll ok = 1;
-            while(j<n && (s[j]=='G' || ok)){
-                if(s[j]=='S'){
-                    ok = 0;
-                    last = j;
-                }
-                j++;
-            }
-            mx = max(mx, j - i);
-            i = last;
-        }
-        if(mx > mn)
-            cout<<mx-1<<endl;
-        else cout<<mx<<endl;
+const int N = 1003;
+int x[3], y[3];
+ 
+void pr(int x, int y, int fx, int fy){
+    while (x < fx){
+        ++x;
+        printf("%d %d\n", x, y);
     }
+    while (x > fx){
+        --x;
+        printf("%d %d\n", x, y);
+    }
+    while (y < fy){
+        ++y;
+        printf("%d %d\n", x, y);
+    }
+    while (y > fy){
+        --y;
+        printf("%d %d\n", x, y);
+    }
+}
+ 
+int main(){  //s: 02.05 am - e: 0.00am;
+    for (int i = 0; i < 3; ++i)
+        scanf("%d%d", &x[i], &y[i]);
+    int ans = N * N;
+    int ansx, ansy;
+    for (int i = 0; i < N; ++i){
+        for (int j = 0; j < N; ++j){
+            int yans = 0;
+            for (int k = 0; k < 3; ++k)
+                yans += (abs(i - x[k]) + abs(j - y[k]) + 1);
+            yans -= 2;
+            if (yans < ans){
+                ans = yans;
+                ansx = i;
+                ansy = j;
+            }
+        }
+    }
+    printf("%d\n", ans);
+    printf("%d %d\n", ansx, ansy);
+    for (int i = 0; i < 3; ++i)
+        pr(ansx, ansy, x[i], y[i]);
     return 0;
 }

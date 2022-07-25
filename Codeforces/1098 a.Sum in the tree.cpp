@@ -56,37 +56,38 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
     return pri;
 }
 
-
-int main(){ //s: 0.0 am - e: 0.00am;
-    int t=1, cs = 1;
-    //cin >> t;
-    while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 0;
-        cin>>n;
-        string s;
-        cin>>s;
-        for (i = 0; i < n; i++){
-            if(s[i]=='G'){
-                mn++;
-            }
-        }
-        for (i = 0; i < n; i++){
-            j = i;
-            ll last = j;
-            ll ok = 1;
-            while(j<n && (s[j]=='G' || ok)){
-                if(s[j]=='S'){
-                    ok = 0;
-                    last = j;
-                }
-                j++;
-            }
-            mx = max(mx, j - i);
-            i = last;
-        }
-        if(mx > mn)
-            cout<<mx-1<<endl;
-        else cout<<mx<<endl;
-    }
-    return 0;
+const int N = 100100;
+int n;
+int p[N];
+ll a[N];
+ 
+int main(){
+	scanf("%d", &n);
+	for (int i = 1; i < n; i++) {
+		scanf("%d", &p[i]);
+		p[i]--;
+	}
+	for (int i = 0; i < n; i++) {
+		scanf("%lld", &a[i]);
+		if (i > 0 && a[i] != -1) {
+			if (a[p[i]] == -1)
+				a[p[i]] = a[i];
+			else
+				a[p[i]] = min(a[p[i]], a[i]);
+		}
+	}
+	for (int i = 1; i < n; i++) {
+		if (a[i] == -1)
+			a[i] = a[p[i]];
+		if (a[i] < a[p[i]]) {
+			printf("-1\n");
+			return 0;
+		}
+	}
+	ll ans = a[0];
+	for (int i = 1; i < n; i++)
+		ans += a[i] - a[p[i]];
+	printf("%lld\n", ans);
+ 
+	return 0;
 }
