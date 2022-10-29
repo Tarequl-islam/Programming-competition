@@ -57,34 +57,19 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
 }
 
 
-int main(){
-    while (true){
-        double W, L, l, a, b, c;
-        cin>>L>>W;
-        double aa, bb, cc, ans, mn= W+L, mx = W+L;
-        if(W+L==0) break;
-        ans = l = L/2;
-        for(int i = l; i<=L; i++){
-            a = L-i;
-            b = sqrt(i*i - a*a);
-            cout << "debug: " << (i + i + (W - b)) << " " << W << " "<<b << endl;
-            if(mn > (i+i + (W-b))){
-                mn = (i+i + (W-b));
-                ans = i;
-            }
+int main(){ //s: 0.0 am - e: 0.00am;
+    int t=1, cs = 1;
+    //cin >> t;
+    while (t--){
+        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
+        cin>>n;
+        ll ar[n+5];
+        for (i = 0; i < n; i++){
+            sl(ar[i]);
+            mx = max(mx, ar[i]);
         }
-        l = ans-1;
-        for(int i = 0; i <= 2000; i++){
-            double ii = (double)i/1000.00;
-            a = L-(l+ii);
-            c = (l+ii);
-            b = sqrt(c*c - a*a);
-            if(mn > ((l+ii) + (W-b) + c)){
-                mn = ((l+ii) + (W-b) + c);
-                ans = i;
-            }
-        }
-        cout<<fixed<<setprecision(4)<<mn<<endl;
+        
+        cout<<mx<<endl;
     }
     return 0;
 }
