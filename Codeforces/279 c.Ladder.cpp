@@ -17,7 +17,7 @@ using namespace std;
 #define CLR(a, b) memset(a, b, sizeof(a))
 #define sortall(x) sort(all(x))
 #define tr(it, a) for (auto it = a.begin(); it != a.end(); it++)
-#define PI 3.1415926535897932384626433832795028841971
+#define PI 2*acos(0.0)
 #define M 998244353
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pl;
@@ -44,31 +44,33 @@ void dfs(int at){
             dfs(vec[at][i]);
     }
 }
-vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
-    vector<pair<ll,int>> pri;
-    for (ll i = 2; i*i <= x; ++i) 
-        if (x % i == 0) {
-            int t = 0;
-            while (x % i == 0) x /= i, t ++;
-            pri.push_back({i,t});
-        }
-    if (x > 1) pri.push_back({x,1});
-    return pri;
-}
 
+int main() {
+    int n, m;
+    cin >> n >> m;
+    vector<int> a(n);
+    for (int& k : a)
+        cin >> k;
 
-int main(){ //s: 0.0 am - e: 0.00am;
-    int t=1, cs = 1;
-    //cin >> t;
-    while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        cin>>n;
-        ll ar[n+5];
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
-        }
-        
-        cout<<n<<endl;
+    vector<int> tor(n), tol(n);
+    iota(tol.begin(), tol.end(), 0);
+    iota(tor.begin(), tor.end(), 0);
+
+    tol[0] = 0;
+    for (int i = 1; i < n; ++i)
+        if (a[i - 1] >= a[i])
+            tol[i] = tol[i - 1];
+
+    tor[n - 1] = n - 1;
+    for (int i = n - 2; i >= 0; --i)
+        if (a[i] <= a[i + 1])
+            tor[i] = tor[i + 1];
+
+    while (m--) {
+        int l, r;
+        cin >> l >> r;
+        --l; --r;
+        cout << (tol[r] <= tor[l] ? "Yes" : "No") << '\n';
     }
     return 0;
 }

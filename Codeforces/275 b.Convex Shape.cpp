@@ -17,7 +17,7 @@ using namespace std;
 #define CLR(a, b) memset(a, b, sizeof(a))
 #define sortall(x) sort(all(x))
 #define tr(it, a) for (auto it = a.begin(); it != a.end(); it++)
-#define PI 3.1415926535897932384626433832795028841971
+#define PI 2*acos(0.0)
 #define M 998244353
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pl;
@@ -55,20 +55,29 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
     if (x > 1) pri.push_back({x,1});
     return pri;
 }
-
-
-int main(){ //s: 0.0 am - e: 0.00am;
-    int t=1, cs = 1;
-    //cin >> t;
-    while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        cin>>n;
-        ll ar[n+5];
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
-        }
-        
-        cout<<n<<endl;
+int n,m,x[3000],y[3000],cnt;
+char s[50][50];
+ 
+bool check(int x,int a1,int b1,int y,int a2,int b2){
+	for(int i=min(a1,b1);i<=max(a1,b1);i++) if(s[x][i]!='B') return 0;
+	for(int i=min(a2,b2);i<=max(a2,b2);i++) if(s[i][y]!='B') return 0;
+	return 1;
+}
+ 
+int main(){
+    cin>>n>>m;
+	for(int i=0;i<n;i++){
+        cin>>s[i];
+        for(int j=0;j<m;j++)
+            if(s[i][j]=='B') x[++cnt]=i,y[cnt]=j;
     }
+    for(int i=1;i<cnt;i++)
+        for(int j=i+1;j<=cnt;j++){
+            if(check(x[i],y[i],y[j],y[j],x[i],x[j])) continue;
+            if(check(x[j],y[i],y[j],y[i],x[i],x[j])) continue;
+            cout<<"NO";
+            return 0;
+        }
+    cout<<"YES";
     return 0;
 }

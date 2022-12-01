@@ -34,41 +34,29 @@ ll mod(ll x) { return ((x % M + M) % M); }
 bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second); }
 //int find(int x) { return (p[x] == x ? x : p[x] = find(p[x])); } //p[find(i)]=find(j);
+
 int visited[10];
 vector<int>vec[10];
+int sTime[100], fTime[100], Time = 1;
 void dfs(int at){
     visited[at] = 1;
+    sTime[at] = Time++;
     cout<<at<<" ";
     for (int i = 0; i < vec[at].size(); i++){
         if(visited[vec[at][i]]==0)
             dfs(vec[at][i]);
     }
-}
-vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
-    vector<pair<ll,int>> pri;
-    for (ll i = 2; i*i <= x; ++i) 
-        if (x % i == 0) {
-            int t = 0;
-            while (x % i == 0) x /= i, t ++;
-            pri.push_back({i,t});
-        }
-    if (x > 1) pri.push_back({x,1});
-    return pri;
+    fTime[at] = Time++;
 }
 
 
 int main(){ //s: 0.0 am - e: 0.00am;
-    int t=1, cs = 1;
-    //cin >> t;
-    while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        cin>>n;
-        ll ar[n+5];
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
-        }
-        
-        cout<<n<<endl;
+    int i,j,ver,edg,u,v,z=0;
+    cin>>ver>>edg;
+    for(i=0; i<edg; i++){
+        cin>>u>>v;
+        vec[u].push_back(v);
     }
+
     return 0;
 }

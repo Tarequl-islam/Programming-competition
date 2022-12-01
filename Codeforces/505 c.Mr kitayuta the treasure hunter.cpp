@@ -18,7 +18,6 @@ using namespace std;
 #define sortall(x) sort(all(x))
 #define tr(it, a) for (auto it = a.begin(); it != a.end(); it++)
 #define PI 3.1415926535897932384626433832795028841971
-#define M 998244353
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pl;
 typedef vector<int> vi;
@@ -30,7 +29,7 @@ typedef vector<vl> vvl;
 const int MOD = 1000 * 1000 * 1000 + 7;
 const int MAXN = 10 * 1000 * 1000 + 10, MAXV = 4;
 ll GCD(ll a, ll b) { return (a % b) == 0 ? b : GCD(b, a % b); }
-ll mod(ll x) { return ((x % M + M) % M); }
+//ll mod(ll x) { return ((x % M + M) % M); }
 bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second); }
 //int find(int x) { return (p[x] == x ? x : p[x] = find(p[x])); } //p[find(i)]=find(j);
@@ -56,19 +55,35 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
     return pri;
 }
 
-
-int main(){ //s: 0.0 am - e: 0.00am;
-    int t=1, cs = 1;
-    //cin >> t;
-    while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        cin>>n;
-        ll ar[n+5];
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
-        }
-        
-        cout<<n<<endl;
+const int M = 30001;
+int dp[M][250*2];
+bool used[M][250*2] = {};
+int d;
+int gem[M] = {};
+ 
+int solve(int i, int j) {
+    int jj = j-(d-250);
+    if (i >= M) return 0;
+    if (used[i][jj]) return dp[i][jj];
+    used[i][jj] = true;
+    int res;
+    if (j == 1) {
+        res = gem[i] + max(solve(i+j, j), solve(i+j+1, j+1));
+    } else {
+        res = gem[i] + max(max(solve(i+j-1, j-1), solve(i+j, j)), solve(i+j+1, j+1));
     }
+    dp[i][jj] = res;
+    return res;
+}
+ 
+int main() {
+    int n;
+    scanf("%d %d", &n, &d);
+    for (int i = 0; i < n; i++) {
+        int x;
+        scanf("%d", &x);
+        gem[x]++;
+    }
+    printf("%d\n", solve(d, d));
     return 0;
 }
