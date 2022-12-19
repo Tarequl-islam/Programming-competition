@@ -61,14 +61,35 @@ int main(){ //s: 0.0 am - e: 0.00am;
     int t=1, cs = 1;
     //cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        cin>>n;
-        ll ar[n+5];
-        for (i = 0; i < n; i++){
+        int n, m, b, c, i, j=0, k, mx = 1, mn = 1e8;
+        cin>>n>>m;
+        int ar[n+5], br[n+5], cr[n+5];
+        br[0] = 0;
+        for (i = 1; i <= n; i++){
             sl(ar[i]);
+            br[i] = max(br[i-1], ar[i]);
+            if(br[i-1]<ar[i]){
+                br[i] = ar[i];
+                j = i;
+            }
+            else br[i] = br[i-1];
         }
-        
-        cout<<n<<endl;
+        c = br[n];
+        k = 1;
+        for (i = 1; i <= n; i++){
+            if(i!=j)
+                cr[k++] = ar[i];
+        }
+        cr[0] = cr[n-1];
+        for(i=0; i<m; i++){
+            ll a;
+            sl(a);
+            if(a<n) printf("%d %d\n", br[a], ar[a+1]);
+            else{
+                a%=(n-1);
+                printf("%d %d\n", c, cr[a]);
+            }
+        }
     }
     return 0;
 }

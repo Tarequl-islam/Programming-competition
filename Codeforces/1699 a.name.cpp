@@ -57,36 +57,34 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
 }
 
 
-int main(){ //s: 0.0 am - e: 0.00am;
-    int t=1, cs = 1;
-    //cin >> t;
-    while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        string s;
-        cin >> n;
-        cin.ignore();
-        getline(cin, s);
-        string temp1 = "";
-        string temp2 = "";
-        for (i = 0; i < s.length(); i++){
-            if(s[i] == ' ' || i == s.length()-1){
-                if(i==s.length()-1) temp2 += s[i];
-                if((temp1.length() + temp2.length()) <= n){
-                    temp1 += temp2;
-                    temp1 += " ";
-                    temp2 = "";
-                    //cout<<temp1+ " " + temp2<<endl;
-                }
-                else{
-                    cout<<temp1<<endl;
-                    temp1 = temp2;
-                    temp1 += " ";
-                    temp2 = "";
-                }
+int main(){
+    while (true){
+        double W, L, l, a, b, c;
+        cin>>L>>W;
+        double aa, bb, cc, ans, mn= W+L, mx = W+L;
+        if(W+L==0) break;
+        ans = l = L/2;
+        for(int i = l; i<=L; i++){
+            a = L-i;
+            b = sqrt(i*i - a*a);
+            cout << "debug: " << (i + i + (W - b)) << " " << W << " "<<b << endl;
+            if(mn > (i+i + (W-b))){
+                mn = (i+i + (W-b));
+                ans = i;
             }
-            else temp2 += s[i];
         }
-        cout<<temp1<<endl;
+        l = ans-1;
+        for(int i = 0; i <= 2000; i++){
+            double ii = (double)i/1000.00;
+            a = L-(l+ii);
+            c = (l+ii);
+            b = sqrt(c*c - a*a);
+            if(mn > ((l+ii) + (W-b) + c)){
+                mn = ((l+ii) + (W-b) + c);
+                ans = i;
+            }
+        }
+        cout<<fixed<<setprecision(4)<<mn<<endl;
     }
     return 0;
 }

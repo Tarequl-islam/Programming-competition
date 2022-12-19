@@ -58,17 +58,24 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
 
 
 int main(){ //s: 0.0 am - e: 0.00am;
-    int t=1, cs = 1;
-    //cin >> t;
-    while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        cin>>n;
-        ll ar[n+5];
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
+    int n;
+    cin >> n;
+    vector < pair < double , double > >  coor(n);
+    FOR(i,0,n)
+        cin >> coor[i].F >> coor[i].S;
+    vector < double >  angle(n);
+    FOR(i, 0, n){
+        if(coor[i].F < 0.000000001 && coor[i].F > -0.00000001){
+            coor[i].F = 0.00000000000001;
         }
-        
-        cout<<n<<endl;
+        angle[i] = (atan2(coor[i].S , coor[i].F) * 180.0000000) / PI;
     }
+    sort(all(angle));
+    double max_angle = 0;
+    FOR(i,1,n){
+        max_angle = max(max_angle , angle[i]-angle[i-1]);
+    }
+    max_angle = max(max_angle, (180+ angle[0]) + (180 - angle[n-1]));
+    cout << setprecision(10) << fixed << 360 - max_angle << endl;
     return 0;
 }

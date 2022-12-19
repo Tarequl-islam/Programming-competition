@@ -17,7 +17,7 @@ using namespace std;
 #define CLR(a, b) memset(a, b, sizeof(a))
 #define sortall(x) sort(all(x))
 #define tr(it, a) for (auto it = a.begin(); it != a.end(); it++)
-#define PI 3.1415926535897932384626433832795028841971
+#define PI 2*acos(0.0)
 #define M 998244353
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pl;
@@ -56,6 +56,17 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
     return pri;
 }
 
+// ll constrct(ll ar[], ll i, ll nn){
+//     if(i==nn) return 0;
+//     ll mx = 0;
+//     for (i; i < nn; i++){
+//         if(ar[i]==ar[i+1]){
+//             mx = min(constrct(i), constrat(i+1)+1);
+//         }
+//     }
+//     return i;
+// }
+
 
 int main(){ //s: 0.0 am - e: 0.00am;
     int t=1, cs = 1;
@@ -64,11 +75,27 @@ int main(){ //s: 0.0 am - e: 0.00am;
         ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
         cin>>n;
         ll ar[n+5];
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
+        for (i = 0; i < n; i++) sl(ar[i]);
+        sort(ar, ar+n);
+        vl v, vv;
+        for (i = 0; i < n; i++) v.pb(ar[i]);
+        while(v.size()!=0){
+            mx++;
+            ll cnt = v[0];
+            for (i = 1; i < v.size(); i++){
+                if(v[i]==v[i-1]){
+                    if(cnt==0) vv.pb(v[i]);
+                    else cnt--;
+                }
+                else{
+                    if(v[i]-1 != v[i-1]) cnt += v[i]-v[i-1]-1;
+                }
+            }
+            v.clear();
+            v = vv;
+            vv.clear();
         }
-        
-        cout<<n<<endl;
+        cout<<mx<<endl;
     }
     return 0;
 }

@@ -17,8 +17,8 @@ using namespace std;
 #define CLR(a, b) memset(a, b, sizeof(a))
 #define sortall(x) sort(all(x))
 #define tr(it, a) for (auto it = a.begin(); it != a.end(); it++)
-#define PI 3.1415926535897932384626433832795028841971
-#define M 998244353
+#define PI 2*acos(0.0)
+#define M 1000000007
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pl;
 typedef vector<int> vi;
@@ -61,14 +61,33 @@ int main(){ //s: 0.0 am - e: 0.00am;
     int t=1, cs = 1;
     //cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        cin>>n;
-        ll ar[n+5];
+        int n, m, a, b, c, i, j, k, mn = 1e8;
+        cin>>n>>m;
+        string str[105];
         for (i = 0; i < n; i++){
-            sl(ar[i]);
+            cin>>str[i];
         }
-        
-        cout<<n<<endl;
+        int ch[200]={0};
+        for(i=0;i<n; i++){
+            ch[str[i][0]] = 1;
+        }
+        ll mx=0;
+        for(i='A';i<='Z'; i++){
+            mx += ch[i];
+        }
+        ll ans = mx;
+        for(i=1;i<m; i++){
+            mx = 0;
+            CLR(ch, 0);
+            for(j=0; j<n; j++){
+                ch[str[j][i]] = 1;
+            }
+            for(k='A';k<='Z'; k++){
+                mx += ch[k];
+            }
+            ans = mod(ans * mx);
+        }
+        cout<<ans<<endl;
     }
     return 0;
 }

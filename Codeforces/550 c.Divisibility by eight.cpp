@@ -17,7 +17,7 @@ using namespace std;
 #define CLR(a, b) memset(a, b, sizeof(a))
 #define sortall(x) sort(all(x))
 #define tr(it, a) for (auto it = a.begin(); it != a.end(); it++)
-#define PI 3.1415926535897932384626433832795028841971
+#define PI 2*acos(0.0)
 #define M 998244353
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pl;
@@ -57,18 +57,27 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
 }
 
 
-int main(){ //s: 0.0 am - e: 0.00am;
-    int t=1, cs = 1;
-    //cin >> t;
-    while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        cin>>n;
-        ll ar[n+5];
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
-        }
-        
-        cout<<n<<endl;
-    }
-    return 0;
+char s[105];
+inline int idx(char c){
+	return c - '0';
+}
+
+int main(){
+	s[0] = '0';
+	s[1] = '0';
+	scanf("%s", s + 2);
+	int l = strlen(s);
+	for (int i = 0; i < l; ++i){
+		for (int j = i + 1; j < l; ++j){
+			for (int k = j + 1; k < l; ++k){
+				int num = idx(s[i]) * 100 + idx(s[j]) * 10 + idx(s[k]);
+				if (num % 8 == 0){
+					printf("YES\n%d\n", num);
+					return 0;
+				}
+			}
+		}
+	}
+	printf("NO\n");
+	return 0;
 }

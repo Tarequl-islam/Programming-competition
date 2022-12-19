@@ -17,7 +17,7 @@ using namespace std;
 #define CLR(a, b) memset(a, b, sizeof(a))
 #define sortall(x) sort(all(x))
 #define tr(it, a) for (auto it = a.begin(); it != a.end(); it++)
-#define PI 3.1415926535897932384626433832795028841971
+#define PI 2*acos(0.0)
 #define M 998244353
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pl;
@@ -57,18 +57,53 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
 }
 
 
-int main(){ //s: 0.0 am - e: 0.00am;
+int main(){
     int t=1, cs = 1;
     //cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
+        ll n, m, a=-1, b=-1, c, i, j, k, mx = 0, mn = 1e18;
         cin>>n;
         ll ar[n+5];
-        for (i = 0; i < n; i++){
+        ar[0]= 0;
+        ar[n+1] = 1e10;
+        for (i = 1; i <= n; i++){
             sl(ar[i]);
         }
-        
-        cout<<n<<endl;
+        for (i = 2; i <= n; i++){
+            if(ar[i-1]>ar[i]){
+                mx++;
+                if(a==-1) a = i-1;
+                else b = i;
+            }
+        }
+        if(mx>2) cout<<"NO"<<endl;
+        else if(mx==2){
+            if(ar[a]<= ar[b+1] && ar[a] >= ar[b-1] && ar[b]<= ar[a+1] && ar[b] >= ar[a-1])
+                cout<<"YES"<<endl;
+            else cout<<"NO"<<endl;
+        }
+        else if(mx==0 || n==2) cout<<"YES"<<endl;
+        else if(mx==1){
+            for(i=1; i<=n; i++){
+                swap(ar[a], ar[i]);
+                if(ar[a]<= ar[a+1] && ar[a] >= ar[a-1] && ar[i]<= ar[i+1] && ar[i] >= ar[i-1]){
+                    cout<<"YES"<<endl;
+                    return 0;
+                }
+                swap(ar[a], ar[i]);
+            }
+            a+= 1;
+            for(i=1; i<=n; i++){
+                swap(ar[a], ar[i]);
+                if(ar[a]<= ar[a+1] && ar[a] >= ar[a-1] && ar[i]<= ar[i+1] && ar[i] >= ar[i-1]){
+                    cout<<"YES"<<endl;
+                    return 0;
+                }
+                swap(ar[a], ar[i]);
+            }
+            cout<<"NO"<<endl;
+        }
+        else cout<<"NO"<<endl;
     }
     return 0;
 }

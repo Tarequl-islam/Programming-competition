@@ -63,12 +63,27 @@ int main(){ //s: 0.0 am - e: 0.00am;
     while (t--){
         ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
         cin>>n;
-        ll ar[n+5];
+        string ar[n+5];
         for (i = 0; i < n; i++){
-            sl(ar[i]);
+            cin>>ar[i];
         }
-        
-        cout<<n<<endl;
+        ll a1[10]={0};
+        for(i=0; i<ar[0].length(); i++){
+            for(j=0; j<n; j++){
+                a1[i]+= ar[j][i]-'0';
+            }
+        }
+        for (i = 0; i < n; i++){
+            for(j= ar[0].length()-1, k = 1; j>=0; j--, k*=10){
+                mx += (a1[j]*k);
+                k*=10;
+                k = mod(k);
+                a = mod((ar[i][j]-'0')*n);
+                b = mod(a*k);
+                mx = mod(mx+b);
+            }
+        }
+        cout<<mx<<endl;
     }
     return 0;
 }

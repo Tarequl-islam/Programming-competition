@@ -17,7 +17,7 @@ using namespace std;
 #define CLR(a, b) memset(a, b, sizeof(a))
 #define sortall(x) sort(all(x))
 #define tr(it, a) for (auto it = a.begin(); it != a.end(); it++)
-#define PI 3.1415926535897932384626433832795028841971
+#define PI 2*acos(0.0)
 #define M 998244353
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pl;
@@ -61,14 +61,28 @@ int main(){ //s: 0.0 am - e: 0.00am;
     int t=1, cs = 1;
     //cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        cin>>n;
-        ll ar[n+5];
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
+        int n, m, a, b, c, i, j, k, mx = 0, mn = 1e8;
+        string s;
+        cin>>s;
+        vi v1, v2;
+        for (i = 0; i < s.length(); i++){
+            if(s[i]=='l'){
+                v1.pb(i+1);
+            }
+            else{
+                v2.pb(i+1);
+            }
         }
-        
-        cout<<n<<endl;
+        if(v2.size()>0){
+            for(i = 0; i < v2.size(); i++){
+                pi(v2[i]);
+            }
+        }
+        if(v1.size()>0){
+            for(i= v1.size()-1; i>=0; i--){
+                pi(v1[i]);
+            }
+        }
     }
     return 0;
 }

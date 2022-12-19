@@ -17,7 +17,7 @@ using namespace std;
 #define CLR(a, b) memset(a, b, sizeof(a))
 #define sortall(x) sort(all(x))
 #define tr(it, a) for (auto it = a.begin(); it != a.end(); it++)
-#define PI 3.1415926535897932384626433832795028841971
+#define PI 2*acos(0.0)
 #define M 998244353
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pl;
@@ -57,18 +57,17 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
 }
 
 
-int main(){ //s: 0.0 am - e: 0.00am;
+int main(){ 
     int t=1, cs = 1;
     //cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        cin>>n;
-        ll ar[n+5];
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
-        }
-        
-        cout<<n<<endl;
+        ll n, m, a, b, c, d, i, j, k, mx = 0, mn = 1e18;
+        cin>>a>>b>>c>>d;
+        n = max((3*a)/10, a-(a/250)*c);
+        m = max((3*b)/10, b-(b/250)*d);
+        if(n>m) cout<<"Misha"<<endl;
+        else if(m>n) cout<<"Vasya"<<endl;
+        else cout<<"Tie"<<endl;
     }
     return 0;
 }

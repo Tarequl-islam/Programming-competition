@@ -17,7 +17,7 @@ using namespace std;
 #define CLR(a, b) memset(a, b, sizeof(a))
 #define sortall(x) sort(all(x))
 #define tr(it, a) for (auto it = a.begin(); it != a.end(); it++)
-#define PI 3.1415926535897932384626433832795028841971
+#define PI 2*acos(0.0)
 #define M 998244353
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pl;
@@ -32,7 +32,7 @@ const int MAXN = 10 * 1000 * 1000 + 10, MAXV = 4;
 ll GCD(ll a, ll b) { return (a % b) == 0 ? b : GCD(b, a % b); }
 ll mod(ll x) { return ((x % M + M) % M); }
 bool cmp(const pii &left, const pii &right){
-    return left.first > right.first || (left.first == right.first && left.second < right.second); }
+    return left.second > right.second; }
 //int find(int x) { return (p[x] == x ? x : p[x] = find(p[x])); } //p[find(i)]=find(j);
 int visited[10];
 vector<int>vec[10];
@@ -61,14 +61,40 @@ int main(){ //s: 0.0 am - e: 0.00am;
     int t=1, cs = 1;
     //cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
+        int n, m, a, b, c, i, j, k, mx = 0, mn = 1e8;
         cin>>n;
-        ll ar[n+5];
+        vector<pair<int, pii>> req;
         for (i = 0; i < n; i++){
-            sl(ar[i]);
+            cin>>a>>b;
+            req.pb(mp(b, mp(a, i+1)));
         }
-        
-        cout<<n<<endl;
+        cin>>m;
+        vector<pair<int, pii>> tab;
+        for(i=0; i<m; i++){
+            si(c);
+            tab.pb(mp(c, mp(i+1, 0)));
+        }
+        sort(req.rbegin(), req.rend());
+        sort(tab.rbegin(), tab.rend());
+        vpii ans;
+        pair<int, pii> tmp;
+        for(i = 0; i<req.size(); i++){
+            tmp = req[i];
+            int idx = -1;
+            for(j = 0; j< tab.size(); j++){
+                if(tab[j].F >= tmp.S.F && tab[j].S.S == 0){
+                    idx = j;
+                }
+            }
+            if(idx != -1){
+                mx += tmp.F;
+                tab[idx].S.S = 1;
+                ans.pb(mp(tmp.S.S, tab[idx].S.F));
+            }
+        }
+        cout<<ans.size()<<" "<<mx<<endl;
+        for(i=0; i<ans.size(); i++)
+            printf("%d %d\n",ans[i].F, ans[i].S);
     }
     return 0;
 }

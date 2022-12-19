@@ -11,6 +11,13 @@
         "string": "cpp",
         "cmath": "cpp",
         "list": "cpp",
-        "type_traits": "cpp"
+        "type_traits": "cpp",
+        "iomanip": "cpp",
+        "array": "cpp",
+        "string_view": "cpp",
+        "initializer_list": "cpp",
+        "regex": "cpp",
+        "utility": "cpp",
+        "valarray": "cpp"
     }
 }

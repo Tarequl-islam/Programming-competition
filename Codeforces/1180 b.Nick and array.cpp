@@ -61,14 +61,30 @@ int main(){ //s: 0.0 am - e: 0.00am;
     int t=1, cs = 1;
     //cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
+        ll n, m, a, b, c, i, j=0, k, mx = 1, mn = -1e18;
         cin>>n;
         ll ar[n+5];
         for (i = 0; i < n; i++){
             sl(ar[i]);
         }
-        
-        cout<<n<<endl;
+        for (i = 0; i < n; i++){
+            if(abs(ar[i])< abs(-ar[i]-1) )
+                ar[i] = -ar[i]-1;
+            if(mn < abs(ar[i])){
+                mn = abs(ar[i]);
+                j = i;
+            }
+            mx *= ar[i];
+            if(abs(mx)> 1e12){
+                if(mx<0) mx = -1;
+                else mx = 1;
+            }
+        }
+        if(mx<0) ar[j] = -ar[j]-1;
+        for (i = 0; i < n; i++){
+            printf("%lld ", ar[i]);
+        }
+        cout<<endl;
     }
     return 0;
 }
