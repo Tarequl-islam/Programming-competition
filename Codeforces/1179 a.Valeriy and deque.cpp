@@ -57,39 +57,52 @@ vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
 }
 
 
-int main(){ //s: 0.0 am - e: 0.00am;
-    int t=1, cs = 1;
-    //cin >> t;
-    while (t--){
-        int n, m, b, c, i, j=0, k, mx = 1, mn = 1e8;
-        cin>>n>>m;
-        int ar[n+5], br[n+5], cr[n+5];
-        br[0] = 0;
-        for (i = 1; i <= n; i++){
-            sl(ar[i]);
-            br[i] = max(br[i-1], ar[i]);
-            if(br[i-1]<ar[i]){
-                br[i] = ar[i];
-                j = i;
-            }
-            else br[i] = br[i-1];
+
+void solve() {
+    int n, q, maxValue = -1, a_i, maxIndex = 0;
+    cin >> n >> q;
+    deque<int> d;
+    for (int i = 0; i < n; i++) {
+        cin >> a_i;
+        d.push_back(a_i);
+        maxValue = max(maxValue, a_i);
+    }
+    map<int, pair<int, int>> answer;
+    while (true) {
+        int first = d.front();
+        d.pop_front();
+        int second = d.front();
+        d.pop_front();
+        if (first == maxValue) {
+            d.push_front(second);
+            d.push_front(first);
+            break;
         }
-        c = br[n];
-        k = 1;
-        for (i = 1; i <= n; i++){
-            if(i!=j)
-                cr[k++] = ar[i];
+        maxIndex++;
+        answer[maxIndex] = {first, second};
+        if (second > first) {
+            swap(first, second);
         }
-        cr[0] = cr[n-1];
-        for(i=0; i<m; i++){
-            ll a;
-            sl(a);
-            if(a<n) printf("%d %d\n", br[a], ar[a+1]);
-            else{
-                a%=(n-1);
-                printf("%d %d\n", c, cr[a]);
-            }
+        d.push_front(first);
+        d.push_back(second);
+    }
+    int a[n];
+    for (int i = 0; i < n; i++) {
+        a[i] = d.front();
+        d.pop_front();
+    }
+    for (int i = 0; i < q; i++) {
+        ll m_j;
+        cin >> m_j;
+        if (m_j <= maxIndex) {
+            cout << answer[m_j].first << " " << answer[m_j].second << '\n';
+        } else {
+            cout << maxValue << " " << a[(m_j - (maxIndex + 1)) % (n - 1) + 1] << '\n';
         }
     }
+}
+
+int main() {
+    solve();
     return 0;
 }
