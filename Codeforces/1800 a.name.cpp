@@ -50,19 +50,19 @@ int main(){ //s: 0.0 am - e: 0.00am;
     int t=1, cs = 1;
     cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j = 0, k, mx = 0, mn = 1e18;
+        ll n, m, a, b, c, i, j=0, k, mx = 0, mn = 1e18;
         cin>>n;
-        ll ar[200005];
+        string s;
+        cin>>s;
+        string ss = "MEOW", sa="";
         for (i = 0; i < n; i++){
-            sl(ar[i]);
+            if(s[i]>='a' && s[i]<='z') s[i]= toupper(s[i]);
         }
-        sort(ar, ar+n);
-        for(i=0; i<n; i++){
-            while(j<n && (ar[j] - ar[i]) <= 2) j++;
-            a = j - i-1;
-            mx += (a*(a-1))/2;
+        for (i = 0; i < n; i++){
+            if(s[i]!=s[i+1]) sa+=s[i];
         }
-        pl(mx);
+        if(ss==sa) cout<<"YES\n";
+        else cout<<"NO\n";
     }
     return 0;
 }

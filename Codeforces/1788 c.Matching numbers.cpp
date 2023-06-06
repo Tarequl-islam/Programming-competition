@@ -44,25 +44,64 @@ void dfs(int at){
             dfs(vec[at][i]);
     }
 }
-
+vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
+    vector<pair<ll,int>> pri;
+    for (ll i = 2; i*i <= x; ++i) 
+        if (x % i == 0) {
+            int t = 0;
+            while (x % i == 0) x /= i, t ++;
+            pri.push_back({i,t});
+        }
+    if (x > 1) pri.push_back({x,1});
+    return pri;
+}
+ll summ(ll nn){
+    ll ans = 0;
+    while(nn>0){
+        ans += nn%10;
+        nn = nn/10;
+    }
+    return ans;
+}
+ll summm(ll nn){
+    ll ans = 0, ans2 =0;
+    while(nn>0){
+        ll a = nn%10;
+        if(ans>ans2){
+            ans += (a/2);
+            ans2+= ((a+1)/2);
+        }
+        else {
+            ans2+= (a/2);
+            ans += ((a+1)/2);
+        }
+        nn = nn/10;
+    }
+    return ans;
+}
 
 int main(){ //s: 0.0 am - e: 0.00am;
-    int t=1, cs = 1;
-    cin >> t;
+    ll t=1, cs = 1;
+    sl(t);
     while (t--){
-        ll n, m, a, b, c, i, j = 0, k, mx = 0, mn = 1e18;
-        cin>>n;
-        ll ar[200005];
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
+        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
+        sl(n);
+
+        if(n%2==0) cout<<"No"<<endl;
+        else{
+            i = 1;
+            j = 2*n;
+            cout<<"YES\n";
+            while(i<=n) {
+                cout<<i<<" "<<j<<"\n";
+                i+=2,j--;
+            }
+            i = 2;
+            while(i<=n) {
+                cout<<i<<" "<<j<<"\n";
+                i+=2,j--;
+            }
         }
-        sort(ar, ar+n);
-        for(i=0; i<n; i++){
-            while(j<n && (ar[j] - ar[i]) <= 2) j++;
-            a = j - i-1;
-            mx += (a*(a-1))/2;
-        }
-        pl(mx);
     }
     return 0;
 }

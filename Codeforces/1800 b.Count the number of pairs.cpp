@@ -50,19 +50,31 @@ int main(){ //s: 0.0 am - e: 0.00am;
     int t=1, cs = 1;
     cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j = 0, k, mx = 0, mn = 1e18;
-        cin>>n;
-        ll ar[200005];
+        ll n, m, a, b, c, i, j=0, k, mx = 0, mn = 1e18;
+        cin>>n>>k;
+        string s;
+        cin>>s;
+        ll p[200]={0};
         for (i = 0; i < n; i++){
-            sl(ar[i]);
+            p[s[i]]++;
         }
-        sort(ar, ar+n);
-        for(i=0; i<n; i++){
-            while(j<n && (ar[j] - ar[i]) <= 2) j++;
-            a = j - i-1;
-            mx += (a*(a-1))/2;
+        for(i='A'; i<='Z'; i++){
+            ll tmp = min(p[i], p[i+32]);
+            p[i]-=tmp;
+            p[i+32]-=tmp;
+            mx+=tmp;
+            if(p[i]>0){
+                ll tm2 = min(k, p[i]/2);
+                mx+= tm2;
+                k -= tm2; 
+            }
+            else if(p[i+32]>0){
+                ll tm2 = min(k, p[i+32]/2);
+                mx+= tm2;
+                k -= tm2; 
+            }
         }
-        pl(mx);
+        cout<<mx<<endl;
     }
     return 0;
 }

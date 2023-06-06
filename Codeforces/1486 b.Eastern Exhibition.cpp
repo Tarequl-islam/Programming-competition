@@ -46,23 +46,21 @@ void dfs(int at){
 }
 
 
-int main(){ //s: 0.0 am - e: 0.00am;
+int main(){ //s: 10.40 am - e: 0.00am;
     int t=1, cs = 1;
     cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j = 0, k, mx = 0, mn = 1e18;
+        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
         cin>>n;
-        ll ar[200005];
+        vl ar(n), br(n);
         for (i = 0; i < n; i++){
-            sl(ar[i]);
+            cin>>ar[i]>>br[i];
         }
-        sort(ar, ar+n);
-        for(i=0; i<n; i++){
-            while(j<n && (ar[j] - ar[i]) <= 2) j++;
-            a = j - i-1;
-            mx += (a*(a-1))/2;
-        }
-        pl(mx);
+        sort(ar.begin(), ar.end());
+        ll ans1 = ar[n/2]-ar[(n-1)/2] + 1;
+        sort(br.begin(), br.end());
+        ll ans2 = br[n/2]-br[(n-1)/2] + 1;
+        cout<<ans1*ans2<<endl;
     }
     return 0;
 }

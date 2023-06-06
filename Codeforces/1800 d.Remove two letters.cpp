@@ -50,19 +50,15 @@ int main(){ //s: 0.0 am - e: 0.00am;
     int t=1, cs = 1;
     cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j = 0, k, mx = 0, mn = 1e18;
+        ll n, m, a, b, c, i, j=0, k, mx = 0, mn = 1e18;
         cin>>n;
-        ll ar[200005];
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
+        string s;
+        cin>>s;
+        for (i = 0; i < n-2; i++){
+            if(s[i]!=s[i+2]) mx++;
         }
-        sort(ar, ar+n);
-        for(i=0; i<n; i++){
-            while(j<n && (ar[j] - ar[i]) <= 2) j++;
-            a = j - i-1;
-            mx += (a*(a-1))/2;
-        }
-        pl(mx);
+        
+        cout<<mx+1<<endl;
     }
     return 0;
 }

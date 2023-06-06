@@ -35,34 +35,66 @@ bool cmp(const pii &left, const pii &right){
     return left.first > right.first || (left.first == right.first && left.second < right.second); }
 //int find(int x) { return (p[x] == x ? x : p[x] = find(p[x])); } //p[find(i)]=find(j);
 int visited[10];
-vector<int>vec[10];
+vector<int>vect[10];
 void dfs(int at){
     visited[at] = 1;
     cout<<at<<" ";
-    for (int i = 0; i < vec[at].size(); i++){
-        if(visited[vec[at][i]]==0)
-            dfs(vec[at][i]);
+    for (int i = 0; i < vect[at].size(); i++){
+        if(visited[vect[at][i]]==0)
+            dfs(vect[at][i]);
     }
 }
 
 
+const ll MAXM = 1e5;
+vector<ll> factors[MAXM + 5];
+void genFactor(){
+    for (ll i = 1; i <= MAXM; i++){
+        for (ll j = i; j <= MAXM; j += i){
+            factors[j].pb(i);
+        }
+    }
+}
+
 int main(){ //s: 0.0 am - e: 0.00am;
     int t=1, cs = 1;
+    genFactor();
     cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j = 0, k, mx = 0, mn = 1e18;
-        cin>>n;
-        ll ar[200005];
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
+        ll n, m, a, b, c, i, j=0, k, mx = 0, inf = 1e17;
+        cin>>n>>m;
+        vector<int> vec;
+        for ( i = 0; i < n; i++){
+            ll value;
+            cin >> value;
+            vec.pb(value);
         }
-        sort(ar, ar+n);
-        for(i=0; i<n; i++){
-            while(j<n && (ar[j] - ar[i]) <= 2) j++;
-            a = j - i-1;
-            mx += (a*(a-1))/2;
+        sort(all(vec));
+        vector<ll> frequency(m + 5, 0);
+        ll curr_count = 0;
+        ll global_ans = inf;
+        for (ll i = 0; i < n; i++){
+            for (auto x : factors[vec[i]]){
+                if (x > m) break;
+                if (!frequency[x]++){
+                    curr_count++;
+                }
+            }
+            while (curr_count == m){
+                ll curr_ans = vec[i] - vec[j];
+                if (curr_ans < global_ans){
+                    global_ans = curr_ans;
+                }
+                for (auto x : factors[vec[j]]){
+                    if (x > m) break;
+                    if (--frequency[x] == 0){
+                        curr_count--;
+                    }
+                }
+                j++;
+            }
         }
-        pl(mx);
+        cout << (global_ans >= inf ? -1 : global_ans) << "\n";
     }
     return 0;
 }

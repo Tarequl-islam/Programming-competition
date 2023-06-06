@@ -46,23 +46,35 @@ void dfs(int at){
 }
 
 
-int main(){ //s: 0.0 am - e: 0.00am;
+int main(){ //s: 10.40 am - e: 0.00am;
     int t=1, cs = 1;
     cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j = 0, k, mx = 0, mn = 1e18;
+        ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18, ok = 0;
         cin>>n;
-        ll ar[200005];
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
+        ll ar[n+5];
+        for (i = 0; i<n; i++){
+            scanf("%lld", &ar[i]);
         }
-        sort(ar, ar+n);
-        for(i=0; i<n; i++){
-            while(j<n && (ar[j] - ar[i]) <= 2) j++;
-            a = j - i-1;
-            mx += (a*(a-1))/2;
+        if(n<=2) cout<<0<<endl;
+        else{
+            mx =ar[0];
+            set<ll> st;
+            for (i = 1; i<n; i++){
+                mx = max(mx, ar[i]);
+                st.insert(ar[i]-ar[i-1]);
+            }
+            if(st.size()==1) cout<<0<<endl;
+            else if(st.size()>2) cout<<-1<<endl;
+            else{
+                a = *st.begin();
+                st.erase(st.begin());
+                b = *st.begin();
+                if(a<b) swap(a, b);
+                if(a<=0 || b>=0 || mx > a-b) cout<<-1<<endl;
+                else cout<<a-b<<" "<<a<<endl;
+            }
         }
-        pl(mx);
     }
     return 0;
 }

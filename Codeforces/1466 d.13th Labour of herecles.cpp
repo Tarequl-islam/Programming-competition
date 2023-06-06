@@ -31,38 +31,39 @@ const int MOD = 1000 * 1000 * 1000 + 7;
 const int MAXN = 10 * 1000 * 1000 + 10, MAXV = 4;
 ll GCD(ll a, ll b) { return (a % b) == 0 ? b : GCD(b, a % b); }
 ll mod(ll x) { return ((x % M + M) % M); }
-bool cmp(const pii &left, const pii &right){
-    return left.first > right.first || (left.first == right.first && left.second < right.second); }
+bool cmp(const pl &left, const pl &right){
+    return left.first > right.first; }
 //int find(int x) { return (p[x] == x ? x : p[x] = find(p[x])); } //p[find(i)]=find(j);
-int visited[10];
-vector<int>vec[10];
-void dfs(int at){
-    visited[at] = 1;
-    cout<<at<<" ";
-    for (int i = 0; i < vec[at].size(); i++){
-        if(visited[vec[at][i]]==0)
-            dfs(vec[at][i]);
-    }
-}
-
 
 int main(){ //s: 0.0 am - e: 0.00am;
     int t=1, cs = 1;
     cin >> t;
     while (t--){
-        ll n, m, a, b, c, i, j = 0, k, mx = 0, mn = 1e18;
-        cin>>n;
-        ll ar[200005];
+        ll n, m, a, b, c, i, j = 0, k, mx = 0, mn = 0;
+        sl(n);
+        vpl ar;
         for (i = 0; i < n; i++){
-            sl(ar[i]);
+            sl(a);
+            mx += a;
+            ar.pb(mp(a, i));
         }
-        sort(ar, ar+n);
+        vector<ll> vec[n+5];
+        for (i = 0; i < n-1; i++){
+            scanf("%lld %lld", &a, &b);
+            vec[a-1].pb(b-1);
+            vec[b-1].pb(a-1);
+        }
+        sort(ar.begin(), ar.end(), cmp);
+        vl ans;
+        ans.pb(mx);
         for(i=0; i<n; i++){
-            while(j<n && (ar[j] - ar[i]) <= 2) j++;
-            a = j - i-1;
-            mx += (a*(a-1))/2;
+            for(j = 0; j<vec[ar[i].second].size()-1; j++){
+                mx += ar[i].first;
+                ans.pb(mx);
+                if(ans.size()>=n) i = n;
+            }
         }
-        pl(mx);
+        for(i = 0; i<n-1; i++) printf("%lld ", ans[i]);
     }
     return 0;
 }

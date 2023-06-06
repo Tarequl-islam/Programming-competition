@@ -44,27 +44,75 @@ void dfs(int at){
             dfs(vec[at][i]);
     }
 }
-
+vector<pair<ll, int>> factor(ll x) {    // to findout all prime factors
+    vector<pair<ll,int>> pri;
+    for (ll i = 2; i*i <= x; ++i) 
+        if (x % i == 0) {
+            int t = 0;
+            while (x % i == 0) x /= i, t ++;
+            pri.push_back({i,t});
+        }
+    if (x > 1) pri.push_back({x,1});
+    return pri;
+}
+ll summ(ll nn){
+    ll ans = 0;
+    while(nn>0){
+        ans += nn%10;
+        nn = nn/10;
+    }
+    return ans;
+}
+ll summm(ll nn){
+    ll ans = 0, ans2 =0;
+    while(nn>0){
+        ll a = nn%10;
+        if(ans>ans2){
+            ans += (a/2);
+            ans2+= ((a+1)/2);
+        }
+        else {
+            ans2+= (a/2);
+            ans += ((a+1)/2);
+        }
+        nn = nn/10;
+    }
+    return ans;
+}
 
 int main(){ //s: 0.0 am - e: 0.00am;
-    int t=1, cs = 1;
-    cin >> t;
+    ll t=1, cs = 1;
+    sl(t);
     while (t--){
         ll n, m, a, b, c, i, j, k, mx = 0, mn = 1e18;
-        cin>>n>>m;
-        ll ar[100005];
-        for (i = 0; i < n; i++){
-            sl(ar[i]);
+        sl(n);
+        ll ans = 0, ans2 =0;
+        string s="", ss="";
+        while(n>0){
+            ll a = n%10;
+            if(ans>ans2){
+                ans += (a/2);
+                ans2+= ((a+1)/2);
+                s += '0' + (a / 2);
+                ss+= '0' + ((a+1)/2);
+            }
+            else {
+                ans2+= (a/2);
+                ans += ((a+1)/2);
+                ss += '0' + (a / 2);
+                s+= '0' + ((a+1)/2);
+            }
+            n = n/10;
         }
-        j = n-1;
-        while(j >= 0 && ar[j] == j+1) j--;
-        double p, ans = 1.0;
-        if(j== -1) ans = 0.0;
-        for(i =0; i<m; i++){
-            cin>>k>>p;
-            if(k-1 >= j ) ans *= (1-p);
+        reverse(s.begin(), s.end());
+        reverse(ss.begin(), ss.end());
+        while(s[0]=='0' && s.size() != 1){
+            s = s.substr(1, s.length()-1);
         }
-        pl(1-ans);
+        while(ss[0]=='0' && ss.size() != 1){
+            ss = ss.substr(1, ss.length()-1);
+        }
+        cout<<s<<" "<<ss<<endl;
     }
     return 0;
 }
